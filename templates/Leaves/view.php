@@ -31,6 +31,10 @@
                     <td><?= $this->Number->format($leave->status) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Id User') ?></th>
+                    <td><?= $this->Number->format($leave->id_user) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Date Start') ?></th>
                     <td><?= h($leave->date_start) ?></td>
                 </tr>

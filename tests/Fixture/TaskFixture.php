@@ -6,16 +6,16 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * SubcategoryFixture
+ * TaskFixture
  */
-class SubcategoryFixture extends TestFixture
+class TaskFixture extends TestFixture
 {
     /**
      * Table name
      *
      * @var string
      */
-    public $table = 'subcategory';
+    public $table = 'task';
     /**
      * Init method
      *
@@ -26,8 +26,10 @@ class SubcategoryFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
-                'name' => 'Lorem ipsum dolor sit amet',
-                'id_cat' => 1,
+                'title' => 'Lorem ipsum dolor sit amet',
+                'status' => 1,
+                'percentage' => 1,
+                'documents' => 1,
             ],
         ];
         parent::init();

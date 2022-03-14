@@ -26,6 +26,10 @@
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($subcategory->id) ?></td>
                 </tr>
+                <tr>
+                    <th><?= __('Id Cat') ?></th>
+                    <td><?= $this->Number->format($subcategory->id_cat) ?></td>
+                </tr>
             </table>
         </div>
     </div>

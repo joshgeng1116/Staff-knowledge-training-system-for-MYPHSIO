@@ -12,6 +12,7 @@ use Cake\ORM\Entity;
  * @property string $title
  * @property int $user_type
  * @property int $doc_type
+ * @property int $id_subcat
  */
 class Document extends Entity
 {
@@ -28,5 +29,6 @@ class Document extends Entity
         'title' => true,
         'user_type' => true,
         'doc_type' => true,
+        'id_subcat' => true,
     ];
 }

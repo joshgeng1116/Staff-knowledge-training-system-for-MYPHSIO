@@ -27,6 +27,7 @@
                     echo $this->Form->control('date_end');
                     echo $this->Form->control('note');
                     echo $this->Form->control('status');
+                    echo $this->Form->control('id_user');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

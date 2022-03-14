@@ -29,6 +29,7 @@ class DocumentFixture extends TestFixture
                 'title' => 'Lorem ipsum dolor sit amet',
                 'user_type' => 1,
                 'doc_type' => 1,
+                'id_subcat' => 1,
             ],
         ];
         parent::init();

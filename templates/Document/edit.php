@@ -25,6 +25,7 @@
                     echo $this->Form->control('title');
                     echo $this->Form->control('user_type');
                     echo $this->Form->control('doc_type');
+                    echo $this->Form->control('id_subcat');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

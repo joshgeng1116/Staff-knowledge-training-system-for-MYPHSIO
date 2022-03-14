@@ -6,13 +6,15 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Subcategory Entity
+ * Task Entity
  *
  * @property int $id
- * @property string $name
- * @property int $id_cat
+ * @property string $title
+ * @property int $status
+ * @property int $percentage
+ * @property int $documents
  */
-class Subcategory extends Entity
+class Task extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -24,7 +26,9 @@ class Subcategory extends Entity
      * @var array
      */
     protected $_accessible = [
-        'name' => true,
-        'id_cat' => true,
+        'title' => true,
+        'status' => true,
+        'percentage' => true,
+        'documents' => true,
     ];
 }

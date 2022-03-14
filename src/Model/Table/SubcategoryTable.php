@@ -60,6 +60,11 @@ class SubcategoryTable extends Table
             ->requirePresence('name', 'create')
             ->notEmptyString('name');
 
+        $validator
+            ->integer('id_cat')
+            ->requirePresence('id_cat', 'create')
+            ->notEmptyString('id_cat');
+
         return $validator;
     }
 }

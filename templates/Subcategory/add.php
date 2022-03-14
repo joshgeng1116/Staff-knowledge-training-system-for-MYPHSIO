@@ -18,6 +18,7 @@
                 <legend><?= __('Add Subcategory') ?></legend>
                 <?php
                     echo $this->Form->control('name');
+                    echo $this->Form->control('id_cat');
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

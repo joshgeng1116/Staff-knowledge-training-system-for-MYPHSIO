@@ -68,6 +68,11 @@ class DocumentTable extends Table
             ->requirePresence('doc_type', 'create')
             ->notEmptyString('doc_type');
 
+        $validator
+            ->integer('id_subcat')
+            ->requirePresence('id_subcat', 'create')
+            ->notEmptyString('id_subcat');
+
         return $validator;
     }
 }

@@ -16,6 +16,7 @@
                     <th><?= $this->Paginator->sort('date_start') ?></th>
                     <th><?= $this->Paginator->sort('date_end') ?></th>
                     <th><?= $this->Paginator->sort('status') ?></th>
+                    <th><?= $this->Paginator->sort('id_user') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -27,6 +28,7 @@
                     <td><?= h($leave->date_start) ?></td>
                     <td><?= h($leave->date_end) ?></td>
                     <td><?= $this->Number->format($leave->status) ?></td>
+                    <td><?= $this->Number->format($leave->id_user) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $leave->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $leave->id]) ?>

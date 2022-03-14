@@ -79,6 +79,11 @@ class LeavesTable extends Table
             ->requirePresence('status', 'create')
             ->notEmptyString('status');
 
+        $validator
+            ->integer('id_user')
+            ->requirePresence('id_user', 'create')
+            ->notEmptyString('id_user');
+
         return $validator;
     }
 }

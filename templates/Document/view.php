@@ -34,6 +34,10 @@
                     <th><?= __('Doc Type') ?></th>
                     <td><?= $this->Number->format($document->doc_type) ?></td>
                 </tr>
+                <tr>
+                    <th><?= __('Id Subcat') ?></th>
+                    <td><?= $this->Number->format($document->id_subcat) ?></td>
+                </tr>
             </table>
         </div>
     </div>
