@@ -2,6 +2,8 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\TrainingPlan $trainingPlan
+ * @var \Cake\Collection\CollectionInterface|string[] $users
+ * @var \Cake\Collection\CollectionInterface|string[] $tasks
  */
 ?>
 <div class="row">
@@ -20,8 +22,8 @@
                     echo $this->Form->control('title');
                     echo $this->Form->control('description');
                     echo $this->Form->control('percentage');
-                    echo $this->Form->control('assign_to');
-                    echo $this->Form->control('id_task');
+                    echo $this->Form->control('assign_to', ['options' => $users]);
+                    echo $this->Form->control('id_task', ['options' => $tasks]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
