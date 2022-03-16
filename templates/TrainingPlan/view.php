@@ -2,6 +2,8 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\TrainingPlan $trainingPlan
+ * @var \App\Model\Entity\Users $users
+ * @var \App\Model\Entity\Task $tasks
  */
 ?>
 <div class="row">
@@ -32,11 +34,21 @@
                 </tr>
                 <tr>
                     <th><?= __('Assign To') ?></th>
-                    <td><?= $this->Number->format($trainingPlan->assign_to) ?></td>
+                    <td><?php foreach ($users as $users){
+                                    if($users->id == $trainingPlan->assign_to){
+                                        echo $users->name;
+                                    }
+                                }
+                    ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Id Task') ?></th>
-                    <td><?= $this->Number->format($trainingPlan->id_task) ?></td>
+                    <td><?php foreach ($tasks as $tasks){
+                                    if($tasks->id == $trainingPlan->id_task){
+                                        echo $tasks->title;
+                                    }
+                                }
+                    ?></td>
                 </tr>
             </table>
             <div class="text">

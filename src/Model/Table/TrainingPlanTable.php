@@ -40,6 +40,17 @@ class TrainingPlanTable extends Table
         $this->setTable('training_plan');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
+        
+        $this->belongsTo('Users', [
+            'foreignKey' => 'id',
+            'joinType' => 'INNER',
+
+        ]);
+        $this->belongsTo('Task', [
+            'foreignKey' => 'id',
+            'joinType' => 'INNER',
+
+        ]);
     }
 
     /**

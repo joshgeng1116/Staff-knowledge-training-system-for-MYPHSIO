@@ -2,6 +2,8 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\TrainingPlan[]|\Cake\Collection\CollectionInterface $trainingPlan
+ * @var \App\Model\Entity\Users[]|\Cake\Collection\CollectionInterface $users
+ * @var \App\Model\Entity\Task[]|\Cake\Collection\CollectionInterface $tasks
  */
 ?>
 <div class="trainingPlan index content">
@@ -25,8 +27,21 @@
                     <td><?= $this->Number->format($trainingPlan->id) ?></td>
                     <td><?= h($trainingPlan->title) ?></td>
                     <td><?= $this->Number->format($trainingPlan->percentage) ?></td>
-                    <td><?= $this->Number->format($trainingPlan->assign_to) ?></td>
-                    <td><?= $this->Number->format($trainingPlan->id_task) ?></td>
+                    <td>
+                    <?php foreach ($users as $users){
+                                    if($users->id == $trainingPlan->assign_to){
+                                        echo $users->name;
+                                    }
+                                }
+                    ?></td>
+                    <td> 
+                    <?php foreach ($tasks as $tasks){
+                                    if($tasks->id == $trainingPlan->id_task){
+                                        echo $tasks->title;
+                                    }
+                                }
+                    ?></td>
+
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $trainingPlan->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $trainingPlan->id]) ?>
