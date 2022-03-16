@@ -11,6 +11,8 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property int $id_cat
+ *
+ * @property \App\Model\Entity\Category $category
  */
 class Subcategory extends Entity
 {
@@ -26,5 +28,6 @@ class Subcategory extends Entity
     protected $_accessible = [
         'name' => true,
         'id_cat' => true,
+        'category' => true,
     ];
 }

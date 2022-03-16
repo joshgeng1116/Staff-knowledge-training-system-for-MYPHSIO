@@ -22,7 +22,7 @@
                 <tr>
                     <td><?= $this->Number->format($subcategory->id) ?></td>
                     <td><?= h($subcategory->name) ?></td>
-                    <td><?= $this->Number->format($subcategory->id_cat) ?></td>
+                    <td><?= $subcategory->has('category') ? $this->Html->link($subcategory->category->name, ['controller' => 'Category', 'action' => 'view', $subcategory->category->id]) : '' ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $subcategory->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $subcategory->id]) ?>

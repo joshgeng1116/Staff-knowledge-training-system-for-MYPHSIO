@@ -41,6 +41,7 @@ class AppController extends Controller
     {
         parent::initialize();
 
+        //$this->loadComponent('Csrf');
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
 

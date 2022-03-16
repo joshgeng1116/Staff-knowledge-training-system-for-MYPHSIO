@@ -25,6 +25,7 @@ class SubcategoryTableTest extends TestCase
      */
     protected $fixtures = [
         'app.Subcategory',
+        'app.Category',
     ];
 
     /**

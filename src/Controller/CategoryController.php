@@ -2,6 +2,8 @@
 declare(strict_types=1);
 
 namespace App\Controller;
+use Cake\Filesystem\Folder;
+use Cake\Filesystem\File;
 
 /**
  * Category Controller
@@ -49,12 +51,16 @@ class CategoryController extends AppController
         $category = $this->Category->newEmptyEntity();
         if ($this->request->is('post')) {
             $category = $this->Category->patchEntity($category, $this->request->getData());
-            if ($this->Category->save($category)) {
-                $this->Flash->success(__('The category has been saved.'));
+            if(!file_exists('C:\xampp\htdocs\myphysio_project\categorys\cate_'.$category->name)) {
+                mkdir('C:\xampp\htdocs\myphysio_project\categorys\cate_'.$category->name);
+                if ($this->Category->save($category)) {
+                    $this->Flash->success(__('The category has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                    return $this->redirect(['action' => 'index']);
+                }
+            }else{
+                $this->Flash->error('Seems you already have this category');
             }
-            $this->Flash->error(__('The category could not be saved. Please, try again.'));
         }
         $this->set(compact('category'));
     }
@@ -95,6 +101,7 @@ class CategoryController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $category = $this->Category->get($id);
         if ($this->Category->delete($category)) {
+            rmdir('C:\xampp\htdocs\myphysio_project\categorys\cate_'.$category->name);
             $this->Flash->success(__('The category has been deleted.'));
         } else {
             $this->Flash->error(__('The category could not be deleted. Please, try again.'));

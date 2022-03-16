@@ -23,6 +23,7 @@ class SubcategoryControllerTest extends TestCase
      */
     protected $fixtures = [
         'app.Subcategory',
+        'app.Category',
     ];
 
     /**

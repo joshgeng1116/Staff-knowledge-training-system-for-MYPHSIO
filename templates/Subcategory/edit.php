@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Subcategory $subcategory
+ * @var string[]|\Cake\Collection\CollectionInterface $category
  */
 ?>
 <div class="row">
@@ -23,7 +24,7 @@
                 <legend><?= __('Edit Subcategory') ?></legend>
                 <?php
                     echo $this->Form->control('name');
-                    echo $this->Form->control('id_cat');
+                    echo $this->Form->control('id_cat', ['options' => $category]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

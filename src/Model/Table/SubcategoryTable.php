@@ -40,6 +40,7 @@ class SubcategoryTable extends Table
         $this->setTable('subcategory');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
+        $this->belongsTo('Category',['foreignKey' => 'id_cat','joinType' => 'INNER']);
     }
 
     /**
