@@ -31,6 +31,26 @@ class TrainingPlanController extends AppController
     }
 
     /**
+     * Index method
+     *
+     * @return \Cake\Http\Response|null|void Renders view
+     */
+    public function staffindex()
+    {
+
+        $this->loadModel('Users');
+        $users = $this->paginate($this->Users);
+        $this->loadModel('Task');
+        $tasks = $this->paginate($this->Task);
+        $this->paginate = [
+            'contain' => [],
+        ];
+        $trainingPlan = $this->paginate($this->TrainingPlan);
+
+        $this->set(compact('trainingPlan', 'users', 'tasks'));
+    }
+
+    /**
      * View method
      *
      * @param string|null $id Training Plan id.
