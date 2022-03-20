@@ -27,6 +27,14 @@ class SubcategoryController extends AppController
         $this->set(compact('subcategory'));
     }
 
+    public function viewByCat($id = null){
+        $this->loadModel('Category');
+        $category = $this->paginate($this->Category);
+        $subcategory = $this->getTableLocator()->get('Subcategory');
+        $subcategories = $subcategory->find()->where(['id_cat'=>$id]);
+        $this->set(compact('subcategories','category'));
+    }
+
     /**
      * View method
      *

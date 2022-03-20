@@ -2,7 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Category[]|\Cake\Collection\CollectionInterface $category
- * @var \App\Model\Entity\Category[]|\Cake\Collection\CollectionInterface $subcategories
+ * @var \App\Model\Entity\Subcategory[]|\Cake\Collection\CollectionInterface $subcategories
  */
 $this->disableAutoLayout();
 ?>
