@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\DocumentTable;
+use App\Model\Table\DocumentsTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\DocumentTable Test Case
+ * App\Model\Table\DocumentsTable Test Case
  */
-class DocumentTableTest extends TestCase
+class DocumentsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\DocumentTable
+     * @var \App\Model\Table\DocumentsTable
      */
-    protected $Document;
+    protected $Documents;
 
     /**
      * Fixtures
@@ -35,8 +35,8 @@ class DocumentTableTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Documents') ? [] : ['className' => DocumentTable::class];
-        $this->Document = $this->getTableLocator()->get('Documents', $config);
+        $config = $this->getTableLocator()->exists('Documents') ? [] : ['className' => DocumentsTable::class];
+        $this->Documents = $this->getTableLocator()->get('Documents', $config);
     }
 
     /**
@@ -46,7 +46,7 @@ class DocumentTableTest extends TestCase
      */
     public function tearDown(): void
     {
-        unset($this->Document);
+        unset($this->Documents);
 
         parent::tearDown();
     }
@@ -55,7 +55,7 @@ class DocumentTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\DocumentTable::validationDefault()
+     * @uses \App\Model\Table\DocumentsTable::validationDefault()
      */
     public function testValidationDefault(): void
     {

@@ -6,15 +6,16 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Document Entity
+ * Documents Entity
  *
  * @property int $id
  * @property string $title
  * @property int $user_type
  * @property int $doc_type
  * @property int $id_subcat
+ * @property string $path
  */
-class Document extends Entity
+class Documents extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -30,5 +31,6 @@ class Document extends Entity
         'user_type' => true,
         'doc_type' => true,
         'id_subcat' => true,
+        'path' => true,
     ];
 }

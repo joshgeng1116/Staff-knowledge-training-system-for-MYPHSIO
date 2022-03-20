@@ -4,12 +4,12 @@ declare(strict_types=1);
 namespace App\Controller;
 
 /**
- * Document Controller
+ * Documents Controller
  *
- * @property \App\Model\Table\DocumentTable $Document
- * @method \App\Model\Entity\Document[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @property \App\Model\Table\DocumentsTable $Documents
+ * @method \App\Model\Entity\Documents[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class DocumentController extends AppController
+class DocumentsController extends AppController
 {
     /**
      * Index method
@@ -18,21 +18,21 @@ class DocumentController extends AppController
      */
     public function index()
     {
-        $document = $this->paginate($this->Document);
+        $documents = $this->paginate($this->Documents);
 
-        $this->set(compact('document'));
+        $this->set(compact('documents'));
     }
 
     /**
      * View method
      *
-     * @param string|null $id Document id.
+     * @param string|null $id Documents id.
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $document = $this->Document->get($id, [
+        $document = $this->Documents->get($id, [
             'contain' => [],
         ]);
 
@@ -46,10 +46,10 @@ class DocumentController extends AppController
      */
     public function add()
     {
-        $document = $this->Document->newEmptyEntity();
+        $document = $this->Documents->newEmptyEntity();
         if ($this->request->is('post')) {
-            $document = $this->Document->patchEntity($document, $this->request->getData());
-            if ($this->Document->save($document)) {
+            $document = $this->Documents->patchEntity($document, $this->request->getData());
+            if ($this->Documents->save($document)) {
                 $this->Flash->success(__('The document has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -62,18 +62,18 @@ class DocumentController extends AppController
     /**
      * Edit method
      *
-     * @param string|null $id Document id.
+     * @param string|null $id Documents id.
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function edit($id = null)
     {
-        $document = $this->Document->get($id, [
+        $document = $this->Documents->get($id, [
             'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $document = $this->Document->patchEntity($document, $this->request->getData());
-            if ($this->Document->save($document)) {
+            $document = $this->Documents->patchEntity($document, $this->request->getData());
+            if ($this->Documents->save($document)) {
                 $this->Flash->success(__('The document has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -86,15 +86,15 @@ class DocumentController extends AppController
     /**
      * Delete method
      *
-     * @param string|null $id Document id.
+     * @param string|null $id Documents id.
      * @return \Cake\Http\Response|null|void Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $document = $this->Document->get($id);
-        if ($this->Document->delete($document)) {
+        $document = $this->Documents->get($id);
+        if ($this->Documents->delete($document)) {
             $this->Flash->success(__('The document has been deleted.'));
         } else {
             $this->Flash->error(__('The document could not be deleted. Please, try again.'));

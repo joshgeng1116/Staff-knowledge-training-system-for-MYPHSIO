@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\DocumentController;
+use App\Controller\DocumentsController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\DocumentController Test Case
+ * App\Controller\DocumentsController Test Case
  *
- * @uses \App\Controller\DocumentController
+ * @uses \App\Controller\DocumentsController
  */
-class DocumentControllerTest extends TestCase
+class DocumentsControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -29,7 +29,7 @@ class DocumentControllerTest extends TestCase
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\DocumentController::index()
+     * @uses \App\Controller\DocumentsController::index()
      */
     public function testIndex(): void
     {
@@ -40,7 +40,7 @@ class DocumentControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\DocumentController::view()
+     * @uses \App\Controller\DocumentsController::view()
      */
     public function testView(): void
     {
@@ -51,7 +51,7 @@ class DocumentControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\DocumentController::add()
+     * @uses \App\Controller\DocumentsController::add()
      */
     public function testAdd(): void
     {
@@ -62,7 +62,7 @@ class DocumentControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\DocumentController::edit()
+     * @uses \App\Controller\DocumentsController::edit()
      */
     public function testEdit(): void
     {
@@ -73,7 +73,7 @@ class DocumentControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\DocumentController::delete()
+     * @uses \App\Controller\DocumentsController::delete()
      */
     public function testDelete(): void
     {

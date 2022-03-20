@@ -786,7 +786,7 @@ function Sizzle( selector, context, results, seed ) {
 				// ID selector
 				if ( ( m = match[ 1 ] ) ) {
 
-					// Document context
+					// Documents context
 					if ( nodeType === 9 ) {
 						if ( ( elem = context.getElementById( m ) ) ) {
 
@@ -1474,7 +1474,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	/* Sorting
 	---------------------------------------------------------------------- */
 
-	// Document order sorting
+	// Documents order sorting
 	sortOrder = hasCompare ?
 	function( a, b ) {
 
@@ -1682,7 +1682,7 @@ Sizzle.error = function( msg ) {
 };
 
 /**
- * Document sorting and removing duplicates
+ * Documents sorting and removing duplicates
  * @param {ArrayLike} results
  */
 Sizzle.uniqueSort = function( results ) {

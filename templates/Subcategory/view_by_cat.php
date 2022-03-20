@@ -5,6 +5,7 @@
  * @var \App\Model\Entity\Subcategory[]|\Cake\Collection\CollectionInterface $subcategories
  */
 $this->disableAutoLayout();
+echo $this->Html->css('styles.sidebar.css');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +18,6 @@ $this->disableAutoLayout();
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.sidebar.css" rel="stylesheet" />
 </head>
 <body>
 <div class="d-flex" id="wrapper">
@@ -28,7 +28,7 @@ $this->disableAutoLayout();
         </div>
         <div class="list-group list-group-flush">
             <?php foreach ($category as $categories): ?>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!"><?= h($categories->name) ?></a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?= $this->Url->build(['controller'=>'Subcategory','action'=>'viewByCat',$categories->id ])?>"><?= h($categories->name) ?></a>
             <?php endforeach; ?>
         </div>
     </div>
@@ -37,8 +37,8 @@ $this->disableAutoLayout();
             <div><?= $this->Html->link(__('New Category'), ['action' => 'add'], ['class' => 'button  float-right']) ?></div>
         </div>
         <div class="list-group list-group-flush">
-            <?php foreach ($categories as $category): ?>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!"><?= h($category->name) ?></a>
+            <?php foreach ($subcategories as $subcategory): ?>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!"><?= h($subcategory->name) ?></a>
             <?php endforeach; ?>
         </div>
     </div>

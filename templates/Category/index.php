@@ -27,7 +27,7 @@ $this->disableAutoLayout();
         </div>
         <div class="list-group list-group-flush">
             <?php foreach ($category as $categories): ?>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3"  href="<?= $this->Url->build(['controller'=>'Subcategory','action'=>'viewByCat',$categories->idgit ])?>"><?= h($categories->name) ?></a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"  href="<?= $this->Url->build(['controller'=>'Subcategory','action'=>'viewByCat',$categories->id ])?>"><?= h($categories->name) ?></a>
             <?php endforeach; ?>
         </div>
     </div>

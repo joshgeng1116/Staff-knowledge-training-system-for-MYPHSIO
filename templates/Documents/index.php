@@ -1,12 +1,12 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Document[]|\Cake\Collection\CollectionInterface $document
+ * @var \App\Model\Entity\Documents[]|\Cake\Collection\CollectionInterface $documents
  */
 ?>
-<div class="document index content">
-    <?= $this->Html->link(__('New Document'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Document') ?></h3>
+<div class="documents index content">
+    <?= $this->Html->link(__('New Documents'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <h3><?= __('Documents') ?></h3>
     <div class="table-responsive">
         <table>
             <thead>
@@ -16,17 +16,19 @@
                     <th><?= $this->Paginator->sort('user_type') ?></th>
                     <th><?= $this->Paginator->sort('doc_type') ?></th>
                     <th><?= $this->Paginator->sort('id_subcat') ?></th>
+                    <th><?= $this->Paginator->sort('path') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($document as $document): ?>
+                <?php foreach ($documents as $document): ?>
                 <tr>
                     <td><?= $this->Number->format($document->id) ?></td>
                     <td><?= h($document->title) ?></td>
                     <td><?= $this->Number->format($document->user_type) ?></td>
                     <td><?= $this->Number->format($document->doc_type) ?></td>
                     <td><?= $this->Number->format($document->id_subcat) ?></td>
+                    <td><?= h($document->path) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $document->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $document->id]) ?>
