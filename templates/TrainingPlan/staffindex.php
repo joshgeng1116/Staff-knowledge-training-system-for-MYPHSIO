@@ -16,10 +16,10 @@ echo $this->Html->css('fresh-bootstrap-table.css');
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
 <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css">
-    
+
 <h1 class="text-center"><?= __('Training Plans') ?></h1>
-<div class="fresh-table full-color-azure" style> 
-    <div class="container">      
+<div class="fresh-table full-color-azure" style>
+    <div class="container">
         <table id="fresh-table" class="bootstrap-table">
             <thead>
                 <tr>
@@ -37,7 +37,7 @@ echo $this->Html->css('fresh-bootstrap-table.css');
                       <td><?= h($trainingPlan->title) ?></td>
                       <td><?= $this->Number->format($trainingPlan->percentage) ?> %</td>
                       <td><?php foreach ($users as $userss){if($userss->id == $trainingPlan->assign_to){echo $userss->name;}} ?> </td>
-                      <td><?php foreach ($tasks as $taskss){if($taskss->id == $trainingPlan->id_task){ 
+                      <td><?php foreach ($tasks as $taskss){if($taskss->id == $trainingPlan->id_task){
                         echo $this->Html->link($taskss->title, ['controller' => 'Task','action' => 'view', $taskss->id]);}} ?> </td>
                   </tr>
                 <?php endforeach; ?>
@@ -52,7 +52,7 @@ echo $this->Html->css('fresh-bootstrap-table.css');
                 <?= $this->Paginator->last(__('last') . ' >>') ?>
             </ul>
         </div>
-    </div> 
+    </div>
 </div>
 
 <!-- Javascript -->
@@ -83,4 +83,4 @@ echo $this->Html->css('fresh-bootstrap-table.css');
 
 </script>
 
-      
+

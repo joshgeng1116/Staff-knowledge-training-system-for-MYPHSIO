@@ -17,9 +17,18 @@
             <fieldset>
                 <legend><?= __('Add Task') ?></legend>
                 <?php
-                    echo $this->Form->control('title');
-                    echo $this->Form->control('status');
-                    echo $this->Form->control('percentage');
+                echo $this->Form->control('title');
+                ?>
+                <?php
+                $status_type= [0=>"Open", 1=>"Complete"];
+                echo $this->Form->control('status', ['options'=>$status_type, "required", "class" => "form-control", "label" => "Task Status: "]);
+
+                ?>
+                <?php
+                echo $this->Form->label('Percentage');
+                echo $this->Number->toPercentage($task->percentage);
+                ?>
+                <?php
                     echo $this->Form->control('documents');
                 ?>
             </fieldset>

@@ -37,7 +37,6 @@ class TrainingPlanController extends AppController
      */
     public function staffindex()
     {
-
         $this->loadModel('Users');
         $users = $this->paginate($this->Users);
         $this->loadModel('Task');
@@ -77,10 +76,11 @@ class TrainingPlanController extends AppController
      */
     public function add()
     {
-        $this->loadModel('Users');
-        $users = $this->Users->Find('list', ['limit' => 200]);
-        $this->loadModel('Task');
-        $tasks = $this->Task->Find('list', ['limit' => 200]);
+//        $this->loadModel('Users');
+//        $users = $this->Users->Find('list', ['limit' => 200]);
+//        $this->loadModel('Task');
+//        $tasks = $this->Task->Find('list', ['limit' => 200]);
+
         $trainingPlan = $this->TrainingPlan->newEmptyEntity();
         if ($this->request->is('post')) {
             $trainingPlan = $this->TrainingPlan->patchEntity($trainingPlan, $this->request->getData());
@@ -91,7 +91,10 @@ class TrainingPlanController extends AppController
             }
             $this->Flash->error(__('The training plan could not be saved. Please, try again.'));
         }
-        $this->set(compact('trainingPlan', 'users', 'tasks'));
+        $users = $this->TrainingPlan -> Users -> find('list', ['limit'=> 200]);
+        $task = $this->TrainingPlan -> Task -> find('list', ['limit'=> 200]);
+
+        $this->set(compact('trainingPlan', 'users', 'task'));
     }
 
     /**

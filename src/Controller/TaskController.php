@@ -23,6 +23,13 @@ class TaskController extends AppController
         $this->set(compact('task'));
     }
 
+    public function staffindex()
+    {
+        $task = $this->paginate($this->Task);
+
+        $this->set(compact('task'));
+    }
+
     /**
      * View method
      *

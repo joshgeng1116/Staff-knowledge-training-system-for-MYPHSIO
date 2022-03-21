@@ -19,20 +19,27 @@
             <h3><?= h($task->title) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('Title') ?></th>
-                    <td><?= h($task->title) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($task->id) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Title') ?></th>
+                    <td><?= h($task->title) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Status') ?></th>
-                    <td><?= $this->Number->format($task->status) ?></td>
+                    <td><?php if ($task -> status == 0 && $task -> percentage == 0) :?>
+                            Incomplete/Not Attempted
+                        <?php elseif ($task -> status == 1 && $task -> percentage != 0) :?>
+                            In Progress
+                        <?php elseif ($task -> status == 2 && $task -> percentage == 100) :?>
+                            Completed
+                        <?php endif;?>
+                    </td>
                 </tr>
                 <tr>
                     <th><?= __('Percentage') ?></th>
-                    <td><?= $this->Number->format($task->percentage) ?></td>
+                    <td><?= $this->Number->toPercentage($task->percentage) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Documents') ?></th>
