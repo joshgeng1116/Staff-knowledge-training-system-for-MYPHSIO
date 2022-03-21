@@ -3,7 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\TrainingPlan[]|\Cake\Collection\CollectionInterface $trainingPlan
  * @var \App\Model\Entity\Users[]|\Cake\Collection\CollectionInterface $users
- * @var \App\Model\Entity\Task[]|\Cake\Collection\CollectionInterface $tasks
+ * @var \App\Model\Entity\Link[]|\Cake\Collection\CollectionInterface $links
  */
 ?>
 <div class="trainingPlan index content">
@@ -37,8 +37,8 @@ echo $this->Html->css('fresh-bootstrap-table.css');
                       <td><?= h($trainingPlan->title) ?></td>
                       <td><?= $this->Number->format($trainingPlan->percentage) ?> %</td>
                       <td><?php foreach ($users as $userss){if($userss->id == $trainingPlan->assign_to){echo $userss->name;}} ?> </td>
-                      <td><?php foreach ($tasks as $taskss){if($taskss->id == $trainingPlan->id_task){
-                        echo $this->Html->link($taskss->title, ['controller' => 'Task','action' => 'view', $taskss->id]);}} ?> </td>
+                      <td><?php foreach ($links as $linkss){if($linkss->id_training_plan == $trainingPlan->id){
+                        echo $this->Html->link(['action'=>'get_task_title',$linkss->id_task]);}} ?> </td>
                   </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -54,6 +54,9 @@ echo $this->Html->css('fresh-bootstrap-table.css');
         </div>
     </div>
 </div>
+
+
+
 
 <!-- Javascript -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

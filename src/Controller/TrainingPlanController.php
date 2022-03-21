@@ -20,14 +20,14 @@ class TrainingPlanController extends AppController
     {
         $this->loadModel('Users');
         $users = $this->paginate($this->Users);
-        $this->loadModel('Task');
-        $tasks = $this->paginate($this->Task);
+        $this->loadModel('Link');
+        $links = $this->paginate($this->Link);
         $this->paginate = [
             'contain' => [],
         ];
         $trainingPlan = $this->paginate($this->TrainingPlan);
 
-        $this->set(compact('trainingPlan', 'users', 'tasks'));
+        $this->set(compact('trainingPlan', 'users', 'links'));
     }
 
     /**
@@ -39,14 +39,14 @@ class TrainingPlanController extends AppController
     {
         $this->loadModel('Users');
         $users = $this->paginate($this->Users);
-        $this->loadModel('Task');
-        $tasks = $this->paginate($this->Task);
+        $this->loadModel('Link');
+        $links = $this->paginate($this->Link);
         $this->paginate = [
             'contain' => [],
         ];
         $trainingPlan = $this->paginate($this->TrainingPlan);
 
-        $this->set(compact('trainingPlan', 'users', 'tasks'));
+        $this->set(compact('trainingPlan', 'users', 'links'));
     }
 
     /**
@@ -143,5 +143,11 @@ class TrainingPlanController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function get_task_title($id){
+        $tasks = $this->getTableLocator()->get('Task');
+        $tasksobj = $tasks->find()->where(['id'=>$id])->select(['title'])->first();
+        return $taskobj;
     }
 }
