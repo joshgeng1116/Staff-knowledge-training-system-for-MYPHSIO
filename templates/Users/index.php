@@ -1,3 +1,7 @@
+
+
+
+
 <?php
 /**
  * @var \App\View\AppView $this
@@ -5,23 +9,36 @@
  */
 ?>
 <div class="users index content">
-    <?= $this->Html->link(__('New User'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Users') ?></h3>
-    <div class="table-responsive">
-        <table>
+    <?php
+
+    $this->disableAutoLayout();
+    echo $this->Html->css('fresh-bootstrap-table.css');
+    ?>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css">
+    <h1 class="text-center"><?= __('Staffs') ?></h1>
+    <div class="fresh-table full-color-azure" style>
+        <div class="container">
+            <h4 class="text-right">
+                <?= $this->Html->link(__('New Users'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+            </h4>
+
+            <table id="fresh-table" class="bootstrap-table">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('name') ?></th>
-                    <th><?= $this->Paginator->sort('email') ?></th>
-                    <th><?= $this->Paginator->sort('role') ?></th>
-                    <th><?= $this->Paginator->sort('date_of_birth') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th  scope="col"><?= ('ID') ?></th>
+                    <th  scope="col"><?= __('Name') ?></th>
+                    <th  scope="col"><?= __('Email') ?></th>
+                    <th  scope="col"><?= ('Role') ?></th>
+                    <th  scope="col"><?=('date_of_birth') ?></th>
+                    <th class="actions"><?= __('Actions')?></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody>   
                 <?php foreach ($users as $user): ?>
-                <tr>
+                <tr scope = "row">
                     <td><?= $this->Number->format($user->id) ?></td>
                     <td><?= h($user->name) ?></td>
                     <td><?= h($user->email) ?></td>
@@ -48,3 +65,30 @@
         <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
     </div>
 </div>
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table/dist/bootstrap-table.min.js"></script>
+
+    <script type="text/javascript">
+        var $table = $('#fresh-table')
+        var $alertBtn = $('#alertBtn')
+
+        $(function () {
+            $table.bootstrapTable({
+                classes: 'table table-hover table-striped',
+                toolbar: '.toolbar',
+
+                search: true,
+                showRefresh: false,
+                showToggle: true,
+                showColumns: false,
+                pagination: true,
+                striped: true,
+                sortable: true,
+                pageSize: 8,
+                pageList: [8, 10, 25, 50, 100],
+            })
+
+        })
+
+    </script>
