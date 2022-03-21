@@ -1,16 +1,32 @@
-
-<div class="users form">
+<?php
+$this->disableAutoLayout();
+echo $this->Html->css('login-style.css');
+echo $this->Html->script('login-main.js');
+?>
+<div class="ftco-section">
+<div class="container">
+<?= $this->Flash->render() ?>
+<div class="row justify-content-center">
+    <div class="col-md-7 col-lg-5">
+    <div class ="wrap">
+    <div class="users form">
     <?= $this->Flash->render() ?>
-    <h3>Login</h3>
     <?= $this->Form->create() ?>
-    <fieldset>
-        <legend><?= __('Please enter your email and password') ?></legend>
-        <?= $this->Form->control('email', ['required' => true]) ?>
-        <?= $this->Form->control('password', ['required' => true]) ?>
-    </fieldset>
-    <?= $this->Form->submit(__('Login')); ?>
-    <?= $this->Form->end() ?>
-
-    <?= $this->Html->link("Add User", ['action' => 'add']) ?>
+        <div class="login-wrap p-4 p-md-5">
+            <?php echo $this->Html->image('my-physio_FBOOK_1.jpg'); ?>
+            <h3>Login</h3>
+            <div class="signin-form">
+                <fieldset>
+                    <div class="form-group mt-3"><?= $this->Form->control('email', ['required' => true]) ?></div>
+                    <div class="form-group mt-3"><?= $this->Form->control('password', ['required' => true]) ?></div>
+                </fieldset>
+                <?= $this->Form->submit(__('Login')); ?>
+                <?= $this->Form->end() ?>
+            </div>
+        </div>
+    </div>
 </div>
-
+</div>
+</div>
+</div>
+</div>
