@@ -4,6 +4,7 @@
  * @var \App\Model\Entity\TrainingPlan[]|\Cake\Collection\CollectionInterface $trainingPlan
  * @var \App\Model\Entity\Users[]|\Cake\Collection\CollectionInterface $users
  * @var \App\Model\Entity\Link[]|\Cake\Collection\CollectionInterface $links
+ * @var \App\Model\Entity\Task[]|\Cake\Collection\CollectionInterface $task
  */
 ?>
 <div class="trainingPlan index content">
@@ -38,7 +39,9 @@ echo $this->Html->css('fresh-bootstrap-table.css');
                       <td><?= $this->Number->format($trainingPlan->percentage) ?> %</td>
                       <td><?php foreach ($users as $userss){if($userss->id == $trainingPlan->assign_to){echo $userss->name;}} ?> </td>
                       <td><?php foreach ($links as $linkss){if($linkss->id_training_plan == $trainingPlan->id){
-                        echo $this->Html->link(['action'=>'get_task_title',$linkss->id_task]);}} ?> </td>
+                        foreach ($tasks as $taskss){if($taskss->id == $linkss->id_task){
+                        echo $this->Html->link($taskss->title,['controller'=>'task', 'action'=>'view', $linkss->id_task]);
+                        }}}} ?></td>
                   </tr>
                 <?php endforeach; ?>
             </tbody>

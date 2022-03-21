@@ -41,12 +41,14 @@ class TrainingPlanController extends AppController
         $users = $this->paginate($this->Users);
         $this->loadModel('Link');
         $links = $this->paginate($this->Link);
+        $this->loadModel('Task');
+        $tasks = $this->paginate($this->Task);
         $this->paginate = [
             'contain' => [],
         ];
         $trainingPlan = $this->paginate($this->TrainingPlan);
 
-        $this->set(compact('trainingPlan', 'users', 'links'));
+        $this->set(compact('trainingPlan', 'users', 'links','tasks'));
     }
 
     /**
@@ -76,10 +78,10 @@ class TrainingPlanController extends AppController
      */
     public function add()
     {
-//        $this->loadModel('Users');
-//        $users = $this->Users->Find('list', ['limit' => 200]);
-//        $this->loadModel('Task');
-//        $tasks = $this->Task->Find('list', ['limit' => 200]);
+       $this->loadModel('Users');
+        $users = $this->Users->Find('list', ['limit' => 200]);
+        $this->loadModel('Task');
+       $tasks = $this->Task->Find('list', ['limit' => 200]);
 
         $trainingPlan = $this->TrainingPlan->newEmptyEntity();
         if ($this->request->is('post')) {
