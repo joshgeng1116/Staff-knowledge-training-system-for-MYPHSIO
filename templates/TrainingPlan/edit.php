@@ -28,7 +28,7 @@
                     echo $this->Form->control('description');
                     echo $this->Form->control('percentage');
                     echo $this->Form->control('assign_to', ['options' => $users]);
-                    echo $this->Form->control('id_task', ['options' => $tasks], ['multiple' => true]);
+                    echo $this->Form->control('id_task', ['options' => $tasks]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

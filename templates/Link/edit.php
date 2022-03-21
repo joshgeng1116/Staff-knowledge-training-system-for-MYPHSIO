@@ -2,6 +2,8 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Link $link
+ * @var \App\Model\Entity\TrainingPlan $trainingplans
+ * @var \App\Model\Entity\Task $task
  */
 ?>
 <div class="row">
@@ -22,8 +24,8 @@
             <fieldset>
                 <legend><?= __('Edit Link') ?></legend>
                 <?php
-                    echo $this->Form->control('id_training_plan');
-                    echo $this->Form->control('id_task');
+                    echo $this->Form->control('id_training_plan', ['options' => $trainingplans]);
+                    echo $this->Form->control('id_task', ['options' => $tasks]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

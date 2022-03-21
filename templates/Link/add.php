@@ -2,6 +2,8 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Link $link
+ * @var \Cake\Collection\CollectionInterface|string[] $trainingplans
+ * @var \Cake\Collection\CollectionInterface|string[] $tasks
  */
 ?>
 <div class="row">
@@ -17,8 +19,8 @@
             <fieldset>
                 <legend><?= __('Add Link') ?></legend>
                 <?php
-                    echo $this->Form->control('id_training_plan');
-                    echo $this->Form->control('id_task');
+                    echo $this->Form->control('id_training_plan', ['options' => $trainingplans]);
+                    echo $this->Form->control('id_task', ['options' => $tasks]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

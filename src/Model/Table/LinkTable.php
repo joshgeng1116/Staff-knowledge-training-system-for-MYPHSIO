@@ -40,6 +40,17 @@ class LinkTable extends Table
         $this->setTable('link');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->belongsTo('TrainingPlan', [
+            'foreignKey' => 'id',
+            'joinType' => 'INNER',
+
+        ]);
+        $this->belongsTo('Task', [
+            'foreignKey' => 'id',
+            'joinType' => 'INNER',
+
+        ]);
     }
 
     /**

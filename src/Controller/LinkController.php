@@ -18,9 +18,13 @@ class LinkController extends AppController
      */
     public function index()
     {
+        $this->loadModel('TrainingPlan');
+        $trainingplans = $this->paginate($this->TrainingPlan);
+        $this->loadModel('Task');
+        $tasks = $this->paginate($this->Task);
         $link = $this->paginate($this->Link);
 
-        $this->set(compact('link'));
+        $this->set(compact('link', 'trainingplans','tasks'));
     }
 
     /**
@@ -32,11 +36,15 @@ class LinkController extends AppController
      */
     public function view($id = null)
     {
+        $this->loadModel('TrainingPlan');
+        $trainingplans = $this->paginate($this->TrainingPlan);
+        $this->loadModel('Task');
+        $tasks = $this->paginate($this->Task);
         $link = $this->Link->get($id, [
             'contain' => [],
         ]);
 
-        $this->set(compact('link'));
+        $this->set(compact('link','trainingplans','tasks'));
     }
 
     /**
@@ -56,7 +64,9 @@ class LinkController extends AppController
             }
             $this->Flash->error(__('The link could not be saved. Please, try again.'));
         }
-        $this->set(compact('link'));
+        $trainingplans = $this->Link-> TrainingPlan -> find('list', ['limit'=> 200]);
+        $tasks = $this->Link-> Task -> find('list', ['limit'=> 200]);
+        $this->set(compact('link', 'trainingplans','tasks'));
     }
 
     /**
@@ -68,6 +78,10 @@ class LinkController extends AppController
      */
     public function edit($id = null)
     {
+        $this->loadModel('TrainingPlan');
+        $trainingplans = $this->TrainingPlan->Find('list', ['limit' => 200]);
+        $this->loadModel('Task');
+        $tasks = $this->Task->Find('list', ['limit' => 200]);
         $link = $this->Link->get($id, [
             'contain' => [],
         ]);
@@ -80,7 +94,7 @@ class LinkController extends AppController
             }
             $this->Flash->error(__('The link could not be saved. Please, try again.'));
         }
-        $this->set(compact('link'));
+        $this->set(compact('link', 'trainingplans','tasks'));
     }
 
     /**

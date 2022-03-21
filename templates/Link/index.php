@@ -2,6 +2,8 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Link[]|\Cake\Collection\CollectionInterface $link
+ * @var \App\Model\Entity\TrainingPlan[]|\Cake\Collection\CollectionInterface $trainingplans
+ * @var \App\Model\Entity\Task[]|\Cake\Collection\CollectionInterface $tasks
  */
 ?>
 <div class="link index content">
@@ -21,8 +23,9 @@
                 <?php foreach ($link as $link): ?>
                 <tr>
                     <td><?= $this->Number->format($link->id) ?></td>
-                    <td><?= $this->Number->format($link->id_training_plan) ?></td>
-                    <td><?= $this->Number->format($link->id_task) ?></td>
+                    <td>
+                    <?php foreach ($trainingplans as $trainingplanss){if($trainingplanss->id == $link->id_training_plan){echo $trainingplanss->title;}} ?></td>
+                    <td><?php foreach ($tasks as $taskss){if($taskss->id == $link->id_task){echo $taskss->title;}} ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $link->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $link->id]) ?>
