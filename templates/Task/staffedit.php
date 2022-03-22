@@ -8,11 +8,6 @@
     <aside class="column">
         <div class="side-nav">
             <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $task->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $task->id), 'class' => 'side-nav-item']
-            ) ?>
             <?= $this->Html->link(__('List Task'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
@@ -27,7 +22,6 @@
                 <?php
                 $status_type= [0=>"Open", 1=>"Complete"];
                 echo $this->Form->control('status', ['options'=>$status_type, "required", "class" => "form-control", "label" => "Task Status: "]);
-
                 ?>
                 <?php
                 echo $this->Form->label('Percentage');
@@ -35,7 +29,6 @@
                     echo $this->Number->toPercentage($task->percentage = 0);
                 else if ($task -> status == 1)
                     echo $this->Number->toPercentage($task->percentage = 100);
-//                echo $this->Form->control('percentage', ['options'=>$to_percentage, "label" => "Task Status: "]);
                   ?>
                 <?php
                     echo $this->Form->control('documents');

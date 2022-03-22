@@ -38,15 +38,19 @@
                     <td><?= $this->Number->format($task->id) ?></td>
                     <td><?= h($task->title) ?></td>
                     <td>
-                        <?php if ($task -> status == 0 && $task -> percentage == 0) :?>
+                        <?php if ($task -> status == 0) :?>
                             Open
-                        <?php elseif ($task -> status == 1 && $task -> percentage == 100) :?>
+                        <?php elseif ($task -> status == 1) :?>
                             Completed
                         <?php endif;?>
-
                     </td>
                     <td>
-                        <?= $this->Number->toPercentage($task->percentage) ?>
+                        <?php
+                        if ($task -> status == 0)
+                        echo $this->Number->toPercentage($task->percentage = 0);
+                        else if ($task -> status == 1)
+                        echo $this->Number->toPercentage($task->percentage = 100);
+                        ?>
                     </td>
                     <td><?= $this->Number->format($task->documents) ?></td>
                     <td class="actions">

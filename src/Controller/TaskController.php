@@ -23,13 +23,6 @@ class TaskController extends AppController
         $this->set(compact('task'));
     }
 
-    public function staffindex()
-    {
-        $task = $this->paginate($this->Task);
-
-        $this->set(compact('task'));
-    }
-
     /**
      * View method
      *
@@ -53,6 +46,8 @@ class TaskController extends AppController
      */
     public function add()
     {
+        $this->loadModel('Documents');
+
         $task = $this->Task->newEmptyEntity();
         if ($this->request->is('post')) {
             $task = $this->Task->patchEntity($task, $this->request->getData());
@@ -63,6 +58,9 @@ class TaskController extends AppController
             }
             $this->Flash->error(__('The task could not be saved. Please, try again.'));
         }
+
+//        $documents = $this->Task->Documents -> find()('list', ['limit'=>200]);
+
         $this->set(compact('task'));
     }
 
@@ -89,7 +87,22 @@ class TaskController extends AppController
         }
         $this->set(compact('task'));
     }
+    public function staffedit($id = null)
+    {
+        $task = $this->Task->get($id, [
+            'contain' => [],
+        ]);
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $task = $this->Task->patchEntity($task, $this->request->getData());
+            if ($this->Task->save($task)) {
+                $this->Flash->success(__('The task has been saved.'));
 
+                return $this->redirect(['action' => 'staffindex']);
+            }
+            $this->Flash->error(__('The task could not be saved. Please, try again.'));
+        }
+        $this->set(compact('task'));
+    }
     /**
      * Delete method
      *
