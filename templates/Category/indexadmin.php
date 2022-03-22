@@ -1,10 +1,9 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Task[]|\Cake\Collection\CollectionInterface $task
+ * @var \App\Model\Entity\Category[]|\Cake\Collection\CollectionInterface $category
  */
 ?>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +29,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" >
 
             <div class="sidebar-brand-text mx-3">My Physio Admin</div>
         </a>
@@ -73,7 +72,7 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            knowledage Management
+            Knowledage Management
         </div>
 
         <!-- Nav Item - Utilities Collapse Menu -->
@@ -179,76 +178,58 @@
 
         <!-- Main Content -->
         <div id="content">
-        <div class="trainingPlan index content">
-    <?php
-    $this->disableAutoLayout();
-    //echo $this->Html->css('fresh-bootstrap-table.css');
-    ?>
-    
+        <div class="category index content">
+                <?php
+                $this->disableAutoLayout();
+                //echo $this->Html->css('fresh-bootstrap-table.css');
+                ?>
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+                <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+                <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css">
+                <h1 class="text-center"><?= __('Category') ?></h1>
+                <div class="fresh-table full-color-azure" style>
+                <div class="col-md-12 col-md-offset">
+                    <div class="container">
+                        <h4 class="text-right">
+                            <?= $this->Html->link(__('New Category'), ['action' => 'add'], ['class' => 'button float-left']) ?> 
+                        </h4>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css">
-
-    <h1 class="text-center"><?= __('Task') ?></h1>
-    <div class="fresh-table full-color-azure" style>
-        <div class="container">
-            <h4 class="text-right">
-                <?= $this->Html->link(__('New Task'), ['action' => 'add'], ['class' => 'button float-left']) ?>
-            </h4>
-
-            <table id="fresh-table" class="bootstrap-table">
-            <thead>
-                <tr>
-                    <th  scope="col"><?= ('ID') ?></th>
-                    <th  scope="col"><?= __('Title') ?></th>
-                    <th  scope="col"><?= __('Status') ?></th>
-                    <th  scope="col"><?= ('Percentage') ?></th>
-                    <th  scope="col"><?=('Documents') ?></th>
-                    <th class="actions"><?= __('Actions')?></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($task as $task): ?>
-                <tr scope = "row">
-                    <td><?= $this->Number->format($task->id) ?></td>
-                    <td><?= h($task->title) ?></td>
-                    <td>
-                        <?php if ($task -> status == 0) :?>
-                            Open
-                        <?php elseif ($task -> status == 1) :?>
-                            Completed
-                        <?php endif;?>
-                    </td>
-                    <td>
-                        <?php
-                        if ($task -> status == 0)
-                        echo $this->Number->toPercentage($task->percentage = 0);
-                        else if ($task -> status == 1)
-                        echo $this->Number->toPercentage($task->percentage = 100);
-                        ?>
-                    </td>
-                    <td><?= $this->Number->format($task->documents) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $task->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $task->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $task->id], ['confirm' => __('Are you sure you want to delete # {0}?', $task->id)]) ?>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-        <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
-    </div>
-    </div>
+                        <table id="fresh-table" class="bootstrap-table">
+                        <thead>
+                            <tr>
+                                <th  scope="col"><?= ('ID') ?></th>
+                                <th  scope="col"><?= __('Name') ?></th>
+                                <th class="actions"><?= __('Actions')?></th>
+                            </tr>
+                        </thead>
+                        <tbody>   
+                            <?php foreach ($category as $category): ?>
+                            <tr scope = "row">
+                                <td><?= $this->Number->format($category->id) ?></td>
+                                <td><?= h($category->name) ?></td>
+                                
+                                <td class="actions">
+                                    <?= $this->Html->link(__('View'), ['action' => 'view', $category->id]) ?>
+                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $category->id]) ?>
+                                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $category->id], ['confirm' => __('Are you sure you want to delete # {0}?', $category->id)]) ?>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="paginator">
+                    <ul class="pagination">
+                        <?= $this->Paginator->first('<< ' . __('first')) ?>
+                        <?= $this->Paginator->prev('< ' . __('previous')) ?>
+                        <?= $this->Paginator->numbers() ?>
+                        <?= $this->Paginator->next(__('next') . ' >') ?>
+                        <?= $this->Paginator->last(__('last') . ' >>') ?>
+                    </ul>
+                    <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+                </div>
+            </div>
+        </div>
         </div>
         <!-- End of Main Content -->
 
@@ -307,4 +288,4 @@
     })
 
 </script>
-</body>
+

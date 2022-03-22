@@ -26,6 +26,18 @@ class CategoryController extends AppController
     }
 
     /**
+     * Indexadmin method
+     *
+     * @return \Cake\Http\Response|null|void Renders view
+     */
+    public function indexadmin()
+    {
+        $category = $this->paginate($this->Category);
+
+        $this->set(compact('category'));
+    }
+
+    /**
      * View method
      *
      * @param string|null $id Category id.
