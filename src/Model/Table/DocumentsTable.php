@@ -40,6 +40,7 @@ class DocumentsTable extends Table
         $this->setTable('documents');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
+        $this->belongsTo('Subcategory',['foreignKey' => 'id_sub','joinType' => 'INNER']);
     }
 
     /**
@@ -75,9 +76,7 @@ class DocumentsTable extends Table
 
         $validator
             ->scalar('path')
-            ->maxLength('path', 255)
-            ->requirePresence('path', 'create')
-            ->notEmptyString('path');
+            ->maxLength('path', 255);
 
         return $validator;
     }

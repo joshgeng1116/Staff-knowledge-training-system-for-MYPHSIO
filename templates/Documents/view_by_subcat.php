@@ -3,6 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Category[]|\Cake\Collection\CollectionInterface $category
  * @var \App\Model\Entity\Subcategory[]|\Cake\Collection\CollectionInterface $subcategories
+ * @var \App\Model\Entity\Documents[]|\Cake\Collection\CollectionInterface $documents
  */
 $this->disableAutoLayout();
 echo $this->Html->css('styles.sidebar.css');
@@ -39,6 +40,16 @@ echo $this->Html->css('styles.sidebar.css');
         <div class="list-group list-group-flush">
             <?php foreach ($subcategories as $subcategory): ?>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?= $this->Url->build(['controller'=>'Documents','action'=>'viewBySubcat',$subcategory->id,$subcategory->id_cat])?>"><?= h($subcategory->name) ?></a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="border-end bg-white" id="sidebar-wrapper">
+        <div class="sidebar-heading border-bottom bg-light">Documents
+            <div><?= $this->Html->link(__('New Document'), ['action' => 'add'], ['class' => 'button  float-right']) ?></div>
+        </div>
+        <div class="list-group list-group-flush">
+            <?php foreach ($documents as $document): ?>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?= $this->Url->build(['controller'=>'Documents','action'=>'docView',$document->id_subcat,$subcategory->id_cat,$document->id])?>"><?= h($document->title) ?></a>
             <?php endforeach; ?>
         </div>
     </div>
