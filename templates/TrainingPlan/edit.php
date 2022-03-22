@@ -26,7 +26,8 @@
                 <?php
                     echo $this->Form->control('title');
                     echo $this->Form->control('description');
-                    echo $this->Form->control('percentage');
+                    echo $this->Form->label('Percentage');
+                    echo $this->Number->toPercentage('percentage');
                     echo $this->Form->control('assign_to', ['options' => $users]);
                     echo $this->Form->control('id_task', ['options' => $tasks]);
                 ?>

@@ -30,7 +30,7 @@
                 </tr>
                 <tr>
                     <th><?= __('Percentage') ?></th>
-                    <td><?= $this->Number->format($trainingPlan->percentage) ?></td>
+                    <td><?= $this->Number->toPercentage($trainingPlan->percentage) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Assign To') ?></th>

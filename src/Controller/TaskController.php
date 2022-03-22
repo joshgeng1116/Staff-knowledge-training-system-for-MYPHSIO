@@ -97,7 +97,10 @@ class TaskController extends AppController
             if ($this->Task->save($task)) {
                 $this->Flash->success(__('The task has been saved.'));
 
-                return $this->redirect(['action' => 'staffindex']);
+                return $this->redirect([
+                    'controller' => 'TrainingPlan',
+                    'action' => 'staffindex'
+                ]);
             }
             $this->Flash->error(__('The task could not be saved. Please, try again.'));
         }
