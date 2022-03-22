@@ -22,12 +22,14 @@ class TrainingPlanController extends AppController
         $users = $this->paginate($this->Users);
         $this->loadModel('Link');
         $links = $this->paginate($this->Link);
+        $this->loadModel('Task');
+        $tasks = $this->paginate($this->Task);
         $this->paginate = [
             'contain' => [],
         ];
         $trainingPlan = $this->paginate($this->TrainingPlan);
 
-        $this->set(compact('trainingPlan', 'users', 'links'));
+        $this->set(compact('trainingPlan', 'users', 'links','tasks'));
     }
 
     /**

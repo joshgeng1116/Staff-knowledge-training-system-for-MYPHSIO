@@ -12,6 +12,7 @@
     $this->disableAutoLayout();
     echo $this->Html->css('fresh-bootstrap-table.css');
     ?>
+    
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
@@ -38,8 +39,11 @@
                     <td><?= $this->Number->format($trainingPlan->id) ?></td>
                     <td><?= h($trainingPlan->title) ?></td>
                     <td><?= $this->Number->toPercentage($trainingPlan->percentage) ?></td>
-                    <td><?php foreach ($users as $users){if($users->id == $trainingPlan->assign_to){echo $users->name;}} ?> </td>
-                    <td><?php foreach ($tasks as $tasks){if($tasks->id == $trainingPlan->id_task){echo $tasks->title;}} ?> </td>
+                    <td><?php foreach ($users as $userss){if($userss->id == $trainingPlan->assign_to){echo $userss->name;}} ?> </td>
+                      <td><?php foreach ($links as $linkss){if($linkss->id_training_plan == $trainingPlan->id){
+                        foreach ($tasks as $taskss){if($taskss->id == $linkss->id_task){
+                        echo $this->Html->link($taskss->title,['controller'=>'task', 'action'=>'view', $linkss->id_task]);
+                        }}}} ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $trainingPlan->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $trainingPlan->id]) ?>
