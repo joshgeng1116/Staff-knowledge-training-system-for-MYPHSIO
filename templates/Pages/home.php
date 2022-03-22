@@ -47,58 +47,29 @@ $this->disableAutoLayout();
         <section class="features-icons bg-light text-center">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                             <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
-                            <h3>Training Plan</h3>
-                            
-                            <br> 
-                            <a href="trainingplan" class="but1">GO!</a>  
+                            <h3><a href= "training-plan">Training Module</a></h3>
+</br>                         
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-calendar m-auto text-primary"></i></div>
-                            <h3>Calendar</h3>
-                            
-                            <br> 
-                            <a href="#" class="but1">GO!</a> 
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-book m-auto text-primary"></i></div>
-                            <h4>knowledage Managerment</h4>
-                            
-                            <br> 
-                            <a href="#" class="but1">GO!</a> 
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-justify m-auto text-primary"></i></div>
-                            <h3>Training Resources</h3>
-                            
-                            <br> 
-                            <a href="trainingplan" class="but1">GO!</a>  
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-app m-auto text-primary"></i></div>
-                            <h3>Leave Application</h3>
-                            
-                            <br> 
-                            <a href="trainingplan" class="but1">GO!</a>  
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                             <div class="features-icons-icon d-flex"><i class="bi-tag m-auto text-primary"></i></div>
-                            <h3>Category</h3>
-                            
-                            <br> 
-                            <a href="trainingplan" class="but1">GO!</a>  
+                            <h3><a href= "category">Knowledge Management</a></h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-calendar m-auto text-primary"></i></div>
+                            <h3><a href= "#">Calendar</a></h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-app m-auto text-primary"></i></div>
+                            <h3><a href= "#">Leave Application</a></h3>
                         </div>
                     </div>
                 </div>
