@@ -50,14 +50,14 @@ $this->disableAutoLayout();
                     <div class="col-lg-6">
                         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                             <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
-                            <h3><a href= "training-plan">Training Module</a></h3>
+                            <h3><a href="<?=$this->Url->build(['controller'=>'TrainingPlan','action'=>'staffindex'])?>">Training Module</a></h3>
 </br>                         
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                             <div class="features-icons-icon d-flex"><i class="bi-tag m-auto text-primary"></i></div>
-                            <h3><a href= "category">Knowledge Management</a></h3>
+                            <h3><a href="<?=$this->Url->build(['controller'=>'Category','action'=>'index'])?>">Knowledge Management</a></h3>
                         </div>
                     </div>
                     <div class="col-lg-6">
