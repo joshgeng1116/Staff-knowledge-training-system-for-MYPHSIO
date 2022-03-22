@@ -28,18 +28,24 @@
                 </tr>
                 <tr>
                     <th><?= __('Status') ?></th>
-                    <td><?php if ($task -> status == 0 && $task -> percentage == 0) :?>
-                            Incomplete/Not Attempted
-                        <?php elseif ($task -> status == 1 && $task -> percentage != 0) :?>
-                            In Progress
-                        <?php elseif ($task -> status == 2 && $task -> percentage == 100) :?>
+                    <td>
+                        <?php if ($task -> status == 0) :?>
+                            Open
+                        <?php elseif ($task -> status == 1) :?>
                             Completed
                         <?php endif;?>
                     </td>
                 </tr>
                 <tr>
                     <th><?= __('Percentage') ?></th>
-                    <td><?= $this->Number->toPercentage($task->percentage) ?></td>
+                    <td>
+                        <?php
+                        if ($task -> status == 0)
+                            echo $this->Number->toPercentage($task->percentage = 0);
+                        else if ($task -> status == 1)
+                            echo $this->Number->toPercentage($task->percentage = 100);
+                        ?>
+                    </td>
                 </tr>
                 <tr>
                     <th><?= __('Documents') ?></th>
