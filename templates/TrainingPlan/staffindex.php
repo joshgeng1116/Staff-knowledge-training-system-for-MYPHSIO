@@ -40,7 +40,7 @@ echo $this->Html->css('fresh-bootstrap-table.css');
                       <td><?php foreach ($users as $userss){if($userss->id == $trainingPlan->assign_to){echo $userss->name;}} ?> </td>
                       <td><?php foreach ($links as $linkss){if($linkss->id_training_plan == $trainingPlan->id){
                         foreach ($tasks as $taskss){if($taskss->id == $linkss->id_task){
-                        echo $this->Html->link($taskss->title,['controller'=>'task', 'action'=>'view', $linkss->id_task]);
+                        echo $this->Html->link($taskss->title,['controller'=>'task', 'action'=>'edit', $linkss->id_task]);
                         }}}} ?></td>
                   </tr>
                 <?php endforeach; ?>
