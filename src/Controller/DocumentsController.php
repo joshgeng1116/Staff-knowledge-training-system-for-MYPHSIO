@@ -66,8 +66,8 @@ class DocumentsController extends AppController
 
             $postFile = $this->request->getData('post_file');
             $name = $postFile['name'];
-            $document->path = 'C:\xampp\htdocs\myphysio_project\categorys\cate_'.$this->get_cat_name($document->id_subcat).'\sub_'.$this->get_sub_name($document->id_subcat).'\doc_'.$name;
-            $path = 'C:\xampp\htdocs\myphysio_project\categorys\cate_'.$this->get_cat_name($document->id_subcat).'\sub_'.$this->get_sub_name($document->id_subcat).'\doc_'.$name;
+            $document->path = WWW_ROOT.'categories/cate_' .$this->get_cat_name($document->id_subcat).'/sub_'.$this->get_sub_name($document->id_subcat).'/doc_'.$name;
+            $path = 'webroot/categories/cate_' .$this->get_cat_name($document->id_subcat).'/sub_'.$this->get_sub_name($document->id_subcat).'/doc_'.$name;
             //$postFile -> moveTo($path);
             move_uploaded_file($postFile['tmp_name'],$path);
 

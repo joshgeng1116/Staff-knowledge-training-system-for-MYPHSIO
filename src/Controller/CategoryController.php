@@ -63,8 +63,8 @@ class CategoryController extends AppController
         $category = $this->Category->newEmptyEntity();
         if ($this->request->is('post')) {
             $category = $this->Category->patchEntity($category, $this->request->getData());
-            if(!file_exists('C:\xampp\htdocs\myphysio_project\categorys\cate_'.$category->name)) {
-                mkdir('C:\xampp\htdocs\myphysio_project\categorys\cate_'.$category->name);
+            if(!file_exists(WWW_ROOT.'categories/cate_' .$category->name)) {
+                mkdir(WWW_ROOT.'categories/cate_' .$category->name);
                 if ($this->Category->save($category)) {
                     $this->Flash->success(__('The category has been saved.'));
 
@@ -113,7 +113,7 @@ class CategoryController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $category = $this->Category->get($id);
         if ($this->Category->delete($category)) {
-            rmdir('C:\xampp\htdocs\myphysio_project\categorys\cate_'.$category->name);
+            rmdir(WWW_ROOT.'categories/cate_' .$category->name);
             $this->Flash->success(__('The category has been deleted.'));
         } else {
             $this->Flash->error(__('The category could not be deleted. Please, try again.'));

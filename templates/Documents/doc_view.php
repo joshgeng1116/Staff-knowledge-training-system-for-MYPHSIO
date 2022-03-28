@@ -49,7 +49,7 @@ echo $this->Html->css('styles.sidebar.css');
         </div>
         <div class="list-group list-group-flush">
             <?php foreach ($documents as $document): ?>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="file://localhost/<?= $document->path?>" type="application/pdf" target="_blank"><?= h($document->title) ?></a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?= $document->path?>" type="application/pdf" target="_blank"><?= h($document->title) ?></a>
                 <!--<a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?= $this->Url->build(['controller'=>'Documents','action'=>'docView',$document->id_subcat,$subcategory->id_cat,$document->id])?>"><?= h($document->title) ?></a> -->
             <?php endforeach; ?>
         </div>
@@ -60,6 +60,7 @@ echo $this->Html->css('styles.sidebar.css');
         <a herf="<?= $document->path?>" target="_blank"></a>
         <body>
             <h1><?php debug($document->path)?></h1>
+            <iframe src="https://dev.u21s2102.monash-ie.me/<?= h($document->path)?>" width="100%" height="100%"></iframe>
         </body>
     </div>
 </div>

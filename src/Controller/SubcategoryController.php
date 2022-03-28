@@ -63,9 +63,9 @@ class SubcategoryController extends AppController
         $subcategory = $this->Subcategory->newEmptyEntity();
         if ($this->request->is('post')) {
             $subcategory = $this->Subcategory->patchEntity($subcategory, $this->request->getData());
-            $sub_name = '\sub_'.$subcategory->name;
-            if (!file_exists('C:\xampp\htdocs\myphysio_project\categorys\cate_' . $this->get_name($subcategory->id_cat).$sub_name)) {
-                mkdir('C:\xampp\htdocs\myphysio_project\categorys\cate_'.$this->get_name($subcategory->id_cat).$sub_name);
+            $sub_name = '/sub_'.$subcategory->name;
+            if (!file_exists(WWW_ROOT.'categories/cate_' . $this->get_name($subcategory->id_cat).$sub_name)) {
+                mkdir(WWW_ROOT.'categories/cate_' .$this->get_name($subcategory->id_cat).$sub_name);
                 echo($this->get_name($subcategory->id_cat));
                 if ($this->Subcategory->save($subcategory)) {
                     $this->Flash->success(__('The subcategory has been saved.'));
@@ -120,9 +120,9 @@ class SubcategoryController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $subcategory = $this->Subcategory->get($id);
-        $sub_name = '\sub_'.$subcategory->name;
+        $sub_name = '/sub_'.$subcategory->name;
         if ($this->Subcategory->delete($subcategory)) {
-            rmdir('C:\xampp\htdocs\myphysio_project\categorys\cate_'.$this->get_name($subcategory->id_cat).$sub_name);
+            rmdir(WWW_ROOT.'categories/cate_' . $this->get_name($subcategory->id_cat).$sub_name);
             $this->Flash->success(__('The subcategory has been deleted.'));
         } else {
             $this->Flash->error(__('The subcategory could not be deleted. Please, try again.'));
