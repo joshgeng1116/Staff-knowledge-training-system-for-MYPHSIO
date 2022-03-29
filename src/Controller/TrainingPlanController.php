@@ -49,8 +49,10 @@ class TrainingPlanController extends AppController
             'contain' => [],
         ];
         $trainingPlan = $this->paginate($this->TrainingPlan);
-
+        $this->set(array('count' => 0));
+        $this->set(array('total_percentage' => 0));
         $this->set(compact('trainingPlan', 'users', 'links','tasks'));
+        
     }
 
     /**
@@ -147,11 +149,5 @@ class TrainingPlanController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-
-    public function get_task_title($id){
-        $tasks = $this->getTableLocator()->get('Task');
-        $tasksobj = $tasks->find()->where(['id'=>$id])->select(['title'])->first();
-        return $taskobj;
     }
 }

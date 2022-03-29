@@ -36,12 +36,12 @@ echo $this->Html->css('fresh-bootstrap-table.css');
                   <tr scope="row">
                       <td><?= $this->Number->format($trainingPlan->id) ?></td>
                       <td><?= h($trainingPlan->title) ?></td>
-                      <td><?= $this->Number->format($trainingPlan->percentage) ?> %</td>
-                      <td><?php foreach ($users as $userss){if($userss->id == $trainingPlan->assign_to){echo $userss->name;}} ?> </td>
+                      <td><?php foreach ($links as $linkss){if($linkss->id_training_plan == $trainingPlan->id){foreach ($tasks as $taskss){if($taskss->id == $linkss->id_task){$total_percentage = $taskss->status + $total_percentage;$count = 1+$count;}}}}$trainingPlan->percentage=($total_percentage/$count)*100;echo $this->Number->toPercentage($trainingPlan->percentage)?></td>
+                      <td><?php foreach ($users as $userss){if($userss->id == $trainingPlan->assign_to){echo $userss->name;}} ?></td>
                       <td><?php foreach ($links as $linkss){if($linkss->id_training_plan == $trainingPlan->id){
                         foreach ($tasks as $taskss){if($taskss->id == $linkss->id_task){
-                        echo $this->Html->link($taskss->title,['controller'=>'task', 'action'=>'edit', $linkss->id_task]);
-                        }}}} ?></td>
+                        echo $this->Html->link($taskss->title,['controller'=>'task', 'action'=>'staffedit', $linkss->id_task]);
+                        }}}}?></td>
                   </tr>
                 <?php endforeach; ?>
             </tbody>
