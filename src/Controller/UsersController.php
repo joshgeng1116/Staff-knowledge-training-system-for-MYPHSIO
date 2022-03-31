@@ -118,9 +118,14 @@ class UsersController extends AppController
         // regardless of POST or GET, redirect if user is logged in
         if ($result->isValid()) {
             // redirect to /articles after login success
-            $redirect = $this->request->getQuery('redirect', ('/'));
-
-            return $this->redirect($redirect);
+            $user = $this->request->getAttribute('identity');
+            $role = $user->role;
+            if($role=='admin'){
+                return $this->redirect(['controller' => 'Users', 'action' => 'index']);
+            }else{
+                $redirect = $this->request->getQuery('redirect', ('/'));
+                return $this->redirect($redirect);
+            }
         }
         // display error if user submitted and authentication failed
         if ($this->request->is('post') && !$result->isValid()) {
