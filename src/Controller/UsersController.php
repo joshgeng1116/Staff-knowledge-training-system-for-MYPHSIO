@@ -120,7 +120,7 @@ class UsersController extends AppController
             // redirect to /articles after login success
             $user = $this->request->getAttribute('identity');
             $role = $user->role;
-            if($role=='admin'){
+            if($role==1){
                 return $this->redirect(['controller' => 'Users', 'action' => 'index']);
             }else{
                 $redirect = $this->request->getQuery('redirect', ('/'));
