@@ -18,9 +18,11 @@ class LeavesController extends AppController
      */
     public function index()
     {
+        $this->loadModel('Users');
+        $users = $this->paginate($this->Users);
         $leaves = $this->paginate($this->Leaves);
 
-        $this->set(compact('leaves'));
+        $this->set(compact('leaves', 'users'));
     }
 
     /**
@@ -32,11 +34,13 @@ class LeavesController extends AppController
      */
     public function view($id = null)
     {
+        $this->loadModel('Users');
+        $users = $this->paginate($this->Users);
         $leave = $this->Leaves->get($id, [
             'contain' => [],
         ]);
 
-        $this->set(compact('leave'));
+        $this->set(compact('leave','users'));
     }
 
     /**
@@ -46,6 +50,8 @@ class LeavesController extends AppController
      */
     public function add()
     {
+        $this->loadModel('Users');
+        $users = $this->Users->Find('list', ['limit' => 200]);
         $leave = $this->Leaves->newEmptyEntity();
         if ($this->request->is('post')) {
             $leave = $this->Leaves->patchEntity($leave, $this->request->getData());
@@ -56,7 +62,8 @@ class LeavesController extends AppController
             }
             $this->Flash->error(__('The leave could not be saved. Please, try again.'));
         }
-        $this->set(compact('leave'));
+        $users = $this->Leaves -> Users -> find('list', ['limit'=> 200]);
+        $this->set(compact('leave', "users"));
     }
 
     /**
@@ -68,6 +75,8 @@ class LeavesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->loadModel('Users');
+        $users = $this->Users->Find('list', ['limit' => 200]);
         $leave = $this->Leaves->get($id, [
             'contain' => [],
         ]);
@@ -80,7 +89,7 @@ class LeavesController extends AppController
             }
             $this->Flash->error(__('The leave could not be saved. Please, try again.'));
         }
-        $this->set(compact('leave'));
+        $this->set(compact('leave','users'));
     }
 
     /**

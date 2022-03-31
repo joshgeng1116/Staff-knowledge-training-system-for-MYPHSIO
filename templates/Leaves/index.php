@@ -2,6 +2,7 @@
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Leave[]|\Cake\Collection\CollectionInterface $leaves
+ * @var \App\Model\Entity\Users[]|\Cake\Collection\CollectionInterface $users
  */
 ?>
 <div class="leaves index content">
@@ -11,24 +12,31 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('category') ?></th>
-                    <th><?= $this->Paginator->sort('date_start') ?></th>
-                    <th><?= $this->Paginator->sort('date_end') ?></th>
-                    <th><?= $this->Paginator->sort('status') ?></th>
-                    <th><?= $this->Paginator->sort('id_user') ?></th>
+                    <th><?= $this->Paginator->sort('Start Date') ?></th>
+                    <th><?= $this->Paginator->sort('End Date') ?></th>
+                    <th><?= $this->Paginator->sort('Status') ?></th>
+                    <th><?= $this->Paginator->sort('User') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($leaves as $leave): ?>
                 <tr>
-                    <td><?= $this->Number->format($leave->id) ?></td>
-                    <td><?= h($leave->category) ?></td>
+                    <td><?php
+                    if($leave->category == 0){echo "Annual Leave";} 
+                    elseif($leave->category == 1){echo "Sick Leave";}
+                    elseif($leave->category == 2){echo "Compassionate Leave";}
+                    elseif($leave->category == 3){echo "Time in Lieu";}
+                    elseif($leave->category == 4){echo "Leave without pay";}
+                    elseif($leave->category == 5){echo "Paid Community serviceleave";}
+                    elseif($leave->category == 6){echo "Personal/Carer's leave";}?></td>
                     <td><?= h($leave->date_start) ?></td>
                     <td><?= h($leave->date_end) ?></td>
-                    <td><?= $this->Number->format($leave->status) ?></td>
-                    <td><?= $this->Number->format($leave->id_user) ?></td>
+                    <td><?php if($leave->status == 1){echo "Submitted";} 
+                    elseif($leave->status == 2){echo "Approved";}
+                    elseif($leave->status == 3){echo "Rejected";} ?></td>
+                    <td><?php foreach ($users as $userss){if($userss->id == $leave->id_user){echo $userss->name;}} ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $leave->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $leave->id]) ?>

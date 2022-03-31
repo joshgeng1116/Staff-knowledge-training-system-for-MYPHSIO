@@ -20,7 +20,13 @@
             <table>
                 <tr>
                     <th><?= __('Category') ?></th>
-                    <td><?= h($leave->category) ?></td>
+                    <td><?php if($leave->category == 0){echo "Annual Leave";} 
+                    elseif($leave->category == 1){echo "Sick Leave";}
+                    elseif($leave->category == 2){echo "Compassionate Leave";}
+                    elseif($leave->category == 3){echo "Time in Lieu";}
+                    elseif($leave->category == 4){echo "Leave without pay";}
+                    elseif($leave->category == 5){echo "Paid Community serviceleave";}
+                    elseif($leave->category == 6){echo "Personal/Carer's leave";}?></td>
                 </tr>
                 <tr>
                     <th><?= __('Id') ?></th>
@@ -28,18 +34,26 @@
                 </tr>
                 <tr>
                     <th><?= __('Status') ?></th>
-                    <td><?= $this->Number->format($leave->status) ?></td>
+                    <td><?php if($leave->status == 1){echo "Submitted";} 
+                    elseif($leave->status == 2){echo "Approved";}
+                    elseif($leave->status == 3){echo "Rejected";} ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Id User') ?></th>
-                    <td><?= $this->Number->format($leave->id_user) ?></td>
+                    <th><?= __('User') ?></th>
+                    <td><?php foreach ($users as $users){
+                                if($users->id == $leave->id_user){
+                                    echo $users->name;
+                                }
+                            }
+                        ?>
+                    </td>
                 </tr>
                 <tr>
-                    <th><?= __('Date Start') ?></th>
+                    <th><?= __('Start Date') ?></th>
                     <td><?= h($leave->date_start) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Date End') ?></th>
+                    <th><?= __('End Date') ?></th>
                     <td><?= h($leave->date_end) ?></td>
                 </tr>
             </table>

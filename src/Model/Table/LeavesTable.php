@@ -40,6 +40,12 @@ class LeavesTable extends Table
         $this->setTable('leaves');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->belongsTo('Users', [
+            'foreignKey' => 'id',
+            'joinType' => 'INNER',
+
+        ]);
     }
 
     /**
