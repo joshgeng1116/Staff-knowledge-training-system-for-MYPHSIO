@@ -17,8 +17,8 @@ echo $this->Html->script('login-main.js');
             <h3>Login</h3>
             <div class="signin-form">
                 <fieldset>
-                    <div class="form-group mt-3"><?= $this->Form->control('email', ['required' => true]) ?></div>
-                    <div class="form-group mt-3"><?= $this->Form->control('password', ['required' => true]) ?></div>
+                    <div class="form-group mt-3"><?= $this->Form->control('email', ['required' => true, 'class'=>'form-control']) ?></div>
+                    <div class="form-group mt-3"><?= $this->Form->control('password', ['required' => true, 'class'=>'form-control']) ?></div>
                 </fieldset>
                 <?= $this->Form->submit(__('Login')); ?>
                 <?= $this->Form->end() ?>
