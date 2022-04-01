@@ -20,7 +20,7 @@ echo $this->Html->script('login-main.js');
                     <div class="form-group mt-3"><?= $this->Form->control('email', ['required' => true, 'class'=>'form-control']) ?></div>
                     <div class="form-group mt-3"><?= $this->Form->control('password', ['required' => true, 'class'=>'form-control']) ?></div>
                 </fieldset>
-                <?= $this->Form->submit(__('Login')); ?>
+                <?= $this->Form->submit(__('Login'), ['class'=>'form-control btn btn-primary rounded submit px-3']); ?>
                 <?= $this->Form->end() ?>
             </div>
         </div>
