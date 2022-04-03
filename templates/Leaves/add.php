@@ -44,9 +44,6 @@ echo $this->Html->css('validation.css');
         ['type' => 'icon']
     );
 ?>
-
-
-    <title>Easy Peasy Removalists</title>
 </head>
 
 <body>
