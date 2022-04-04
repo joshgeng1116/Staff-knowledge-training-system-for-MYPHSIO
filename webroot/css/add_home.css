@@ -48,7 +48,7 @@ html {
 
 /* mandatory indicator label */
 .mandatory {
-
+    color: #C1D82F;
     font-weight: 500;
 
 }
@@ -56,7 +56,7 @@ html {
 /* non-mandatory indicator label */
 .non-mandatory {
 
-    color: gray;
+    color: #C1D82F;
     font-weight: 200;
 
 }
@@ -138,22 +138,21 @@ h1 {
     margin-right: 0%;
     -webkit-box-shadow: 10px 8px 13px -2px rgba(0,0,0,0.31);
     box-shadow: 10px 8px 13px -2px rgba(0,0,0,0.31);
-
-
 }
 
 h2 {
 
     font-family: 'Libre Franklin', sans-serif;
     font-weight: 600;
-
-
-
 }
 
-label, p {
+label {
     font-family: 'Libre Franklin', sans-serif;
-    color: #3C3744
+    color: #C1D82F;
+}
+p {
+    font-family: 'Libre Franklin', sans-serif;
+    color: #C1D82F;
 }
 
 .form_submit_feedback .row {

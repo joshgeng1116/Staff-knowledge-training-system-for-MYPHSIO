@@ -47,10 +47,9 @@ echo $this->Html->css('validation.css');
 </head>
 
 <body>
-
 <!-- form content -->
-<div class="container w-75">
-    <div class="column-responsive column-80">
+
+    <div class="column-responsive column-100">
         <div class="leaves form content">
             <?= $this->Form->create($leave) ?>
             <fieldset>
@@ -64,7 +63,7 @@ echo $this->Html->css('validation.css');
 
                         echo $this->Form->control('id_user', ['options' => $users,"required", "class" => "form-control", "label" => "Name"]);
                         $cata_type= [0=>"Annual Leave", 1=>"Sick Leave", 2=>"Compassionate Leave", 4=>"Leave without pay", 5=>"Paid Community serviceleave", 6=>"Personal/Carer's leave", 3=>"Time in Lieu"];
-                        echo $this->Form->control('category', ['options'=>$cata_type,"class" => "form-control", "label" => "Type of Leave", "placeholder" => "Doe"]);
+                        echo $this->Form->control('category', ['options'=>$cata_type,"class" => "form-control", "label" => "Type of Leave"]);
                         ?>
                     </div>
                     <div class="row mx-auto">
@@ -76,7 +75,7 @@ echo $this->Html->css('validation.css');
                     </div>
                     <div class="row mx-auto">
                         <?php
-                        echo $this->Form->control('note', ["required", "class" => "form-control", "label" => "Notes"]);
+                        echo $this->Form->control('note', ["required", "class" => "form-control", "label" => "Notes","placeholder"=>"I would like to take the leave beacuse:"]);
                         echo $this->Form->hidden('status');
                         ?>
                     </div>
@@ -88,12 +87,20 @@ echo $this->Html->css('validation.css');
             </div>
         </div>
     </div>
+<?php echo $this->Html->css('staffindex.css'); ?>
+<div class="banner">
+        <div class="navbar">
+                <?php echo $this->Html->image('logo1.png'); ?>
+               <ul>
+                   <li><?= $this->Html->link('Home','/')?></li>
+                   <li><?= $this->Html->link('Training Plan',['controller'=>'training-plan','action'=>'staffindex'])?></li>
+                   <li><?= $this->Html->link('Document',['controller'=>'category','action'=>'index'])?></li>
+                   <li><?= $this->Html->link('Leave',['controller'=>'leaves','action'=>'add'])?></li>
+                   <li><<?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
+               </ul>
+        </div>
 </div>
 
-<!-- API Js -->
-<?php
-echo $this->Html->script('API/addressFinder');
-?>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -107,10 +114,6 @@ echo $this->Html->script('API/addressFinder');
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
-<!-- custom form validation front-end JS script by Darren -->
-<?php
-echo $this->Html->script('form_validation');
-?>
 
 </body>
 
