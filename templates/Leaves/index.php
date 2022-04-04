@@ -4,20 +4,53 @@
  * @var \App\Model\Entity\Leave[]|\Cake\Collection\CollectionInterface $leaves
  * @var \App\Model\Entity\Users[]|\Cake\Collection\CollectionInterface $users
  */
+$this->disableAutoLayout();
 ?>
+<?php
+echo $this->Html->css('info_edit.css');
+?>
+<?php
+$this->disableAutoLayout();
+echo $this->Html->css('validation.css');
+?>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- own custom CSS -->
+    <?php
+    echo $this->Html->css('add_home');
+    ?>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <!-- todo favicon not working -->
+    <!-- favicon -->
+    <?= $this->Html->meta(
+        'favicon.ico',
+        '/img/favicon.png',
+        ['type' => 'icon']
+    );?>
+</head>
+<body>
 <div class="leaves index content">
-    <?= $this->Html->link(__('New Leave'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Leaves') ?></h3>
+    <h2>     </h2>
+    <h2>Leave Applications</h2>
+    <h2>     </h2>
+    <div class="column-responsive column-100">
     <div class="table-responsive">
-        <table>
+        <table class="table table-striped table-dark" id="dataTable" width="30%" cellspacing="0">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('category') ?></th>
-                    <th><?= $this->Paginator->sort('Start Date') ?></th>
-                    <th><?= $this->Paginator->sort('End Date') ?></th>
-                    <th><?= $this->Paginator->sort('Status') ?></th>
-                    <th><?= $this->Paginator->sort('User') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th><?= h('Category') ?></th>
+                    <th><?= h('Start Date') ?></th>
+                    <th><?= h('End Date') ?></th>
+                    <th><?= h('Status') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -36,25 +69,40 @@
                     <td><?php if($leave->status == 1){echo "Submitted";} 
                     elseif($leave->status == 2){echo "Approved";}
                     elseif($leave->status == 3){echo "Rejected";} ?></td>
-                    <td><?php foreach ($users as $userss){if($userss->id == $leave->id_user){echo $userss->name;}} ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $leave->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $leave->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $leave->id], ['confirm' => __('Are you sure you want to delete # {0}?', $leave->id)]) ?>
-                    </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+    </div>
+    <div class="center">
+        <div class="paginator">
+        <?= $this->Html->link(__('New Leave'), ['action' => 'add'], ['class' => 'button']) ?>
+            <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+        </div>
     </div>
 </div>
+<?php echo $this->Html->css('staffindex.css'); ?>
+<div class="banner">
+        <div class="navbar">
+                <?php echo $this->Html->image('logo1.png'); ?>
+               <ul>
+                   <li><?= $this->Html->link('Home','/')?></li>
+                   <li><?= $this->Html->link('Training Plan',['controller'=>'training-plan','action'=>'staffindex'])?></li>
+                   <li><?= $this->Html->link('Document',['controller'=>'category','action'=>'index'])?></li>
+                   <li><?= $this->Html->link('Leave',['controller'=>'leaves','action'=>'add'])?></li>
+                   <li><<?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
+               </ul>
+        </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

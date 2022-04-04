@@ -26,6 +26,20 @@ class LeavesController extends AppController
     }
 
     /**
+     * Index adminmethod
+     *
+     * @return \Cake\Http\Response|null|void Renders view
+     */
+    public function indexadmin()
+    {
+        $this->loadModel('Users');
+        $users = $this->paginate($this->Users);
+        $leaves = $this->paginate($this->Leaves);
+
+        $this->set(compact('leaves', 'users'));
+    }
+
+    /**
      * View method
      *
      * @param string|null $id Leave id.

@@ -102,3 +102,9 @@ button:hover span{
 button:hover{
     border: none;
 }
+
+table{
+    border-color: white;
+    margin: 10px;
+    width: 60%;
+}

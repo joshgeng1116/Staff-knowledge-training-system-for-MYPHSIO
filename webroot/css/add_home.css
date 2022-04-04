@@ -141,7 +141,7 @@ h1 {
 }
 
 h2 {
-
+    color: #C1D82F;
     font-family: 'Libre Franklin', sans-serif;
     font-weight: 600;
 }
@@ -264,4 +264,9 @@ h2 {
 
 .customer-first-name_markup, .customer-last-name_markup {
     text-transform: capitalize;
+}
+table{
+    border-color: white;
+    margin: 10px;
+    width: 60%;
 }
