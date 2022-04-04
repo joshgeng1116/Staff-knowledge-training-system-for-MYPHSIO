@@ -11,7 +11,7 @@ $this->disableAutoLayout();
 <body>
        <div class="banner">
            <div class="navbar">
-               <img src="assets/img/logo1.png" calss="logo">
+               <img src="assets/img/logo1.png" class="logo">
                <ul>
                    <li><a href="#">Home</a></li>
                    <li><a href="training-plan/staffindex">Training Plan</a></li>
