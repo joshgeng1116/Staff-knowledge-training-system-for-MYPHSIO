@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Documents $document
+ * @var \App\Model\Entity\Document $document
  */
 ?>
 <div class="row">
@@ -20,12 +20,15 @@
         <div class="documents form content">
             <?= $this->Form->create($document) ?>
             <fieldset>
-                <legend><?= __('Edit Documents') ?></legend>
+                <legend><?= __('Edit Document') ?></legend>
                 <?php
                     echo $this->Form->control('title');
+                    echo $this->Form->control('author');
+                    echo $this->Form->control('year');
                     echo $this->Form->control('user_type');
                     echo $this->Form->control('doc_type');
-                    echo $this->Form->control('id_subcat');
+                    echo $this->Form->control('subcat_id');
+                    echo $this->Form->control('post_file');
                     echo $this->Form->control('path');
                 ?>
             </fieldset>

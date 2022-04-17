@@ -42,9 +42,8 @@ class LeavesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->belongsTo('Users', [
-            'foreignKey' => 'id',
+            'foreignKey' => 'user_id',
             'joinType' => 'INNER',
-
         ]);
     }
 
@@ -82,14 +81,37 @@ class LeavesTable extends Table
             ->notEmptyString('note');
 
         $validator
-            ->requirePresence('status', 'create')
             ->notEmptyString('status');
 
         $validator
-            ->integer('id_user')
-            ->requirePresence('id_user', 'create')
-            ->notEmptyString('id_user');
+            ->scalar('attachment')
+            ->maxLength('attachment', 255)
+            ->allowEmptyString('attachment');
+
+        $validator
+            ->integer('archive')
+            ->requirePresence('archive', 'create')
+            ->notEmptyString('archive');
+
+        $validator
+            ->integer('total_hours')
+            ->requirePresence('total_hours', 'create')
+            ->notEmptyString('total_hours');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->existsIn('user_id', 'Users'), ['errorField' => 'user_id']);
+
+        return $rules;
     }
 }

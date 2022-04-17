@@ -23,8 +23,8 @@
             <fieldset>
                 <legend><?= __('Edit Leave') ?></legend>
                 <?php
-                    echo $this->Form->control('id_user',['options' => $users,"label" => "User: "]);
-                    $cata_type= [0=>"Annual Leave", 1=>"Sick Leave", 2=>"Compassionate Leave", 4=>"Leave without pay", 5=>"Paid Community serviceleave", 6=>"Personal/Carer's leave", 3=>"Time in Lieu"];
+                    echo $this->Form->control('user_id',['options' => $users,"label" => "User: "]);
+                    $cata_type= [0=>"Annual Leave", 1=>"Personal/Carer's leave", 2=>"Compassionate Leave", 4=>"Leave without pay", 5=>"Paid Community serviceleave", 3=>"Time in Lieu"];
                     echo $this->Form->control('category',['options'=>$cata_type, "class" => "form-control","label" => "Type of Leave: "]);
                     echo $this->Form->control('date_start',["label" => "Start Date: "]);
                     echo $this->Form->control('date_end',["label" => "End Date: "]);

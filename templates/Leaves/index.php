@@ -4,7 +4,6 @@
  * @var \App\Model\Entity\Leave[]|\Cake\Collection\CollectionInterface $leaves
  * @var \App\Model\Entity\Users[]|\Cake\Collection\CollectionInterface $users
  */
-$this->disableAutoLayout();
 ?>
 <?php
 echo $this->Html->css('info_edit.css');
@@ -17,6 +16,7 @@ echo $this->Html->css('validation.css');
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="assets/icon.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -58,12 +58,11 @@ echo $this->Html->css('validation.css');
                 <tr>
                     <td><?php
                     if($leave->category == 0){echo "Annual Leave";} 
-                    elseif($leave->category == 1){echo "Sick Leave";}
+                    elseif($leave->category == 1){echo "Personal/Carer's leave";}
                     elseif($leave->category == 2){echo "Compassionate Leave";}
                     elseif($leave->category == 3){echo "Time in Lieu";}
                     elseif($leave->category == 4){echo "Leave without pay";}
-                    elseif($leave->category == 5){echo "Paid Community serviceleave";}
-                    elseif($leave->category == 6){echo "Personal/Carer's leave";}?></td>
+                    elseif($leave->category == 5){echo "Paid Community serviceleave";}?></td>
                     <td><?= h($leave->date_start) ?></td>
                     <td><?= h($leave->date_end) ?></td>
                     <td><?php if($leave->status == 1){echo "Submitted";} 
@@ -77,11 +76,12 @@ echo $this->Html->css('validation.css');
     </div>
     <div class="center">
         <div class="paginator">
-        <?= $this->Html->link(__('New Leave'), ['action' => 'add'], ['class' => 'button']) ?>
+        <a href="Leaves/add"><button type="button"><span></span>New Leaves</button></a>
             <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
         </div>
     </div>
 </div>
+
 <?php echo $this->Html->css('staffindex.css'); ?>
 <div class="banner">
         <div class="navbar">

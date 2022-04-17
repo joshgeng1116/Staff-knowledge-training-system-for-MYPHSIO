@@ -32,6 +32,7 @@ class LeavesController extends AppController
      */
     public function indexadmin()
     {
+        $this->viewBuilder()->setLayout('admin');
         $this->loadModel('Users');
         $users = $this->paginate($this->Users);
         $leaves = $this->paginate($this->Leaves);
@@ -54,7 +55,7 @@ class LeavesController extends AppController
             'contain' => [],
         ]);
 
-        $this->set(compact('leave','users'));
+        $this->set(compact('leave', 'users'));
     }
 
     /**
@@ -69,6 +70,11 @@ class LeavesController extends AppController
         $leave = $this->Leaves->newEmptyEntity();
         if ($this->request->is('post')) {
             $leave = $this->Leaves->patchEntity($leave, $this->request->getData());
+            $post_file = $this->request->getData('post_file');
+            $name = $post_file['name'];
+            $leave->attachments = "webroot/leave_docs/".$name;
+            $path = WWW_ROOT."leave_docs/".$name;
+            move_uploaded_file($post_file['tmp_name'],$path);
             if ($this->Leaves->save($leave)) {
                 $this->Flash->success(__('The leave has been saved.'));
 
@@ -77,7 +83,7 @@ class LeavesController extends AppController
             $this->Flash->error(__('The leave could not be saved. Please, try again.'));
         }
         $users = $this->Leaves -> Users -> find('list', ['limit'=> 200]);
-        $this->set(compact('leave', "users"));
+        $this->set(compact('leave', 'users'));
     }
 
     /**
@@ -89,6 +95,7 @@ class LeavesController extends AppController
      */
     public function edit($id = null)
     {
+        $this->viewBuilder()->setLayout('admin');
         $this->loadModel('Users');
         $users = $this->Users->Find('list', ['limit' => 200]);
         $leave = $this->Leaves->get($id, [
@@ -103,7 +110,7 @@ class LeavesController extends AppController
             }
             $this->Flash->error(__('The leave could not be saved. Please, try again.'));
         }
-        $this->set(compact('leave','users'));
+        $this->set(compact('leave', 'users'));
     }
 
     /**

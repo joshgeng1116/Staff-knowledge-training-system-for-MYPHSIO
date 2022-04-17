@@ -14,7 +14,10 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenDate $date_end
  * @property string $note
  * @property int $status
- * @property int $id_user
+ * @property int $user_id
+ * @property int $attachments
+ * @property int $archive
+ * @property int $total_hours
  */
 class Leave extends Entity
 {
@@ -33,6 +36,9 @@ class Leave extends Entity
         'date_end' => true,
         'note' => true,
         'status' => true,
-        'id_user' => true,
+        'user_id' => true,
+        'attachments' => true,
+        'archive' => true,
+        'total_hours' => true,
     ];
 }

@@ -18,6 +18,7 @@ class EventsController extends AppController
      */
     public function index()
     {
+        $this->viewBuilder()->setLayout('admin');
         $events = $this->paginate($this->Events);
 
         $this->set(compact('events'));
@@ -32,6 +33,7 @@ class EventsController extends AppController
      */
     public function view($id = null)
     {
+        $this->viewBuilder()->setLayout('admin');
         $event = $this->Events->get($id, [
             'contain' => [],
         ]);
@@ -46,6 +48,7 @@ class EventsController extends AppController
      */
     public function add()
     {
+        $this->viewBuilder()->setLayout('admin');
         $event = $this->Events->newEmptyEntity();
         if ($this->request->is('post')) {
             $event = $this->Events->patchEntity($event, $this->request->getData());
@@ -68,6 +71,7 @@ class EventsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->viewBuilder()->setLayout('admin');
         $event = $this->Events->get($id, [
             'contain' => [],
         ]);

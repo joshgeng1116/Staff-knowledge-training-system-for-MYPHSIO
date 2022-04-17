@@ -18,6 +18,7 @@ class UsersController extends AppController
      */
     public function index()
     {
+        $this->viewBuilder()->setLayout('admin');
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));
@@ -32,6 +33,7 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
+        $this->viewBuilder()->setLayout('admin');
         $user = $this->Users->get($id, [
             'contain' => [],
         ]);
@@ -46,9 +48,15 @@ class UsersController extends AppController
      */
     public function add()
     {
+        $this->viewBuilder()->setLayout('admin');
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
+            $post_image = $this->request->getData('post_image');
+            $name = $post_image['name'];
+            $user->image_path = 'webroot/user_image/'.$name;
+            $path = WWW_ROOT.'user_image/'.$name;
+            move_uploaded_file($post_image['tmp_name'],$path);
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
@@ -68,6 +76,7 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
+        $this->viewBuilder()->setLayout('admin');
         $user = $this->Users->get($id, [
             'contain' => [],
         ]);

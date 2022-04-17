@@ -40,6 +40,10 @@ class UsersTable extends Table
         $this->setTable('users');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
+
+        $this->hasMany('Leaves', [
+            'foreignKey' => 'user_id',
+        ]);
     }
 
     /**
@@ -72,8 +76,7 @@ class UsersTable extends Table
             ->notEmptyString('password');
 
         $validator
-            ->scalar('role')
-            ->maxLength('role', 20)
+            ->integer('role')
             ->requirePresence('role', 'create')
             ->notEmptyString('role');
 
@@ -81,6 +84,11 @@ class UsersTable extends Table
             ->date('date_of_birth')
             ->requirePresence('date_of_birth', 'create')
             ->notEmptyDate('date_of_birth');
+
+        $validator
+            ->date('image_path')
+            ->requirePresence('image_path', 'create')
+            ->notEmptyDate('image_path');
 
         return $validator;
     }

@@ -372,6 +372,7 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: 2rem;
+  text-align: center;
 }
 
 h3, .h3 {
@@ -608,6 +609,7 @@ pre code {
 .col-xl-auto {
   position: relative;
   width: 100%;
+    align-items: center;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
 }
@@ -10320,7 +10322,7 @@ a:focus {
 }
 
 .sidebar {
-  width: 6.5rem;
+  width: 25rem;
   min-height: 100vh;
 }
 

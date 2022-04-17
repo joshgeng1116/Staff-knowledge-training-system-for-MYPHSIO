@@ -6,7 +6,6 @@
 ?>
 <div class="events index content">
     <?= $this->Html->link(__('New Event'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Events') ?></h3>
     <div class="table-responsive">
         <table>
             <thead>

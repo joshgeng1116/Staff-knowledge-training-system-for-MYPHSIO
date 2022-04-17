@@ -27,12 +27,12 @@
                     <td><?= h($user->email) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Role') ?></th>
-                    <td><?= h($user->role) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($user->id) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Role') ?></th>
+                    <td><?= $this->Number->format($user->role) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Date Of Birth') ?></th>

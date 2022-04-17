@@ -1,32 +1,92 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Documents $document
- * @var \App\Model\Entity\Subcategory $subcategory
+ * @var \App\Model\Entity\Document $document
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Documents'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="documents form content">
-            <?= $this->Form->create($document,['type'=>'file']) ?>
-            <fieldset>
-                <legend><?= __('Add Documents') ?></legend>
-                <?php
-                    echo $this->Form->control('title');
-                    echo $this->Form->control('user_type');
-                    echo $this->Form->control('doc_type');
-                    echo $this->Form->control('id_subcat',['options'=>$subcategory]);
-                    echo $this->Form->control('post_file',['type'=>'file','class'=>'form-control','required'=>true])
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
+<div class="column-responsive column-100 center">
+    <div class="jobs view content center">
+        <?= $this->Form->create($document,["type"=>"file"]) ?>
+        <!-- <fieldset> -->
+        <div class="row center">
+            <form class="needs-validation" novalidate="">
+                <div class="col-md-6">
+                    <h3 class="mb-3 center" style="color: black">Add Documents</h3>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <div class="mb-3">
+                        <?php
+                        echo $this->Form->control('title', ["required", "class" => "form-control", "label" => "Title: "]);
+                        ?>
+                    </div>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <div class="mb-3">
+                        <?php
+                        echo $this->Form->control('author', ["required", "class" => "form-control", "label" => "Author: "]);
+                        ?>
+                    </div>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <div class="mb-3">
+                        <?php
+                        echo $this->Form->control('year', ["required", "class" => "form-control", "label" => "Year: "]);
+                        ?>
+                    </div>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <div class="mb-3">
+                        <?php
+                        $role_type=[1=>"Admin",2=>"Staff",3=>"Manager"];
+                        echo $this->Form->control('user_type', ['options'=>$role_type, "required", "class" => "form-control", "label" => "User Type: "]);
+                        ?>
+                    </div>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <div class="mb-3">
+                        <?php
+                        $doc_type=[1=>"Document",2=>"Video"];
+                        echo $this->Form->control('doc_type', ['options'=>$doc_type, "required", "class" => "form-control", "label" => "Document Type: "]);
+                        ?>
+                    </div>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <div class="mb-3">
+                        <?php
+                        echo $this->Form->control('category', ['options'=>$categories,"required", "class" => "form-control", "label" => "Category: "]);
+                        ?>
+                    </div>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <div class="mb-3">
+                        <?php
+                        echo $this->Form->control('subcat_id', ['options'=>$subcategories,"required", "class" => "form-control", "label" => "Subcategory: "]);
+                        ?>
+                    </div>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <div class="mb-3">
+                        <?php
+                        echo $this->Form->control('post_file', ["required", "class" => "form-control", "type"=>"file", "label" => "Upload File: "]);
+                        ?>
+                    </div>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+                    <div class="center">
+                        <?= $this->Form->button(__('Save'), ['class' => 'form-control button', 'style'=>'background:#3CB371;color:white', 'id' => 'submit_btn', 'onclick'=>'Changes have been saved']) ?>
+                        <?= $this->Form->end() ?>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+

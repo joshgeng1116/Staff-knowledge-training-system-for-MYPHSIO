@@ -28,12 +28,6 @@ use Cake\ORM\Locator\TableLocator;
 use Cake\Routing\Middleware\AssetMiddleware;
 use Cake\Routing\Middleware\RoutingMiddleware;
 
-/**
- * Application setup class.
- *
- * This defines the bootstrapping logic and middleware layers you
- * want to use in your application.
- */
 // In src/Application.php add the following imports
 use Authentication\AuthenticationService;
 use Authentication\AuthenticationServiceInterface;
@@ -42,6 +36,13 @@ use Authentication\Middleware\AuthenticationMiddleware;
 use Cake\Routing\Router;
 use Psr\Http\Message\ServerRequestInterface;
 
+
+/**
+ * Application setup class.
+ *
+ * This defines the bootstrapping logic and middleware layers you
+ * want to use in your application.
+ */
 class Application extends BaseApplication implements AuthenticationServiceProviderInterface
 {
     /**
@@ -70,8 +71,6 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
         if (Configure::read('debug')) {
             $this->addPlugin('DebugKit');
         }
-
-        $this->addPlugin('Authentication');
 
         // Load more plugins here
     }
@@ -147,7 +146,6 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
         // Load more plugins here
     }
 
-
     public function getAuthenticationService(ServerRequestInterface $request): AuthenticationServiceInterface
     {
         $authenticationService = new AuthenticationService([
@@ -176,4 +174,5 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
 
         return $authenticationService;
     }
+
 }

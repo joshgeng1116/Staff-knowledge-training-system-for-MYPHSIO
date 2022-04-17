@@ -11,19 +11,21 @@ use Cake\Validation\Validator;
 /**
  * Documents Model
  *
- * @method \App\Model\Entity\Documents newEmptyEntity()
- * @method \App\Model\Entity\Documents newEntity(array $data, array $options = [])
- * @method \App\Model\Entity\Documents[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Documents get($primaryKey, $options = [])
- * @method \App\Model\Entity\Documents findOrCreate($search, ?callable $callback = null, $options = [])
- * @method \App\Model\Entity\Documents patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Documents[] patchEntities(iterable $entities, array $data, array $options = [])
- * @method \App\Model\Entity\Documents|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Documents saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Documents[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\Documents[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
- * @method \App\Model\Entity\Documents[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
- * @method \App\Model\Entity\Documents[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ * @property \App\Model\Table\SubcategoriesTable&\Cake\ORM\Association\BelongsTo $Subcategories
+ *
+ * @method \App\Model\Entity\Document newEmptyEntity()
+ * @method \App\Model\Entity\Document newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\Document[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Document get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Document findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\Document patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Document[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Document|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Document saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Document[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Document[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Document[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\Document[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
  */
 class DocumentsTable extends Table
 {
@@ -40,7 +42,11 @@ class DocumentsTable extends Table
         $this->setTable('documents');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
-        $this->belongsTo('Subcategory',['foreignKey' => 'id_sub','joinType' => 'INNER']);
+
+        $this->belongsTo('Subcategories', [
+            'foreignKey' => 'subcat_id',
+            'joinType' => 'INNER',
+        ]);
     }
 
     /**
@@ -62,6 +68,17 @@ class DocumentsTable extends Table
             ->notEmptyString('title');
 
         $validator
+            ->scalar('author')
+            ->maxLength('author',255)
+            ->requirePresence('author', 'create')
+            ->notEmptyString('author');
+
+        $validator
+            ->integer('year')
+            ->requirePresence('year', 'create')
+            ->notEmptyString('year');
+
+        $validator
             ->requirePresence('user_type', 'create')
             ->notEmptyString('user_type');
 
@@ -70,14 +87,24 @@ class DocumentsTable extends Table
             ->notEmptyString('doc_type');
 
         $validator
-            ->integer('id_subcat')
-            ->requirePresence('id_subcat', 'create')
-            ->notEmptyString('id_subcat');
-
-        $validator
             ->scalar('path')
-            ->maxLength('path', 255);
+            ->maxLength('path', 255)
+            ->allowEmptyString('path');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->existsIn('subcat_id', 'Subcategories'), ['errorField' => 'subcat_id']);
+
+        return $rules;
     }
 }

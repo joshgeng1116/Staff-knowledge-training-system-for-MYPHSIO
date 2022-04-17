@@ -41,18 +41,16 @@ class AppController extends Controller
     {
         parent::initialize();
 
-        //$this->loadComponent('Csrf');
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
-
-        // Add this line to check authentication result and lock your site
-        $this->loadComponent('Authentication.Authentication');
 
         /*
          * Enable the following component for recommended CakePHP form protection settings.
          * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
          */
         //$this->loadComponent('FormProtection');
+        // Add this line to check authentication result and lock your site
+        $this->loadComponent('Authentication.Authentication');
     }
 
     public function beforeFilter(\Cake\Event\EventInterface $event)

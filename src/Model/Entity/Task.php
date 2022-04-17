@@ -13,6 +13,9 @@ use Cake\ORM\Entity;
  * @property int $status
  * @property int $percentage
  * @property int $documents
+ *
+ * @property \App\Model\Entity\Link[] $links
+ * @property \App\Model\Entity\TrainingPlan[] $training_plans
  */
 class Task extends Entity
 {
@@ -30,5 +33,7 @@ class Task extends Entity
         'status' => true,
         'percentage' => true,
         'documents' => true,
+        'links' => true,
+        'training_plans' => true,
     ];
 }

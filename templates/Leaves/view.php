@@ -21,12 +21,11 @@
                 <tr>
                     <th><?= __('Category') ?></th>
                     <td><?php if($leave->category == 0){echo "Annual Leave";} 
-                    elseif($leave->category == 1){echo "Sick Leave";}
+                    elseif($leave->category == 1){echo "Personal/Carer's leave";}
                     elseif($leave->category == 2){echo "Compassionate Leave";}
                     elseif($leave->category == 3){echo "Time in Lieu";}
                     elseif($leave->category == 4){echo "Leave without pay";}
-                    elseif($leave->category == 5){echo "Paid Community serviceleave";}
-                    elseif($leave->category == 6){echo "Personal/Carer's leave";}?></td>
+                    elseif($leave->category == 5){echo "Paid Community serviceleave";}?></td>
                 </tr>
                 <tr>
                     <th><?= __('Id') ?></th>
@@ -41,7 +40,7 @@
                 <tr>
                     <th><?= __('User') ?></th>
                     <td><?php foreach ($users as $users){
-                                if($users->id == $leave->id_user){
+                                if($users->id == $leave->user_id){
                                     echo $users->name;
                                 }
                             }

@@ -25,7 +25,6 @@ echo $this->Html->css('styles.sidebar.css');
     <!-- Sidebar-->
     <div class="border-end bg-white" id="sidebar-wrapper">
         <div class="sidebar-heading border-bottom bg-light">Categories
-            <div><?= $this->Html->link(__('New Category'), ['action' => 'add'], ['class' => 'button  float-right']) ?></div>
         </div>
         <div class="list-group list-group-flush">
             <?php foreach ($category as $categories): ?>
@@ -35,7 +34,6 @@ echo $this->Html->css('styles.sidebar.css');
     </div>
     <div class="border-end bg-white" id="sidebar-wrapper">
         <div class="sidebar-heading border-bottom bg-light">Subcategories
-            <div><?= $this->Html->link(__('New Subcategory'), ['action' => 'add'], ['class' => 'button  float-right']) ?></div>
         </div>
         <div class="list-group list-group-flush">
             <?php foreach ($subcategories as $subcategory): ?>
@@ -45,7 +43,6 @@ echo $this->Html->css('styles.sidebar.css');
     </div>
     <div class="border-end bg-white" id="sidebar-wrapper">
         <div class="sidebar-heading border-bottom bg-light">Documents
-            <div><?= $this->Html->link(__('New Document'), ['action' => 'add'], ['class' => 'button  float-right']) ?></div>
         </div>
         <div class="list-group list-group-flush">
             <?php foreach ($documents as $document): ?>
@@ -59,8 +56,7 @@ echo $this->Html->css('styles.sidebar.css');
     <div class="container-fluid">
         <a herf="<?= $document->path?>" target="_blank"></a>
         <body>
-            <h1><?php debug($document->path)?></h1>
-            <iframe src="file://<?= h($document->path)?>" width="100%" height="100%"></iframe>
+        <iframe src="https://dev.u21s2102.monash-ie.me/<?= h($document->path)?>" width="100%" height="100%"></iframe>
         </body>
     </div>
 </div>
@@ -71,4 +67,3 @@ echo $this->Html->css('styles.sidebar.css');
 <script src="js/scripts.sidebar.js"></script>
 </body>
 </html>
-

@@ -7,9 +7,9 @@ namespace App\Controller;
  * Documents Controller
  *
  * @property \App\Model\Table\DocumentsTable $Documents
- * @property \App\Model\Table\SubcategoryTable $Subcategory
- * @property \App\Model\Table\CategoryTable $Category
- * @method \App\Model\Entity\Documents[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @property \App\Model\Table\CategoriesTable $Categories
+ * @property \App\Model\Table\SubcategoriesTable $Subcategories
+ * @method \App\Model\Entity\Document[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class DocumentsController extends AppController
 {
@@ -20,35 +20,43 @@ class DocumentsController extends AppController
      */
     public function index()
     {
+        $this->viewBuilder()->setLayout('admin');
+        $this->paginate = [
+            'contain' => [],
+        ];
+        //$this->loadModel('Categories');
+        //$categories = $this->paginate($this->Categories);
+        $this->loadModel('Subcategories');
+        $subcategories = $this->paginate($this->Subcategories);
         $documents = $this->paginate($this->Documents);
 
-        $this->set(compact('documents'));
+        $this->set(compact('documents','subcategories'));
+    }
+
+    public function viewBySubcat($subid,$catid){
+        $this->loadModel('Categories');
+        $category = $this->paginate($this->Categories);
+        $subcategory = $this->loadModel('Subcategories');
+        $subcategories = $subcategory->find()->where(['cat_id'=>$catid]);
+        $document = $this->getTableLocator()->get('Documents');
+        $documents = $document->find()->where(['subcat_id'=>$subid]);
+        $this->set(compact('subcategories','category','documents'));
     }
 
     /**
      * View method
      *
-     * @param string|null $id Documents id.
+     * @param string|null $id Document id.
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
         $document = $this->Documents->get($id, [
-            'contain' => [],
+            'contain' => ['Subcategories'],
         ]);
 
         $this->set(compact('document'));
-    }
-
-    public function viewBySubcat($subid,$catid){
-        $this->loadModel('Category');
-        $category = $this->paginate($this->Category);
-        $subcategory = $this->loadModel('Subcategory');
-        $subcategories = $subcategory->find()->where(['id_cat'=>$catid]);
-        $document = $this->getTableLocator()->get('Documents');
-        $documents = $document->find()->where(['id_subcat'=>$subid]);
-        $this->set(compact('subcategories','category','documents'));
     }
 
     /**
@@ -58,16 +66,14 @@ class DocumentsController extends AppController
      */
     public function add()
     {
-        $this->loadModel('Subcategory');
-        $subcategory = $this->Subcategory->Find('list', ['limit' => 200]);
+        $this->viewBuilder()->setLayout('admin');
         $document = $this->Documents->newEmptyEntity();
         if ($this->request->is('post')) {
             $document = $this->Documents->patchEntity($document, $this->request->getData());
-
             $postFile = $this->request->getData('post_file');
             $name = $postFile['name'];
-            $document->path = 'webroot/categories/cate_'  .$this->get_cat_name($document->id_subcat).'/sub_'.$this->get_sub_name($document->id_subcat).'/doc_'.$name;
-            $path = WWW_ROOT.'categories/cate_' .$this->get_cat_name($document->id_subcat).'/sub_'.$this->get_sub_name($document->id_subcat).'/doc_'.$name;
+            $document->path = 'webroot/category/cate_'  .$this->get_cat_name($document->subcat_id).'/sub_'.$this->get_sub_name($document->subcat_id).'/doc_'.$name;
+            $path = WWW_ROOT.'category/cate_' .$this->get_cat_name($document->subcat_id).'/sub_'.$this->get_sub_name($document->subcat_id).'/doc_'.$name;
             //$postFile -> moveTo($path);
             move_uploaded_file($postFile['tmp_name'],$path);
 
@@ -77,27 +83,33 @@ class DocumentsController extends AppController
             }
             $this->Flash->error(__('The document could not be saved. Please, try again.'));
         }
-        $this->set(compact('document','subcategory'));
+        $this->loadModel('Categories');
+        $category = $this->getTableLocator()->get('Categories');
+        $categories = $category->find('list',['limit'=>200])->select(['name']);
+        $subcategories = $this->Documents->Subcategories->find('list', ['limit' => 200])->all();
+        $this->set(compact('document','subcategories','categories'));
+
     }
 
     public function get_sub_name($id){
-        $subcategory = $this->getTableLocator()->get('Subcategory');
+        $subcategory = $this->getTableLocator()->get('Subcategories');
         $subobj = $subcategory->find()->where(['id'=>$id])->select(['name'])->first();
         return $subobj->name;
     }
 
     public function get_cat_name($id){
-        $subcategory = $this->getTableLocator()->get('Subcategory');
-        $subobj = $subcategory->find()->where(['id'=>$id])->select(['id_cat'])->first();
-        $category = $this->getTableLocator()->get('Category');
-        $categoryObj = $category->find()->where(['id'=>$subobj->id_cat])->select(['name'])->first();
+        $subcategory = $this->getTableLocator()->get('Subcategories');
+        $subobj = $subcategory->find()->where(['id'=>$id])->select(['cat_id'])->first();
+        $category = $this->getTableLocator()->get('Categories');
+        $categoryObj = $category->find()->where(['id'=>$subobj->cat_id])->select(['name'])->first();
         return $categoryObj->name;
     }
+
 
     /**
      * Edit method
      *
-     * @param string|null $id Documents id.
+     * @param string|null $id Document id.
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -115,13 +127,14 @@ class DocumentsController extends AppController
             }
             $this->Flash->error(__('The document could not be saved. Please, try again.'));
         }
-        $this->set(compact('document'));
+        $subcats = $this->Documents->Subcats->find('list', ['limit' => 200])->all();
+        $this->set(compact('document', 'subcats'));
     }
 
     /**
      * Delete method
      *
-     * @param string|null $id Documents id.
+     * @param string|null $id Document id.
      * @return \Cake\Http\Response|null|void Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -130,7 +143,7 @@ class DocumentsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $document = $this->Documents->get($id);
         if ($this->Documents->delete($document)) {
-            unlink($document->path);
+            unlink("https://dev.u21s2102.monash-ie.me/".$document->path);
             $this->Flash->success(__('The document has been deleted.'));
         } else {
             $this->Flash->error(__('The document could not be deleted. Please, try again.'));
@@ -140,16 +153,17 @@ class DocumentsController extends AppController
     }
 
     public function docView($subid,$catid,$docid){
-        $this->loadModel('Category');
-        $category = $this->paginate($this->Category);
-        $subcategory = $this->loadModel('Subcategory');
-        $subcategories = $subcategory->find()->where(['id_cat'=>$catid]);
+        $this->loadModel('Categories');
+        $category = $this->paginate($this->Categories);
+        $subcategory = $this->loadModel('Subcategories');
+        $subcategories = $subcategory->find()->where(['cat_id'=>$catid]);
         $document = $this->getTableLocator()->get('Documents');
-        $documents = $document->find()->where(['id_subcat'=>$subid]);
+        $documents = $document->find()->where(['subcat_id'=>$subid]);
         $documentt = $this->Documents->get($docid, [
             'contain' => [],
         ]);
 
         $this->set(compact('subcategories','category','documents','documentt'));
     }
+
 }

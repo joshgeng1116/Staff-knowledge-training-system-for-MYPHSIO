@@ -45,6 +45,8 @@ class PagesController extends AppController
      */
     public function display(string ...$path): ?Response
     {
+        $user = $this->request->getAttribute('identity');
+        $image = $user->image_path;
         if (!$path) {
             return $this->redirect('/');
         }
@@ -59,7 +61,7 @@ class PagesController extends AppController
         if (!empty($path[1])) {
             $subpage = $path[1];
         }
-        $this->set(compact('page', 'subpage'));
+        $this->set(compact('page', 'subpage','image'));
 
         try {
             return $this->render(implode('/', $path));
