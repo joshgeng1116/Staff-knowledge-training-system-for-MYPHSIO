@@ -53,22 +53,24 @@ echo $this->Html->css('validation.css');
                     <th><?= h('Status') ?></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody>   
                 <?php foreach ($leaves as $leave): ?>
-                <tr>
-                    <td><?php
-                    if($leave->category == 0){echo "Annual Leave";} 
-                    elseif($leave->category == 1){echo "Personal/Carer's leave";}
-                    elseif($leave->category == 2){echo "Compassionate Leave";}
-                    elseif($leave->category == 3){echo "Time in Lieu";}
-                    elseif($leave->category == 4){echo "Leave without pay";}
-                    elseif($leave->category == 5){echo "Paid Community serviceleave";}?></td>
-                    <td><?= h($leave->date_start) ?></td>
-                    <td><?= h($leave->date_end) ?></td>
-                    <td><?php if($leave->status == 1){echo "Submitted";} 
-                    elseif($leave->status == 2){echo "Approved";}
-                    elseif($leave->status == 3){echo "Rejected";} ?></td>
-                </tr>
+                    <?php if ($userid == $leave->user_id): ?>
+                    <tr>
+                        <td><?php
+                        if($leave->category == 0){echo "Annual Leave";} 
+                        elseif($leave->category == 1){echo "Personal/Carer's leave";}
+                        elseif($leave->category == 2){echo "Compassionate Leave";}
+                        elseif($leave->category == 3){echo "Time in Lieu";}
+                        elseif($leave->category == 4){echo "Leave without pay";}
+                        elseif($leave->category == 5){echo "Paid Community serviceleave";}?></td>
+                        <td><?= h($leave->date_start) ?></td>
+                        <td><?= h($leave->date_end) ?></td>
+                        <td><?php if($leave->status == 1){echo "Submitted";} 
+                        elseif($leave->status == 2){echo "Approved";}
+                        elseif($leave->status == 3){echo "Rejected";} ?></td>
+                    </tr>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </tbody>
         </table>

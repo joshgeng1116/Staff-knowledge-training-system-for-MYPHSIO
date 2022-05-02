@@ -18,11 +18,12 @@ class LeavesController extends AppController
      */
     public function index()
     {
+        $user = $this->request->getAttribute('identity');
+        $userid= $user->id;
         $this->loadModel('Users');
         $users = $this->paginate($this->Users);
         $leaves = $this->paginate($this->Leaves);
-
-        $this->set(compact('leaves', 'users'));
+        $this->set(compact('leaves', 'users', 'userid'));
     }
 
     /**
