@@ -18,11 +18,9 @@ class TasksController extends AppController
      */
     public function index()
     {
-        $this->viewBuilder()->setLayout('admin');
-        $this->loadModel('Documents');
-        $documents = $this->paginate($this->Documents);
-        $task = $this->paginate($this->Tasks);
-        $this->set(compact('task', 'documents'));
+        $tasks = $this->paginate($this->Tasks);
+
+        $this->set(compact('tasks'));
     }
 
     /**
@@ -34,9 +32,8 @@ class TasksController extends AppController
      */
     public function view($id = null)
     {
-        $this->viewBuilder()->setLayout('admin');
         $task = $this->Tasks->get($id, [
-            'contain' => [],
+            'contain' => ['TrainingPlans', 'TrainingTasks', 'Documents'],
         ]);
 
         $this->set(compact('task'));
@@ -50,8 +47,6 @@ class TasksController extends AppController
     public function add()
     {
         $this->viewBuilder()->setLayout('admin');
-        $this->loadModel('Documents');
-
         $task = $this->Tasks->newEmptyEntity();
         if ($this->request->is('post')) {
             $task = $this->Tasks->patchEntity($task, $this->request->getData());
@@ -62,8 +57,8 @@ class TasksController extends AppController
             }
             $this->Flash->error(__('The task could not be saved. Please, try again.'));
         }
-
-        $this->set(compact('task'));
+        $documents = $this->Tasks->Documents->find('list', ['limit' => 200])->all();
+        $this->set(compact('task','documents'));
     }
 
     /**
@@ -75,7 +70,6 @@ class TasksController extends AppController
      */
     public function edit($id = null)
     {
-        $this->viewBuilder()->setLayout('admin');
         $task = $this->Tasks->get($id, [
             'contain' => [],
         ]);
@@ -91,25 +85,6 @@ class TasksController extends AppController
         $this->set(compact('task'));
     }
 
-    public function staffedit($id = null)
-    {
-        $task = $this->Tasks->get($id, [
-            'contain' => [],
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $task = $this->Tasks->patchEntity($task, $this->request->getData());
-            if ($this->Tasks->save($task)) {
-                $this->Flash->success(__('The task has been saved.'));
-
-                return $this->redirect([
-                    'controller' => 'TrainingPlan',
-                    'action' => 'staffindex'
-                ]);
-            }
-            $this->Flash->error(__('The task could not be saved. Please, try again.'));
-        }
-        $this->set(compact('task'));
-    }
     /**
      * Delete method
      *

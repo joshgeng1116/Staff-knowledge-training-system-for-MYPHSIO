@@ -12,10 +12,11 @@ use Cake\ORM\Entity;
  * @property string $title
  * @property int $status
  * @property int $percentage
- * @property int $documents
+ * @property int $docs
  *
- * @property \App\Model\Entity\Link[] $links
  * @property \App\Model\Entity\TrainingPlan[] $training_plans
+ * @property \App\Model\Entity\TrainingTask[] $training_tasks
+ * @property \App\Model\Entity\Document[] $documents
  */
 class Task extends Entity
 {
@@ -26,14 +27,15 @@ class Task extends Entity
      * be mass assigned. For security purposes, it is advised to set '*' to false
      * (or remove it), and explicitly make individual fields accessible as needed.
      *
-     * @var array
+     * @var array<string, bool>
      */
     protected $_accessible = [
         'title' => true,
         'status' => true,
         'percentage' => true,
-        'documents' => true,
-        'links' => true,
+        'docs' => true,
         'training_plans' => true,
+        'training_tasks' => true,
+        'documents' => true,
     ];
 }

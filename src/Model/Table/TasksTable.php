@@ -12,6 +12,7 @@ use Cake\Validation\Validator;
  * Tasks Model
  *
  * @property \App\Model\Table\TrainingPlansTable&\Cake\ORM\Association\HasMany $TrainingPlans
+ * @property \App\Model\Table\TrainingTasksTable&\Cake\ORM\Association\HasMany $TrainingTasks
  *
  * @method \App\Model\Entity\Task newEmptyEntity()
  * @method \App\Model\Entity\Task newEntity(array $data, array $options = [])
@@ -49,6 +50,9 @@ class TasksTable extends Table
         $this->hasMany('TrainingTasks', [
             'foreignKey' => 'task_id',
         ]);
+        $this->hasMany('Documents', [
+            'foreignKey' => 'docs',
+        ]);
     }
 
     /**
@@ -59,10 +63,6 @@ class TasksTable extends Table
      */
     public function validationDefault(Validator $validator): Validator
     {
-        $validator
-            ->integer('id')
-            ->allowEmptyString('id', null, 'create');
-
         $validator
             ->scalar('title')
             ->maxLength('title', 255)
@@ -77,9 +77,9 @@ class TasksTable extends Table
             ->notEmptyString('percentage');
 
         $validator
-            ->integer('documents')
-            ->requirePresence('documents', 'create')
-            ->notEmptyString('documents');
+            ->integer('docs')
+            ->requirePresence('docs', 'create')
+            ->notEmptyString('docs');
 
         return $validator;
     }

@@ -23,7 +23,7 @@ class TasksFixture extends TestFixture
                 'title' => 'Lorem ipsum dolor sit amet',
                 'status' => 1,
                 'percentage' => 1,
-                'documents' => 1,
+                'docs' => 1,
             ],
         ];
         parent::init();

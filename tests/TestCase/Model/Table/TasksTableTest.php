@@ -21,12 +21,13 @@ class TasksTableTest extends TestCase
     /**
      * Fixtures
      *
-     * @var array
+     * @var array<string>
      */
     protected $fixtures = [
         'app.Tasks',
-        'app.Links',
         'app.TrainingPlans',
+        'app.TrainingTasks',
+        'app.Documents',
     ];
 
     /**
@@ -34,7 +35,7 @@ class TasksTableTest extends TestCase
      *
      * @return void
      */
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $config = $this->getTableLocator()->exists('Tasks') ? [] : ['className' => TasksTable::class];
@@ -46,7 +47,7 @@ class TasksTableTest extends TestCase
      *
      * @return void
      */
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         unset($this->Tasks);
 
