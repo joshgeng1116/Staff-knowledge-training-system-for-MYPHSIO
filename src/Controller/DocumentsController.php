@@ -166,4 +166,10 @@ class DocumentsController extends AppController
         $this->set(compact('subcategories','category','documents','documentt'));
     }
 
+    public function taskdoc($docid){
+        $document = $this->Documents->get($docid, [
+            'contain' => [],
+        ]);
+        $this->set(compact('document'));
+    }
 }
