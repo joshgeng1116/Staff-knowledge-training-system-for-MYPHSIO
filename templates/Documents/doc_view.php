@@ -56,7 +56,7 @@ echo $this->Html->css('styles.sidebar.css');
     <div class="container-fluid">
         <a herf="<?= $document->path?>" target="_blank"></a>
         <body>
-        <iframe src="https://dev.u21s2102.monash-ie.me/<?= h($document->path)?>" width="100%" height="100%"></iframe>
+        <iframe src="https://review.u21s2102.monash-ie.me/<?= h($document->path)?>" width="100%" height="100%"></iframe>
         </body>
     </div>
 </div>

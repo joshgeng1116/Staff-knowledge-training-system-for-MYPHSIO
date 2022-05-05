@@ -22,7 +22,7 @@
                     echo $this->Form->control('title');
                     echo $this->Form->control('description');
                     echo $this->Form->control('assign_to', ['options' => $users]);
-                    echo $this->Form->control('id_tasks', ['options' => $tasks]);
+                    echo $this->Form->control('task_id', ['options' => $tasks]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

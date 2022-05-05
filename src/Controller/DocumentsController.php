@@ -143,7 +143,7 @@ class DocumentsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $document = $this->Documents->get($id);
         if ($this->Documents->delete($document)) {
-            unlink("https://dev.u21s2102.monash-ie.me/".$document->path);
+            unlink("https://review.u21s2102.monash-ie.me/".$document->path);
             $this->Flash->success(__('The document has been deleted.'));
         } else {
             $this->Flash->error(__('The document could not be deleted. Please, try again.'));
