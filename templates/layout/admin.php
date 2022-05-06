@@ -187,6 +187,28 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
+        <div class="sidebar-heading">
+            Company Events
+        </div>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?=$this->Url->build(['controller'=>'Events','action'=>'index'])?>" data-toggle="collapse" data-target="#collapseEight"
+               aria-expanded="true" aria-controls="collapseEight">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Events</span>
+            </a>
+
+            <div id="collapseEight" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Events','action'=>'index'])?>">View</a>
+                </div>
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Events','action'=>'add'])?>">Add</a>
+                </div>
+            </div>
+        </li>
+
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>

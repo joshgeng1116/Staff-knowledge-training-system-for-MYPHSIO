@@ -11,7 +11,8 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property int $type
- * @property \Cake\I18n\FrozenDate $date
+ * @property \Cake\I18n\FrozenDate $start_date
+ * @property \Cake\I18n\FrozenDate $end_date
  */
 class Event extends Entity
 {
@@ -22,11 +23,12 @@ class Event extends Entity
      * be mass assigned. For security purposes, it is advised to set '*' to false
      * (or remove it), and explicitly make individual fields accessible as needed.
      *
-     * @var array
+     * @var array<string, bool>
      */
     protected $_accessible = [
         'name' => true,
         'type' => true,
-        'date' => true,
+        'start_date' => true,
+        'end_date' => true,
     ];
 }

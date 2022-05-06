@@ -11,6 +11,11 @@ namespace App\Controller;
  */
 class EventsController extends AppController
 {
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->loadComponent('RequestHandler');
+    }
     /**
      * Index method
      *
@@ -33,7 +38,6 @@ class EventsController extends AppController
      */
     public function view($id = null)
     {
-        $this->viewBuilder()->setLayout('admin');
         $event = $this->Events->get($id, [
             'contain' => [],
         ]);
@@ -71,7 +75,6 @@ class EventsController extends AppController
      */
     public function edit($id = null)
     {
-        $this->viewBuilder()->setLayout('admin');
         $event = $this->Events->get($id, [
             'contain' => [],
         ]);
@@ -105,5 +108,10 @@ class EventsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function eventstaff($year = null, $month = null){
+        $events = $this->paginate($this->Events);
+        $this->set(compact('events'));
     }
 }

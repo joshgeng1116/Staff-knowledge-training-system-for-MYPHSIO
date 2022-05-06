@@ -40,6 +40,10 @@ class EventsTable extends Table
         $this->setTable('events');
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
+        $this->addBehavior('Calendar.Calendar', [
+            'field' => 'start_date',
+            'endField' => 'end_date',
+        ]);
     }
 
     /**
@@ -51,10 +55,6 @@ class EventsTable extends Table
     public function validationDefault(Validator $validator): Validator
     {
         $validator
-            ->integer('id')
-            ->allowEmptyString('id', null, 'create');
-
-        $validator
             ->scalar('name')
             ->maxLength('name', 255)
             ->requirePresence('name', 'create')
@@ -65,9 +65,14 @@ class EventsTable extends Table
             ->notEmptyString('type');
 
         $validator
-            ->date('date')
-            ->requirePresence('date', 'create')
-            ->notEmptyDate('date');
+            ->date('start_date')
+            ->requirePresence('start_date', 'create')
+            ->notEmptyDate('start_date');
+
+        $validator
+            ->date('end_date')
+            ->requirePresence('end_date', 'create')
+            ->notEmptyDate('end_date');
 
         return $validator;
     }

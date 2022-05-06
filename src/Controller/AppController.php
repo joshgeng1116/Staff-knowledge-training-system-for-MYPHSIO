@@ -51,6 +51,7 @@ class AppController extends Controller
         //$this->loadComponent('FormProtection');
         // Add this line to check authentication result and lock your site
         $this->loadComponent('Authentication.Authentication');
+        $this->loadComponent('Calendar.Calendar');
     }
 
     public function beforeFilter(\Cake\Event\EventInterface $event)

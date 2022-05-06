@@ -19,7 +19,7 @@ class EventsControllerTest extends TestCase
     /**
      * Fixtures
      *
-     * @var array
+     * @var array<string>
      */
     protected $fixtures = [
         'app.Events',

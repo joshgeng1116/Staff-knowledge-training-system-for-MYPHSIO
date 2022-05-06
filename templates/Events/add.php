@@ -4,26 +4,55 @@
  * @var \App\Model\Entity\Event $event
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Events'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="events form content">
-            <?= $this->Form->create($event) ?>
-            <fieldset>
-                <legend><?= __('Add Event') ?></legend>
-                <?php
-                    echo $this->Form->control('name');
-                    echo $this->Form->control('type');
-                    echo $this->Form->control('date');
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
+<div class="column-responsive column-100 center">
+    <div class="jobs view content center">
+        <?= $this->Form->create($event) ?>
+        <!-- <fieldset> -->
+        <div class="row center">
+            <form class="needs-validation" novalidate="">
+                <div class="col-md-6">
+                    <h3 class="mb-3 center" style="color: black">Add Event</h3>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <div class="mb-3">
+                        <?php
+                        echo $this->Form->control('name', ["required", "class" => "form-control", "label" => "Name: "]);
+                        ?>
+                    </div>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <div class="mb-3">
+                        <?php
+                        $event_type = [1=>'Birthday',2=>'Leave',3=>'Social',4=>'Marketing'];
+                        echo $this->Form->control('type', ["options"=>$event_type,"required", "class" => "form-control", "label" => "Type: "]);
+                        ?>
+                    </div>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <div class="mb-3">
+                        <?php
+                        echo $this->Form->control('start_date', ["required", "class" => "form-control", "label" => "Start date: "]);
+                        ?>
+                    </div>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <div class="mb-3">
+                        <?php
+                        echo $this->Form->control('end_date', ["required", "class" => "form-control", "label" => "End date: "]);
+                        ?>
+                    </div>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+                    <div class="center">
+                        <?= $this->Form->button(__('Save'), ['class' => 'form-control button', 'style'=>'background:#3CB371;color:white', 'id' => 'submit_btn', 'onclick'=>'Changes have been saved']) ?>
+                        <?= $this->Form->end() ?>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

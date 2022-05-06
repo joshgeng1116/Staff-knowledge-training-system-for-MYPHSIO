@@ -4,44 +4,61 @@
  * @var \App\Model\Entity\Event[]|\Cake\Collection\CollectionInterface $events
  */
 ?>
-<div class="events index content">
-    <?= $this->Html->link(__('New Event'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <div class="table-responsive">
-        <table>
-            <thead>
+
+<h1 class="text-center"><?= __('Events') ?></h1>
+<div class="col-md-12 col-md-offset">
+    <div class="fresh-table full-color-azure" style>
+        <div class="container">
+            <h4 class="text-right">
+                <?= $this->Html->link(__('New Event'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+            </h4>
+
+            <table table class="table table-striped " id="dataTable" width="30%" cellspacing="0">
+                <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('name') ?></th>
-                    <th><?= $this->Paginator->sort('type') ?></th>
-                    <th><?= $this->Paginator->sort('date') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th  scope="col"><?= __('Name') ?></th>
+                    <th  scope="col"><?= __('Type') ?></th>
+                    <th  scope="col"><?= __('Start date:') ?></th>
+                    <th  scope="col"><?= __('End date:') ?></th>
+                    <th class="actions"><?= __('Actions')?></th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <?php foreach ($events as $event): ?>
-                <tr>
-                    <td><?= $this->Number->format($event->id) ?></td>
-                    <td><?= h($event->name) ?></td>
-                    <td><?= $this->Number->format($event->type) ?></td>
-                    <td><?= h($event->date) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $event->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $event->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $event->id], ['confirm' => __('Are you sure you want to delete # {0}?', $event->id)]) ?>
-                    </td>
-                </tr>
+                    <tr scope = "row">
+                        <td><?= h($event->name) ?></td>
+                        <?php
+                        $type = '';
+                        if($event->type == 1){
+                            $type='Birthday';
+                        }elseif ($event->type == 2){
+                            $type='Leave';
+                        }elseif ($event->type == 3){
+                            $type='Social';
+                        }else{
+                            $type='Marketing';
+                        }?>
+                        <td><?= h($type) ?></td>
+                        <td><?= h($event->start_date) ?></td>
+                        <td><?= h($event->end_date) ?></td>
+                        <td class="actions">
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $event->id], ['confirm' => __('Are you sure you want to delete # {0}?', $event->id)]) ?>
+                        </td>
+                    </tr>
                 <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+                </tbody>
+            </table>
+        </div>
+        <div class="paginator">
+            <ul class="pagination">
+                <?= $this->Paginator->first('<< ' . __('first')) ?>
+                <?= $this->Paginator->prev('< ' . __('previous')) ?>
+                <?= $this->Paginator->numbers() ?>
+                <?= $this->Paginator->next(__('next') . ' >') ?>
+                <?= $this->Paginator->last(__('last') . ' >>') ?>
+            </ul>
+            <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+        </div>
     </div>
 </div>
+

@@ -21,7 +21,7 @@ class EventsTableTest extends TestCase
     /**
      * Fixtures
      *
-     * @var array
+     * @var array<string>
      */
     protected $fixtures = [
         'app.Events',
@@ -32,7 +32,7 @@ class EventsTableTest extends TestCase
      *
      * @return void
      */
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $config = $this->getTableLocator()->exists('Events') ? [] : ['className' => EventsTable::class];
@@ -44,7 +44,7 @@ class EventsTableTest extends TestCase
      *
      * @return void
      */
-    public function tearDown(): void
+    protected function tearDown(): void
     {
         unset($this->Events);
 

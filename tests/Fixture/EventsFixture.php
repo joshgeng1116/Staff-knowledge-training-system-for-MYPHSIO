@@ -22,7 +22,8 @@ class EventsFixture extends TestFixture
                 'id' => 1,
                 'name' => 'Lorem ipsum dolor sit amet',
                 'type' => 1,
-                'date' => '2022-04-04',
+                'start_date' => '2022-05-05',
+                'end_date' => '2022-05-05',
             ],
         ];
         parent::init();

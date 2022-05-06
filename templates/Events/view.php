@@ -31,8 +31,12 @@
                     <td><?= $this->Number->format($event->type) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Date') ?></th>
-                    <td><?= h($event->date) ?></td>
+                    <th><?= __('Start Date') ?></th>
+                    <td><?= h($event->start_date) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('End Date') ?></th>
+                    <td><?= h($event->end_date) ?></td>
                 </tr>
             </table>
         </div>
