@@ -52,8 +52,7 @@ echo $this->Html->script('//cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js');
         <h2>     </h2>
         <h2> Events Calendar</h2>
         <h2>     </h2>
-        <div id="calendar" style="width: 50%;margin: auto;color: black">
-
+        <div id="calendar" style="width: fit-content;margin: auto;color: black">
         </div>
     </div>
 </div>

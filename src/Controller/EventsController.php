@@ -2,7 +2,11 @@
 declare(strict_types=1);
 
 namespace App\Controller;
-
+use Cake\Core\Configure;
+use Cake\Http\Exception\ForbiddenException;
+use Cake\Http\Exception\NotFoundException;
+use Cake\Http\Response;
+use Cake\View\Exception\MissingTemplateException;
 /**
  * Events Controller
  *
@@ -127,6 +131,11 @@ class EventsController extends AppController
         $this->set(compact('events'));
     }
     public function leaves($year = null, $month = null){
+        $events = $this->paginate($this->Events);
+        $this->set(compact('events'));
+    }
+    public function home($year = null, $month = null)
+    {
         $events = $this->paginate($this->Events);
         $this->set(compact('events'));
     }
