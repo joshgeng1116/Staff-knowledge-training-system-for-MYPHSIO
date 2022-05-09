@@ -114,4 +114,20 @@ class EventsController extends AppController
         $events = $this->paginate($this->Events);
         $this->set(compact('events'));
     }
+    public function birthday($year = null, $month = null){
+        $events = $this->paginate($this->Events);
+        $this->set(compact('events'));
+    }
+    public function marketing($year = null, $month = null){
+        $events = $this->paginate($this->Events);
+        $this->set(compact('events'));
+    }
+    public function social($year = null, $month = null){
+        $events = $this->paginate($this->Events);
+        $this->set(compact('events'));
+    }
+    public function leaves($year = null, $month = null){
+        $events = $this->paginate($this->Events);
+        $this->set(compact('events'));
+    }
 }
