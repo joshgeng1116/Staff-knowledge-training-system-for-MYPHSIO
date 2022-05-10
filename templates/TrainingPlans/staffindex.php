@@ -58,22 +58,24 @@ echo $this->Html->css('validation.css');
                 </thead>
                 <tbody>
                     <?php foreach ($trainingPlans as $trainingPlan): ?>
-                    <tr scope="row">
-                        <td><?= $this->Number->format($trainingPlan->id) ?></td>
-                        <td><?= h($trainingPlan->title) ?></td>
-                        <td><?php foreach ($trainingtasks as $trainingtaskss){if($trainingtaskss->training_plan_id == $trainingPlan->id){
-                            foreach ($tasks as $taskss){
-                            if($taskss->id == $trainingtaskss->task_id){
-                            $total_percentage = $taskss->status + $total_percentage;
-                            $count = 1+$count;}}}}
-                            $trainingPlan->percentage=($total_percentage/$count)*100;
-                            echo $this->Number->toPercentage($trainingPlan->percentage)?></td>
-                        <td><?php foreach ($users as $userss){if($userss->id == $trainingPlan->assign_to){echo $userss->name;}} ?></td>
-                        <td><?php foreach ($trainingtasks as $trainingtaskss){if($trainingtaskss->training_plan_id == $trainingPlan->id){
-                                        foreach ($tasks as $taskss){if($taskss->id == $trainingtaskss->task_id){
-                                        echo $this->Html->link($taskss->title,['controller'=>'tasks', 'action'=>'staffedit', $trainingtaskss->task_id]);
-                                        }}}} ?></td>
-                    </tr>
+                        <?php if ($userid == $trainingPlan->assign_to): ?>
+                            <tr scope="row">
+                            <td><?= $this->Number->format($trainingPlan->id) ?></td>
+                            <td><?= h($trainingPlan->title) ?></td>
+                            <td><?php foreach ($trainingtasks as $trainingtaskss){if($trainingtaskss->training_plan_id == $trainingPlan->id){
+                                foreach ($tasks as $taskss){
+                                if($taskss->id == $trainingtaskss->task_id){
+                                $total_percentage = $taskss->status + $total_percentage;
+                                $count = 1+$count;}}}}
+                                $trainingPlan->percentage=($total_percentage/$count)*100;
+                                echo $this->Number->toPercentage($trainingPlan->percentage)?></td>
+                            <td><?php foreach ($users as $userss){if($userss->id == $trainingPlan->assign_to){echo $userss->name;}} ?></td>
+                            <td><?php foreach ($trainingtasks as $trainingtaskss){if($trainingtaskss->training_plan_id == $trainingPlan->id){
+                                            foreach ($tasks as $taskss){if($taskss->id == $trainingtaskss->task_id){
+                                            echo $this->Html->link($taskss->title,['controller'=>'tasks', 'action'=>'staffedit', $trainingtaskss->task_id]);
+                                            }}}} ?></td>
+                            </tr>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </tbody>
             </table>

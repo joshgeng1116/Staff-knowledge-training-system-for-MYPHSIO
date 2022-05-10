@@ -68,6 +68,10 @@ class LeavesController extends AppController
         $this->loadModel('Users');
         $users = $this->Users->Find('list', ['limit' => 200]);
         $leave = $this->Leaves->newEmptyEntity();
+        $user = $this->request->getAttribute('identity');
+        $userid = $user->id;
+        $leave->user_id = $userid;
+        $username = $user->name;
         if ($this->request->is('post')) {
             $leave = $this->Leaves->patchEntity($leave, $this->request->getData());
             $post_file = $this->request->getData('post_file');
@@ -75,7 +79,11 @@ class LeavesController extends AppController
             $leave->attachments = "webroot/leave_docs/".$name;
             $path = WWW_ROOT."leave_docs/".$name;
             move_uploaded_file($post_file['tmp_name'],$path);
+            
             if ($this->Leaves->save($leave)) {
+                if($leave->date_end > $leave->date_start){
+                    $this->Flash->error(__('Please updated the date field to have the start dated before theend date'));
+                }
                 $this->Flash->success(__('The leave has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -83,7 +91,7 @@ class LeavesController extends AppController
             $this->Flash->error(__('The leave could not be saved. Please, try again.'));
         }
         $users = $this->Leaves -> Users -> find('list', ['limit'=> 200]);
-        $this->set(compact('leave', 'users'));
+        $this->set(compact('leave', 'users', 'username'));
     }
 
     /**
@@ -106,7 +114,7 @@ class LeavesController extends AppController
             if ($this->Leaves->save($leave)) {
                 $this->Flash->success(__('The leave has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'indexadmin']);
             }
             $this->Flash->error(__('The leave could not be saved. Please, try again.'));
         }
@@ -130,6 +138,6 @@ class LeavesController extends AppController
             $this->Flash->error(__('The leave could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['action' => 'indexadmin']);
     }
 }

@@ -53,33 +53,28 @@ echo $this->Html->css('validation.css');
         <div class="leaves form content">
             <?= $this->Form->create($leave,['type'=>'file']) ?>
             <fieldset>
-                <h3>    </h3>
+                </br>
                 <h1>Leave Application</h1>
-                <h3>    </h3>
+                </br>
                     <div class="row mx-auto">
-                        <?php
-                        echo $this->Form->control('user_id', ['options' => $users,"required", "class" => "form-control", "label" => "Name",'readonly' => true]);
-                        $cata_type= [0=>"Annual Leave", 1=>"Personal/Carer's leave", 2=>"Compassionate Leave", 4=>"Leave without pay", 5=>"Paid Community serviceleave", 3=>"Time in Lieu"];
-                        echo $this->Form->control('category', ['options'=>$cata_type,"class" => "form-control", "label" => "Type of Leave"])
-                        ?>
+                        <p>Please submit the leave application for yourself (<?=$username?>)</p>
+                        <p>Note: The date fields are inclusive</p>
                     </div>
                     <div class="row mx-auto">
                         <?php
                         echo $this->Form->control('date_start', ["required", "class" => "form-control", "label" => "Start Date"]);
                         echo $this->Form->control('date_end', ["required", "class" => "form-control", "label" => "End Date"]);
-
-                        ?>
-                    </div>
-                    <div class="row mx-auto">
-                        <?php
-                        echo $this->Form->control('post_file', ['type'=>'file','class'=>'form-control','required'=>true]);
                         echo $this->Form->control('total_hours', ["required", "class" => "form-control", "label" => "Total Hours","placeholder"=>"I will be taking leave for:", "type"=>"number"]);
+                        $cata_type= [0=>"Annual Leave", 1=>"Personal/Carer's leave", 2=>"Compassionate Leave", 4=>"Leave without pay", 5=>"Paid Community serviceleave", 3=>"Time in Lieu"];
+                        echo $this->Form->control('category', ['options'=>$cata_type,"class" => "form-control", "label" => "Type of Leave"])
                         ?>
                     </div>
+
                     <div class="row mx-auto">
                         <?php
                         echo $this->Form->hidden('status');
                         echo $this->Form->hidden('archive');
+                        echo $this->Form->control('post_file', ['type'=>'file','class'=>'form-control','required'=>true]);
                         echo $this->Form->control('note', ["required", "class" => "form-control", "label" => "Notes","placeholder"=>"I would like to take the leave beacuse:"]);
                         ?>
                     </div>
@@ -96,8 +91,8 @@ echo $this->Html->css('validation.css');
                 <?php echo $this->Html->image('logo1.png'); ?>
                <ul>
                    <li><?= $this->Html->link('Home','/')?></li>
-                   <li><?= $this->Html->link('Training Plan',['controller'=>'training-plan','action'=>'staffindex'])?></li>
-                   <li><?= $this->Html->link('Document',['controller'=>'category','action'=>'index'])?></li>
+                   <li><?= $this->Html->link('Training Plan',['controller'=>'training-plans','action'=>'staffindex'])?></li>
+                   <li><?= $this->Html->link('Document',['controller'=>'categories','action'=>'index'])?></li>
                    <li><?= $this->Html->link('Leave',['controller'=>'leaves','action'=>'add'])?></li>
                    <li><<?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
                </ul>

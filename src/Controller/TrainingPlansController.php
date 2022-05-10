@@ -40,6 +40,8 @@ class TrainingPlansController extends AppController
      */
     public function staffindex()
     {
+        $user = $this->request->getAttribute('identity');
+        $userid= $user->id;
         $this->loadModel('Users');
         $users = $this->paginate($this->Users);
         $this->loadModel('TrainingTasks');
@@ -52,7 +54,7 @@ class TrainingPlansController extends AppController
         $trainingPlans = $this->paginate($this->TrainingPlans);
         $this->set(array('count' => 0));
         $this->set(array('total_percentage' => 0));
-        $this->set(compact('trainingPlans', 'users', 'trainingtasks','tasks'));
+        $this->set(compact('trainingPlans', 'users', 'trainingtasks','tasks', 'userid'));
         
     }
 
