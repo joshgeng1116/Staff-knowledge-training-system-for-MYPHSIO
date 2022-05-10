@@ -11,7 +11,7 @@
         <div class="row center">
             <form class="needs-validation" novalidate="">
                 <div class="col-md-6">
-                    <h3 class="mb-3 center" style="color: black">Add Subcategory</h3>
+                    <h3 class="mb-3 center" style="color: black">Add Task</h3>
 
                     <hr class="sidebar-divider d-none d-md-block">
 

@@ -4,12 +4,14 @@
  * @var \App\Model\Entity\Task[]|\Cake\Collection\CollectionInterface $tasks
  */
 ?>
-<div class="tasks index content">
-    <?= $this->Html->link(__('New Task'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Tasks') ?></h3>
-    <div class="table-responsive">
-        <table>
-            <thead>
+<h1 class="text-center"><?= __('Task') ?></h1>
+<div class="col-md-12 col-md-offset">
+    <div class="fresh-table full-color-azure" style>
+        <div class="container">
+            <?= $this->Html->link(__('New Task'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+            <div class="table-responsive">
+                <table class="table table-striped " id="dataTable" width="30%" cellspacing="0">
+                    <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('title') ?></th>

@@ -5,7 +5,7 @@ foreach ($leaves as $leave){
         foreach ($users as $user){
             if($leave->user_id == $user->id){
                 $item = [
-                    'title'=> $user->name,
+                    'title'=> $user->name.' leave',
                     'start' => $leave->date_start,
                     'end' => $leave->date_end
                 ];
