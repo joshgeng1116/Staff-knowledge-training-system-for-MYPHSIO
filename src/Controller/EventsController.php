@@ -11,6 +11,8 @@ use Cake\View\Exception\MissingTemplateException;
  * Events Controller
  *
  * @property \App\Model\Table\EventsTable $Events
+ * @property \App\Model\Table\LeavesTable $Leaves
+ * @property \App\Model\Table\UsersTable $Users
  * @method \App\Model\Entity\Event[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class EventsController extends AppController
@@ -131,8 +133,14 @@ class EventsController extends AppController
         $this->set(compact('events'));
     }
     public function leaves($year = null, $month = null){
-        $events = $this->paginate($this->Events);
-        $this->set(compact('events'));
+        $this->loadModel('Leaves');
+        //$leavess = $this->getTableLocator()->get('Leaves');
+        $this->loadModel('Users');
+        //$users = $this->getTableLocator()->get('Users');
+        $leaves = $this->paginate($this->Leaves);
+        $users = $this->paginate($this->Users);
+        //$leaves = $leavess->find('list',['limit'=>200]);
+        $this->set(compact('leaves', 'users'));
     }
     public function home($year = null, $month = null)
     {
