@@ -51,8 +51,8 @@ echo $this->Html->script('//cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js');
     <div class="content">
         <h2>     </h2>
         <h2> Events Calendar</h2>
-        <h2>     </h2>
-        <div id="calendar" style="width: 50%;margin: auto;color: black">
+    </br></br>
+        <div id="calendar" style="width: 45%;margin: auto;color: black">
 
         </div>
     </div>
