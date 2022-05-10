@@ -4,7 +4,7 @@
  */
 $this->disableAutoLayout();
 echo $this->Html->css('//cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.css');
-echo $this->Html->css('staffindex.css');
+echo $this->Html->css('calendar.css');
 echo $this->Html->script('//cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js');
 ?>
 
@@ -36,7 +36,6 @@ echo $this->Html->script('//cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js');
     </style>
 </head>
 
-<?php echo $this->Html->css('staffindex.css'); ?>
 <div class="banner">
     <div class="navbar">
         <?php echo $this->Html->image('logo1.png'); ?>
@@ -50,7 +49,7 @@ echo $this->Html->script('//cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js');
     </div>
     <div class="content">
         <h2>     </h2>
-        <h2> Events Calendar</h2>
+        <h2> Leave Events</h2>
         <h2>     </h2>
         <div id="calendar" style="width: 50%;margin: auto;color: black">
 

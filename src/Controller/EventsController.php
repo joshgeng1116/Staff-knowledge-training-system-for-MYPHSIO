@@ -117,8 +117,15 @@ class EventsController extends AppController
     }
 
     public function eventstaff($year = null, $month = null){
+        $this->loadModel('Leaves');
+        //$leavess = $this->getTableLocator()->get('Leaves');
+        $this->loadModel('Users');
+        //$users = $this->getTableLocator()->get('Users');
+        $leaves = $this->paginate($this->Leaves);
+        $users = $this->paginate($this->Users);
+        //$leaves = $leavess->find('list',['limit'=>200]);
         $events = $this->paginate($this->Events);
-        $this->set(compact('events'));
+        $this->set(compact('leaves', 'users', 'events'));
     }
     public function birthday($year = null, $month = null){
         $events = $this->paginate($this->Events);
