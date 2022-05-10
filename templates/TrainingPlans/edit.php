@@ -35,9 +35,8 @@ echo $this->Html->css('info_edit.css');
                 </div>
                 <hr class="sidebar-divider d-none d-md-block">
                 <div class="col md-auto">
-                    <?php
-                    echo $this->Form->control('task_id', ["required", "class" => "form-control", 'options' => $tasks, "label" => "Task"]);
-                    ?>
+                <a href="<?=$this->Url->build(['controller'=>'TrainingTasks','action' => 'add'])?>" class="form-control button" style="background-color: #4C71DE;color: white"><i
+                        class="fas fa-forwards fa-sm text-white"></i> Add Training Task</a>
                 </div>
             </fieldset>
             <hr class="sidebar-divider d-none d-md-block">

@@ -58,7 +58,7 @@ class TrainingTasksController extends AppController
             if ($this->TrainingTasks->save($trainingTask)) {
                 $this->Flash->success(__('The training task has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'TrainingPlans','action' => 'index']);
             }
             $this->Flash->error(__('The training task could not be saved. Please, try again.'));
         }
