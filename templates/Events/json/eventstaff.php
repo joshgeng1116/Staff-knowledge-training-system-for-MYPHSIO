@@ -13,7 +13,7 @@ foreach ($leaves as $leave){
         foreach ($users as $user){
             if($leave->user_id == $user->id){
                 $item = [
-                    'title'=> $user->name,
+                    'title'=> $user->name.' leave',
                     'start' => $leave->date_start,
                     'end' => $leave->date_end
                 ];
@@ -21,5 +21,16 @@ foreach ($leaves as $leave){
             }
         }
     }
+}
+foreach ($users as $user){
+    $month = date("d",strtotime($user->date_of_birth));
+        $date = date("m",strtotime($user->date_of_birth));
+        $year = date('Y');
+        $item = [
+            'title' => $user->name." Birthday",
+            'start' => $year.'-'.$month.'-'.$date,
+            'end' => $year.'-'.$month.'-'.$date
+        ];
+        $data[] = $item;
 }
 echo json_encode($data);
