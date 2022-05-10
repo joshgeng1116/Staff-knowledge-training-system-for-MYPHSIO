@@ -25,7 +25,10 @@
                 else if ($task -> status == 1)
                     echo $this->Number->toPercentage($task->percentage = 100);
                 ?>
-                <a href="<?= $this->Url->build(['controller'=>'Documents','action'=>'taskdoc',$task->docs])?>">View doc</a>
+                <?php
+                echo $this->Form->control('documents');
+                echo $this->Form->button('documents')
+                ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
             <?= $this->Form->end() ?>

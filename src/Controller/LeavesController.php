@@ -37,7 +37,6 @@ class LeavesController extends AppController
         $this->loadModel('Users');
         $users = $this->paginate($this->Users);
         $leaves = $this->paginate($this->Leaves);
-
         $this->set(compact('leaves', 'users'));
     }
 
