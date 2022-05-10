@@ -18,6 +18,7 @@ class TasksController extends AppController
      */
     public function index()
     {
+        $this->viewBuilder()->setLayout('admin');
         $tasks = $this->paginate($this->Tasks);
 
         $this->set(compact('tasks'));
@@ -32,6 +33,7 @@ class TasksController extends AppController
      */
     public function view($id = null)
     {
+        $this->viewBuilder()->setLayout('admin');
         $task = $this->Tasks->get($id, [
             'contain' => ['TrainingPlans', 'TrainingTasks', 'Documents'],
         ]);
@@ -70,6 +72,7 @@ class TasksController extends AppController
      */
     public function edit($id = null)
     {
+        $this->viewBuilder()->setLayout('admin');
         $task = $this->Tasks->get($id, [
             'contain' => [],
         ]);
@@ -94,6 +97,7 @@ class TasksController extends AppController
      */
     public function delete($id = null)
     {
+        $this->viewBuilder()->setLayout('admin');
         $this->request->allowMethod(['post', 'delete']);
         $task = $this->Tasks->get($id);
         if ($this->Tasks->delete($task)) {
