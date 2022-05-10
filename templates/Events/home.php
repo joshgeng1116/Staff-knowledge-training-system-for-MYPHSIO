@@ -38,6 +38,7 @@ echo $this -> Html -> css('info_edit.css');
         <a href="social"><button type="button"><span></span>SOCIAL</button></a>
         <a href="leaves"><button type="button"><span></span>LEAVES</button></a>
         <a href="marketing"><button type="button"><span></span>MARKETING</button></a>
+        <a href="birthday"><button type="button"><span></span>BIRTHDAY</button></a>
     </div>
 </div>
 <div class="banner">
