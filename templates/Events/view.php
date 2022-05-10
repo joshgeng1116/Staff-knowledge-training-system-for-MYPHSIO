@@ -23,6 +23,10 @@
                     <td><?= h($event->name) ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Birthday') ?></th>
+                    <td><?= h($event->birthday) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($event->id) ?></td>
                 </tr>
