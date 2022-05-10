@@ -91,8 +91,8 @@ echo $this->Html->css('validation.css');
                 <?php echo $this->Html->image('logo1.png'); ?>
                <ul>
                    <li><?= $this->Html->link('Home','/')?></li>
-                   <li><?= $this->Html->link('Training Plan',['controller'=>'training-plans','action'=>'staffindex'])?></li>
-                   <li><?= $this->Html->link('Document',['controller'=>'categories','action'=>'index'])?></li>
+                   <li><?= $this->Html->link('Training Plan',['controller'=>'training-plan','action'=>'staffindex'])?></li>
+                   <li><?= $this->Html->link('Document',['controller'=>'category','action'=>'index'])?></li>
                    <li><?= $this->Html->link('Leave',['controller'=>'leaves','action'=>'add'])?></li>
                    <li><<?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
                </ul>
