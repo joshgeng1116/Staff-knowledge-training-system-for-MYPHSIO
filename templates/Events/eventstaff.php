@@ -51,14 +51,12 @@ echo $this->Html->script('//cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js');
     <div class="content">
         <h2>     </h2>
         <h2> Events Calendar</h2>
-<<<<<<< HEAD
     </br></br>
         <div id="calendar" style="width: 45%;margin: auto;color: black">
 
-=======
         <h2>     </h2>
         <div id="calendar" style="width: fit-content;margin: auto;color: black">
->>>>>>> d48e5c8fc47695e66f09d1cdb4d194d5fa7a8d1a
+
         </div>
     </div>
 </div>

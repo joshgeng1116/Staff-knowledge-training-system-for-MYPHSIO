@@ -26,13 +26,9 @@ $this->disableAutoLayout();
                <div>
                 <a href="TrainingPlans/staffindex"><button type="button"><span></span>TRAINING</button></a>
                 <a href="Categories"><button type="button"><span></span>DOCUMENT</button></a>
-<<<<<<< HEAD
-                <a href="Events/eventstaff"><button type="button"><span></span>CALENDAR</button></a>
-                <a href="Leaves"><button type="button"><span></span>LEAVE </button></a>
-=======
                 <a href="Events/home"><button type="button"><span></span>CALENDAR</button></a>
                 <a href="Leaves"><button type="button"><span></span>LEAVE</button></a>
->>>>>>> d48e5c8fc47695e66f09d1cdb4d194d5fa7a8d1a
+
                </div>
            </div>
 
