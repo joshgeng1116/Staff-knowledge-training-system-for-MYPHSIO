@@ -17,7 +17,6 @@
                 <thead>
                 <tr>
                     <th  scope="col"><?= __('Name') ?></th>
-                    <th  scope="col"><?= __('Birthday') ?></th>
                     <th  scope="col"><?= __('Type') ?></th>
                     <th  scope="col"><?= __('Start date:') ?></th>
                     <th  scope="col"><?= __('End date:') ?></th>
@@ -28,12 +27,13 @@
                 <?php foreach ($events as $event): ?>
                     <tr scope = "row">
                         <td><?= h($event->name) ?></td>
-                        <td><?= h($event->birthday) ?></td>
                         <?php
                         $type = '';
-                        if ($event->type == 1){
-                            $type='Leave';
+                        if($event->type == 1){
+                            $type='Birthday';
                         }elseif ($event->type == 2){
+                            $type='Leave';
+                        }elseif ($event->type == 3){
                             $type='Social';
                         }else{
                             $type='Marketing';

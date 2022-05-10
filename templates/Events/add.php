@@ -25,15 +25,7 @@
 
                     <div class="mb-3">
                         <?php
-                        echo $this->Form->control('birthday', ["required", "class" => "form-control", "label" => "Birthday: "]);
-                        ?>
-                    </div>
-
-                    <hr class="sidebar-divider d-none d-md-block">
-
-                    <div class="mb-3">
-                        <?php
-                        $event_type = [1=>'Leave',2=>'Social',3=>'Marketing'];
+                        $event_type = [1=>'Birthday',2=>'Leave',3=>'Social',4=>'Marketing'];
                         echo $this->Form->control('type', ["options"=>$event_type,"required", "class" => "form-control", "label" => "Type: "]);
                         ?>
                     </div>

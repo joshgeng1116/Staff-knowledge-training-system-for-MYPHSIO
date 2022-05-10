@@ -27,7 +27,6 @@ class Event extends Entity
      */
     protected $_accessible = [
         'name' => true,
-        'birthday' =>true,
         'type' => true,
         'start_date' => true,
         'end_date' => true,

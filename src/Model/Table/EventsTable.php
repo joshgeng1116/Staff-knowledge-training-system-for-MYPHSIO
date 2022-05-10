@@ -59,11 +59,6 @@ class EventsTable extends Table
             ->maxLength('name', 255)
             ->requirePresence('name', 'create')
             ->notEmptyString('name');
-        
-            $validator
-            ->date('birthday')
-            ->requirePresence('birthday', 'create')
-            ->notEmptyDate('birthday');
 
         $validator
             ->requirePresence('type', 'create')
