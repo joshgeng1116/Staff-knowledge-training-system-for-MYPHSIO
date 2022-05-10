@@ -55,6 +55,7 @@ echo $this->Html->css('validation.css');
             <fieldset>
                 </br>
                 <h1>Leave Application</h1>
+                <?php echo $this->Flash->render(); ?>
                 </br>
                     <div class="row mx-auto">
                         <p>Please submit the leave application for yourself (<?=$username?>)</p>
