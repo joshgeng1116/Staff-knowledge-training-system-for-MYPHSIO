@@ -17,7 +17,7 @@
 
                     <div class="mb-3">
                         <?php
-                        echo $this->Form->control('name', ["required", "class" => "form-control", "label" => "Name: "]);
+                        echo $this->Form->control('name', ["required", "class" => "form-control", "label" => "Event Name: "]);
                         ?>
                     </div>
 
