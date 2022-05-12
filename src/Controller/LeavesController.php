@@ -65,6 +65,7 @@ class LeavesController extends AppController
      */
     public function add()
     {
+        $this->viewBuilder()->setLayout('admin');
         $this->loadModel('Users');
         $users = $this->Users->Find('list', ['limit' => 200]);
         $leave = $this->Leaves->newEmptyEntity();
