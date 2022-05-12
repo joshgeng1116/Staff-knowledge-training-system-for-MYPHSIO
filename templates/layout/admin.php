@@ -42,7 +42,6 @@
             Users
         </div>
 
-
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="<?=$this->Url->build(['controller'=>'Users','action'=>'index'])?>" data-toggle="collapse" data-target="#collapseTwo"
@@ -52,14 +51,14 @@
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Users','action'=>'index'])?>">View</a>
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Users','action'=>'index'])?>"><font size="3.5">View</font></a>
                 </div>
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Users','action'=>'add'])?>">Add</a>
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Users','action'=>'add'])?>"><font size="3.5">Add</font></a>
                 </div>
             </div>
         </li>
-
+        </br>
         <hr class="sidebar-divider">
 
         <!-- Heading -->
@@ -78,10 +77,10 @@
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Categories','action'=>'indexadmin'])?>">View</a>
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Categories','action'=>'indexadmin'])?>"><font size="3.5">View</font></a>
                 </div>
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Categories','action'=>'add'])?>">Add</a>
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Categories','action'=>'add'])?>"><font size="3.5">Add</font></a>
                 </div>
             </div>
         </li>
@@ -97,10 +96,10 @@
             <div id="collapseOne" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Subcategories','action'=>'index'])?>">View</a>
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Subcategories','action'=>'index'])?>"><font size="3.5">View</font></a>
                 </div>
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Subcategories','action'=>'add'])?>">Add</a>
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Subcategories','action'=>'add'])?>"><font size="3.5">Add</font></a>
                 </div>
             </div>
         </li>
@@ -116,14 +115,14 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Documents','action'=>'index'])?>">View</a>
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Documents','action'=>'index'])?>"><font size="3.5">View</font></a>
                 </div>
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Documents','action'=>'add'])?>">Add</a>
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Documents','action'=>'add'])?>"><font size="3.5">Add</font></a>
                 </div>
             </div>
         </li>
-
+        </br>
         <hr class="sidebar-divider">
 
         <!-- Heading -->
@@ -142,7 +141,7 @@
             <div id="collapseSix" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'TrainingPlans','action'=>'index'])?>">View</a>
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'TrainingPlans','action'=>'index'])?>"><font size="3.5">View</font></a>
                 </div>
             </div>
         </li>
@@ -158,10 +157,11 @@
             <div id="collapseFive" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Tasks','action'=>'index'])?>">View</a>
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Tasks','action'=>'index'])?>"><font size="3.5">View</font></a>
                 </div>
             </div>
         </li>
+        </br>
         <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -180,10 +180,11 @@
             <div id="collapseSeven" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Leaves','action'=>'indexadmin'])?>">View</a>
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Leaves','action'=>'indexadmin'])?>"><font size="3.5">View</font></a>
                 </div>
             </div>
         </li>
+        </br>
         <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -201,14 +202,14 @@
             <div id="collapseEight" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Events','action'=>'index'])?>">View</a>
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Events','action'=>'index'])?>"><font size="3.5">View</font></a>
                 </div>
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Events','action'=>'add'])?>">Add</a>
+                    <a class="collapse-item" href="<?=$this->Url->build(['controller'=>'Events','action'=>'add'])?>"><font size="3.5">Add</font></a>
                 </div>
             </div>
         </li>
-
+        </br>
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
