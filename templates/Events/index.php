@@ -29,11 +29,9 @@
                         <td><?= h($event->name) ?></td>
                         <?php
                         $type = '';
-                        if($event->type == 1){
-                            $type='Birthday';
-                        }elseif ($event->type == 2){
+                        if ($event->type == 1){
                             $type='Leave';
-                        }elseif ($event->type == 3){
+                        }elseif ($event->type == 2){
                             $type='Social';
                         }else{
                             $type='Marketing';

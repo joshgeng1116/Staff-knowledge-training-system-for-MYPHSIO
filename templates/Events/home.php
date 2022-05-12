@@ -49,7 +49,7 @@ echo $this -> Html -> css('info_edit.css');
             <li><a href="TrainingPlans/staffindex">Training Plan</a></li>
             <li><a href="<?php $this->Url->build(['controller'=>'Categories','action'=>'index'])?>">Documents</a></li>
             <li><a href="Leaves">Leave</a></li>
-            <li><a href="Users/logout">Logout</a></li>
+            <li><?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
         </ul>
 <!--        <img src="--><?//= $image?><!--" width="50px" height="50px">-->
     </div>
