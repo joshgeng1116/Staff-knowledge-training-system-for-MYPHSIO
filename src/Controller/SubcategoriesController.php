@@ -69,7 +69,6 @@ class SubcategoriesController extends AppController
             $sub_name = '/sub_'.$subcategory->name;
             if (!file_exists(WWW_ROOT.'category/cate_' . $this->get_name($subcategory->cat_id).$sub_name)) {
                 mkdir(WWW_ROOT.'category/cate_' .$this->get_name($subcategory->cat_id).$sub_name);
-                echo($this->get_name($subcategory->cat_id));
                 if ($this->Subcategories->save($subcategory)) {
                     $this->Flash->success(__('The subcategory has been saved.'));
 

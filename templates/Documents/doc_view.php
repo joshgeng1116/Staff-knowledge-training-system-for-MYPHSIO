@@ -51,12 +51,12 @@ echo $this->Html->css('styles.sidebar.css');
             <?php endforeach; ?>
         </div>
     </div>
-    <?php $this->Url->build($document->path)?>
+    <?php $this->Url->build($documentt->path)?>
     <!-- Page content-->
     <div class="container-fluid">
-        <a herf="<?= $document->path?>" target="_blank"></a>
+        <a herf="<?= $documentt->path?>" target="_blank"></a>
         <body>
-        <iframe src="https://review.u21s2102.monash-ie.me/<?= h($document->path)?>" width="100%" height="100%"></iframe>
+        <iframe src="https://review.u21s2102.monash-ie.me/<?= h($documentt->path)?>" width="100%" height="100%"></iframe>
         </body>
     </div>
 </div>

@@ -38,7 +38,7 @@ echo $this->Html->css('styles.sidebar.css');
         </div>
         <div class="list-group list-group-flush">
             <?php foreach ($subcategories as $subcategory): ?>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?= $this->Url->build(['controller'=>'Documents','action'=>'viewByCat',$subcategory->id,$subcategory->cat_id])?>"><?= h($subcategory->name) ?></a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?= $this->Url->build(['controller'=>'Subcategories','action'=>'viewByCat',$subcategory->id,$subcategory->cat_id])?>"><?= h($subcategory->name) ?></a>
             <?php endforeach; ?>
         </div>
     </div>
