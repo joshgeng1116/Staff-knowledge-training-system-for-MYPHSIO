@@ -19,7 +19,7 @@ echo $this->Html->css('info_edit.css');
                 <hr class="sidebar-divider d-none d-md-block">
                 <div class="col md-auto">
                      <?php
-                    echo $this->Form->control('document_id', ["options"=>$documentsVal,"required", "class" => "form-control", "label" => "Document: "]);
+                    echo $this->Form->control('document_id', ["options"=>$documents,"required", "class" => "form-control", "label" => "Document: "]);
                     ?>
                 </div>
             </fieldset>
