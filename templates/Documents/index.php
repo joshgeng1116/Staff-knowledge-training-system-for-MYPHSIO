@@ -10,7 +10,7 @@
     <h1 class="text-center"><?= __('Documents') ?></h1>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary"><?= $this->Html->link(__('New Document'), ['action' => 'add'], ['class' => 'button float-left']) ?></h6>
+            <h6 class="m-0 font-weight-bold text-primary"><?= $this->Html->link(__('New Documents'), ['action' => 'add'], ['class' => 'button float-left']) ?></h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
