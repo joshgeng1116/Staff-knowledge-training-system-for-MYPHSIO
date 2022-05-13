@@ -84,7 +84,7 @@ class TasksController extends AppController
             'contain' => [],    
         ]);
         $this->loadModel('Documents');
-        $docVal = $this->Tasks->Documents->find('list', ['limit' => 200])->all();
+        $documents = $this->Documents->find('list', ['limit' => 200])->all();
         if ($this->request->is(['patch', 'post', 'put'])) {
             $task = $this->Tasks->patchEntity($task, $this->request->getData());
             if ($this->Tasks->save($task)) {
@@ -95,7 +95,7 @@ class TasksController extends AppController
             $this->Flash->error(__('The task could not be saved. Please, try again.'));
         }
         
-        $this->set(compact('task', 'docVal'));
+        $this->set(compact('task', 'documents'));
     }
 
     /**
