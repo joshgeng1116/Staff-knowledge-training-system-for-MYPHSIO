@@ -78,7 +78,7 @@ echo $this->Html->css('validation.css');
     </div>
     <div class="center">
         <div class="paginator">
-        <a href="Leaves/add"><button type="button"><span></span>New Leaves</button></a>
+        <a href="<?php echo $this->Url->build(['controller'=>'Leaves','action'=>'add'])?>"><button type="button"><span></span>New Leaves</button></a>
             <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
         </div>
     </div>

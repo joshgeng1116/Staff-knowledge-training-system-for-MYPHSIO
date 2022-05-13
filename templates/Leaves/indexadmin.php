@@ -43,7 +43,11 @@
                             elseif($leave->status == 2){echo "Approved";}
                             elseif($leave->status == 3){echo "Rejected";} ?></td>
                             <td><?php foreach ($users as $userss){if($userss->id == $leave->user_id){echo $userss->name;}} ?></td>
-                            <td><a href="https://dev.u21s2102.monash-ie.me/<?= h($leave->attachments)?>">View Attachment</a></td>
+                            <?php if ($leave->attachments != Null): ?>
+                                <td><a href="https://dev.u21s2102.monash-ie.me/<?= h($leave->attachments)?>">View Attachment</a></td>
+                            <?php else:?>
+                                <td><?= h('No attachment')?></td>
+                            <?php endif;?>
                             <td><?= h($leave->archive) ?></td>
                             <td><?= h($leave->total_hours) ?></td>
                             <td class="actions">
