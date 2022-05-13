@@ -16,6 +16,7 @@ echo $this->Html->script('//cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js');
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
+                contentHeight:'auto',
                 initialView: 'dayGridMonth',
                 eventSources: [{url:'<?= $this->Url->build(['controller'=>'Events','action'=>'eventstaff','_ext'=>'json'])?>',textColor:'white'}]
             });
@@ -26,12 +27,14 @@ echo $this->Html->script('//cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js');
     <style>
         .fc-toolbar-title{
             color:white;
+            font-size: medium;
         }
         .fc-col-header-cell-cushion{
             color: white;
         }
         .fc-daygrid-day-number{
             color:white;
+            margin: auto;
         }
     </style>
 </head>
@@ -44,19 +47,18 @@ echo $this->Html->script('//cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js');
             <li><?= $this->Html->link('Training Plan',['controller'=>'training-plans','action'=>'staffindex'])?></li>
             <li><?= $this->Html->link('Document',['controller'=>'category','action'=>'index'])?></li>
             <li><?= $this->Html->link('Leave',['controller'=>'leaves','action'=>'add'])?></li>
+            <li><<?= $this->Html->link('Calendar',['controller'=>'events','action'=>'home'])?></li>
             <li><<?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
         </ul>
     </div>
     <div class="content">
         <h2>     </h2>
         <h2> All Events</h2>
-    </br></br>
-        <div id="calendar" style="width: 45%;margin: auto;color: black">
-
         <h2>     </h2>
-        <div id="calendar" style="width: fit-content;margin: auto;color: black">
-
+        <div style="width: 60%;margin: auto;">
+            <div id="calendar" style="margin: auto;color: black"></div>
         </div>
+        <button class="btn" onclick="location.href='<?php echo $this->Url->build(['controller'=>'events','action'=>'home'])?>'">Back</button>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"

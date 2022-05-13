@@ -3,6 +3,7 @@ $this->disableAutoLayout();
 ?>
 <?php
 echo $this -> Html -> css('info_edit.css');
+echo $this->Html->css('staffindex.css');
 ?>
 
 
@@ -12,15 +13,10 @@ echo $this -> Html -> css('info_edit.css');
     <link rel="icon" type="image/x-icon" href="assets/icon.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <!-- own custom CSS -->
     <?php
     echo $this->Html->css('add_home');
     ?>
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <!-- todo favicon not working -->
     <!-- favicon -->
@@ -58,4 +54,3 @@ echo $this -> Html -> css('info_edit.css');
 </div>
 </body>
 </html>
-<?php echo $this->Html->css('staffindex.css'); ?>

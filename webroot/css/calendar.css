@@ -35,6 +35,7 @@
 
 .navbar ul li a{
     text-decoration: none;
+    font-weight: bold;
     color: #fff;
     text-transform: uppercase;
 }
@@ -123,4 +124,19 @@ table{
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.btn{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #C1D82F;
+    background:  transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
