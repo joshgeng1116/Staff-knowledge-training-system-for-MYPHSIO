@@ -28,7 +28,7 @@ echo $this->Html->css('styles.sidebar.css');
         </div>
         <div class="list-group list-group-flush">
             <?php foreach ($category as $categories): ?>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?= $this->Url->build(['controller'=>'Subcategory','action'=>'viewByCat',$categories->id ])?>"><?= h($categories->name) ?></a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?= $this->Url->build(['controller'=>'Categories','action'=>'viewByCat',$categories->id ])?>"><?= h($categories->name) ?></a>
             <?php endforeach; ?>
         </div>
     </div>
@@ -37,7 +37,7 @@ echo $this->Html->css('styles.sidebar.css');
         </div>
         <div class="list-group list-group-flush">
             <?php foreach ($subcategories as $subcategory): ?>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?= $this->Url->build(['controller'=>'Documents','action'=>'viewBySubcat',$subcategory->id,$subcategory->id_cat])?>"><?= h($subcategory->name) ?></a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?= $this->Url->build(['controller'=>'Subcategories','action'=>'viewBySubcat',$subcategory->id,$subcategory->id_cat])?>"><?= h($subcategory->name) ?></a>
             <?php endforeach; ?>
         </div>
     </div>

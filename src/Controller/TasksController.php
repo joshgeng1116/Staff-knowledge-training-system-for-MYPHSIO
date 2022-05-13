@@ -81,7 +81,7 @@ class TasksController extends AppController
     {
         $this->viewBuilder()->setLayout('admin');
         $task = $this->Tasks->get($id, [
-            'contain' => [],
+            'contain' => [],    
         ]);
         $this->loadModel('Documents');
         $docVal = $this->Tasks->Documents->find('list', ['limit' => 200])->all();
