@@ -74,7 +74,7 @@ class DocumentsController extends AppController
             $name = $postFile['name'];
             $document->path = 'webroot/category/cate_'  .$this->get_cat_name($document->subcat_id).'/sub_'.$this->get_sub_name($document->subcat_id).'/doc_'.$name;
             $path = WWW_ROOT.'category/cate_' .$this->get_cat_name($document->subcat_id).'/sub_'.$this->get_sub_name($document->subcat_id).'/doc_'.$name;
-            move_uploaded_file($postFile['tmp_name'],$path);
+            move_uploaded_file($postFile['file']['tmp_name'],$path);
 
             if ($this->Documents->save($document)) {
                 $this->Flash->success(__('The document has been saved.'));
