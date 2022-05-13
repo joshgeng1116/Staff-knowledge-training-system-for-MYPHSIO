@@ -41,10 +41,10 @@ echo $this->Html->css('staffindex.css');
     <div class="navbar">
         <?php echo $this->Html->image('logo1.png'); ?>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="TrainingPlans/staffindex">Training Plan</a></li>
-            <li><a href="<?php $this->Url->build(['controller'=>'Categories','action'=>'index'])?>">Documents</a></li>
-            <li><a href="Leaves">Leave</a></li>
+            <li><a href="<?php echo $this->Url->build('/')?>">Home</a></li>
+            <li><a href="<?php echo $this->Url->build(['controller'=>'TrainingPlans','action'=>'staffindex'])?>">Training Plan</a></li>
+            <li><a href="<?php echo $this->Url->build(['controller'=>'Categories','action'=>'index'])?>">Documents</a></li>
+            <li><a href="<?php echo $this->Url->build(['controller'=>'Leaves','action'=>'index'])?>">Leave</a></li>
             <li><?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
         </ul>
 <!--        <img src="--><?//= $image?><!--" width="50px" height="50px">-->
