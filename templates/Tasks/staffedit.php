@@ -77,14 +77,14 @@ echo $this->Html->css('validation.css');
 <div class="banner">
         <div class="navbar">
                 <?php echo $this->Html->image('logo1.png'); ?>
-               <ul>
-                   <li><?= $this->Html->link('Home','/')?></li>
-                   <li><?= $this->Html->link('Training Plan',['controller'=>'training-plans','action'=>'staffindex'])?></li>
-                   <li><?= $this->Html->link('Document',['controller'=>'categories','action'=>'index'])?></li>
-                   <li><?= $this->Html->link('Leave',['controller'=>'leaves','action'=>'add'])?></li>
-                   <li><?= $this->Html->link('Calendar',['controller'=>'events','action'=>'eventstaff'])?></li>
-                   <li><?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
-               </ul>
+                <ul>
+                    <li><?= $this->Html->link('Home','/')?></li>
+                    <li><?= $this->Html->link('Training Plan',['controller'=>'training-plans','action'=>'staffindex'])?></li>
+                    <li><?= $this->Html->link('Document',['controller'=>'categories','action'=>'index'])?></li>
+                    <li><?= $this->Html->link('Leave',['controller'=>'leaves','action'=>'index'])?></li>
+                    <li><?= $this->Html->link('Calendar',['controller'=>'events','action'=>'eventstaff'])?></li>
+                    <li><?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
+                </ul>
         </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
