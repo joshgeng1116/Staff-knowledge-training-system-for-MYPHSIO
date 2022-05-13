@@ -212,8 +212,7 @@
 
         <hr class="sidebar-divider">
         <li class="nav-item">
-            <a class="nav-link collapsed" href="<?=$this->Url->build(['controller'=>'Users','action'=>'logout'])?>" data-toggle="collapse" data-target="#collapseEight"
-               aria-expanded="true" aria-controls="collapseEight">
+            <a class="nav-link collapsed" href="<?=$this->Url->build(['controller'=>'Users','action'=>'logout'])?>">
                 <i class="fas fa-fw fa-exit"></i>
                 <span>Logout</span>
             </a>
