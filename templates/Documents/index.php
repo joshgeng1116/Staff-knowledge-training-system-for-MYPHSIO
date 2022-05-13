@@ -6,12 +6,12 @@
  * @var \App\Model\Entity\Document[]|\Cake\Collection\CollectionInterface $subcategories
  */
 ?>
-<h1 class="text-center"><?= __('Documents') ?></h1>
+<h1 class="text-center"><?= __('Subcategories') ?></h1>
 <div class="col-md-12 col-md-offset">
     <div class="fresh-table full-color-azure" style>
         <div class="container">
             <h4 class="text-right">
-                <?= $this->Html->link(__('New Documents'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+                <?= $this->Html->link(__('New Category'), ['action' => 'add'], ['class' => 'button float-right']) ?>
             </h4>
 
             <table table class="table table-striped " id="dataTable" width="30%" cellspacing="0">

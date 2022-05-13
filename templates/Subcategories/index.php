@@ -4,17 +4,17 @@
  * @var \App\Model\Entity\Subcategory[]|\Cake\Collection\CollectionInterface $subcategories
  */
 ?>
-<h1 class="text-center"><?= __('Subcategories') ?></h1>
-<div class="col-md-12 col-md-offset">
-    <div class="fresh-table full-color-azure" style>
-        <div class="container">
-            <h4 class="text-right">
-                <?= $this->Html->link(__('New Subcategory'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-            </h4>
-
-            <table table class="table table-striped " id="dataTable" width="30%" cellspacing="0">
-                <thead>
-                <tr>
+<div class="leaves index content">
+    <h1 class="text-center"><?= __('Subcategory') ?></h1>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><?= $this->Html->link(__('New Subcategory'), ['action' => 'add'], ['class' => 'button float-left']) ?></h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
                     <th  scope="col"><?= __('Name') ?></th>
                     <th  scope="col"><?= __('Category') ?></th>
                     <th class="actions"><?= __('Actions')?></th>
@@ -33,6 +33,7 @@
                 </tbody>
             </table>
         </div>
+            <div class="text-center">
         <div class="paginator">
             <ul class="pagination">
                 <?= $this->Paginator->first('<< ' . __('first')) ?>
@@ -43,5 +44,6 @@
             </ul>
             <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
         </div>
+            </div>
     </div>
 </div>

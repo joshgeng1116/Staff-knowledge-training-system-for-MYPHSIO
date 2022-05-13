@@ -13,11 +13,12 @@ $this->disableAutoLayout();
            <div class="navbar">
                <img src="assets/img/logo1.png" class="logo">
                <ul>
-                   <li><a href="#">Home</a></li>
-                   <li><a href="TrainingPlans/staffindex">Training Plan</a></li>
-                   <li><a href="<?php $this->Url->build(['controller'=>'Categories','action'=>'index'])?>">Documents</a></li>
-                   <li><a href="Leaves">Leave</a></li>
-                   <li><a href="Users/logout">Logout</a></li>
+                   <li><?= $this->Html->link('Home','/')?></li>
+                   <li><?= $this->Html->link('Training Plan',['controller'=>'training-plans','action'=>'staffindex'])?></li>
+                   <li><?= $this->Html->link('Document',['controller'=>'categories','action'=>'index'])?></li>
+                   <li><?= $this->Html->link('Leave',['controller'=>'leaves','action'=>'add'])?></li>
+                   <li><?= $this->Html->link('Calendar',['controller'=>'events','action'=>'eventstaff'])?></li>
+                   <li><?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
                </ul>
                <img src="<?= $image?>" width="50px" height="50px">
            </div>

@@ -6,26 +6,32 @@
  * @var \Cake\Collection\CollectionInterface|string[] $tasks
  */
 ?>
-<div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Training Plan'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column-responsive column-80">
-        <div class="trainingPlan form content">
-            <?= $this->Form->create($trainingPlan) ?>
-            <fieldset>
-                <legend><?= __('Add Training Plan') ?></legend>
-                <?php
-                    echo $this->Form->control('title');
-                    echo $this->Form->control('description');
+<div class="column-responsive column-100 center">
+    <div class="jobs view content center">
+        <?= $this->Form->create($trainingPlan) ?>
+        <!-- <fieldset> -->
+        <div class="row center">
+            <form class="needs-validation" novalidate="">
+                <div class="col-md-6">
+                    <h3 class="mb-3 center" style="color: black">Add Training Plan</h3>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+
+                    <div class="mb-3">
+                    <?php
+                    echo $this->Form->control('title', ["required", "class" => "form-control", "label" => "Title: "]);
+                    echo $this->Form->control('description', ["required", "class" => "form-control", "label" => "Description: "]);
                     echo $this->Form->control('assign_to', ['options' => $users]);
-                ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
-            <?= $this->Form->end() ?>
+                    ?>
+                    </div>
+
+                    <hr class="sidebar-divider d-none d-md-block">
+                    <div class="center">
+                        <?= $this->Form->button(__('Save'), ['class' => 'form-control button', 'style'=>'background:#3CB371;color:white', 'id' => 'submit_btn', 'onclick'=>'Changes have been saved']) ?>
+                        <?= $this->Form->end() ?>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
