@@ -4,15 +4,17 @@
  * @var \App\Model\Entity\Task[]|\Cake\Collection\CollectionInterface $tasks
  */
 ?>
-<h1 class="text-center"><?= __('Task') ?></h1>
-<div class="col-md-12 col-md-offset">
-    <div class="fresh-table full-color-azure" style>
-        <div class="container">
-            <?= $this->Html->link(__('New Task'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+<div class="leaves index content">
+    <h1 class="text-center"><?= __('Task') ?></h1>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><?= $this->Html->link(__('New Tasks'), ['action' => 'add'], ['class' => 'button float-left']) ?></h6>
+        </div>
+        <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-striped " id="dataTable" width="30%" cellspacing="0">
+                <table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                <tr>
+                    <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('title') ?></th>
                     <th><?= $this->Paginator->sort('status') ?></th>
@@ -39,6 +41,7 @@
             </tbody>
         </table>
     </div>
+            <div class="text-center">
     <div class="paginator">
         <ul class="pagination">
             <?= $this->Paginator->first('<< ' . __('first')) ?>
@@ -48,5 +51,6 @@
             <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>
         <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+    </div>
     </div>
 </div>

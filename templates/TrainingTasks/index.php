@@ -4,17 +4,17 @@
  * @var \App\Model\Entity\TrainingTask[]|\Cake\Collection\CollectionInterface $trainingTasks
  */
 ?>
-<h1 class="text-center"><?= __('Tasks') ?></h1>
-<div class="col-md-12 col-md-offset">
-    <div class="fresh-table full-color-azure" style>
-        <div class="container">
-            <h4 class="text-right">
-                <?= $this->Html->link(__('New Task'), ['action' => 'add'], ['class' => 'button float-left']) ?>
-            </h4>
-    <div class="table-responsive">
-        <table class="table table-striped" id="dataTable" width="30%" cellspacing="0">
-            <thead>
-                <tr>
+<div class="leaves index content">
+    <h1 class="text-center"><?= __('Tasks') ?></h1>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"><?= $this->Html->link(__('New Task'), ['action' => 'add'], ['class' => 'button float-left']) ?></h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table  class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('training_plan_id') ?></th>
                     <th><?= $this->Paginator->sort('task_id') ?></th>

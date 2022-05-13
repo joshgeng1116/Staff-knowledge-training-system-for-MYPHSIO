@@ -31,17 +31,21 @@
                     <?php foreach ($leaves as $leave): ?>
                         <tr>
                             <td><?php
-                            if($leave->category == 0){echo "Annual Leave";}
-                            elseif($leave->category == 1){echo "Personal/Carer's leave";}
-                            elseif($leave->category == 2){echo "Compassionate Leave";}
-                            elseif($leave->category == 3){echo "Time in Lieu";}
-                            elseif($leave->category == 4){echo "Leave without pay";}
-                            elseif($leave->category == 5){echo "Paid Community serviceleave";}?></td>
+                                if($leave->category == 0){echo "Annual Leave";}
+                                elseif($leave->category == 1){echo "Personal/Carer's leave";}
+                                elseif($leave->category == 2){echo "Compassionate Leave";}
+                                elseif($leave->category == 3){echo "Time in Lieu";}
+                                elseif($leave->category == 4){echo "Leave without pay";}
+                                elseif($leave->category == 5){echo "Paid Community serviceleave";}?>
+                            </td>
                             <td><?= h($leave->date_start) ?></td>
                             <td><?= h($leave->date_end) ?></td>
-                            <td><?php if($leave->status == 1){echo "Submitted";}
-                            elseif($leave->status == 2){echo "Approved";}
-                            elseif($leave->status == 3){echo "Rejected";} ?></td>
+                            <td>
+                                <?php
+                                if($leave->status == 1){echo "Submitted";}
+                                elseif($leave->status == 2){echo "Approved";}
+                                elseif($leave->status == 3){echo "Rejected";} ?>
+                            </td>
                             <td><?php foreach ($users as $userss){if($userss->id == $leave->user_id){echo $userss->name;}} ?></td>
                             <td><a href="https://dev.u21s2102.monash-ie.me/<?= h($leave->attachments)?>">View Attachment</a></td>
                             <td><?= h($leave->archive) ?></td>
@@ -50,7 +54,6 @@
                                 <?= $this->Html->link(__('View'), ['action' => 'view', $leave->id]) ?>
                                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $leave->id]) ?>
                                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $leave->id], ['style'=>'color:red'], ['confirm' => __('Are you sure you want to delete # {0}?', $leave->id)]) ?>
-
                             </td>
                         </tr>
                     <?php endforeach; ?>

@@ -15,7 +15,7 @@ $this->disableAutoLayout();
                <ul>
                    <li><a href="#">Home</a></li>
                    <li><a href="TrainingPlans/staffindex">Training Plan</a></li>
-                   <li><a href="<?php $this->Url->build(['controller'=>'Categories','action'=>'index'])?>">Documents</a></li>
+                   <li><a href="Categories/index">Documents</a></li>
                    <li><a href="Leaves">Leave</a></li>
                    <li><a href="Users/logout">Logout</a></li>
                </ul>
