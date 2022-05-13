@@ -33,9 +33,8 @@ class Task extends Entity
         'title' => true,
         'status' => true,
         'percentage' => true,
-        'docs' => true,
+        'document_id' => true,
         'training_plans' => true,
         'training_tasks' => true,
-        'documents' => true,
     ];
 }

@@ -19,9 +19,14 @@ class TasksController extends AppController
     public function index()
     {
         $this->viewBuilder()->setLayout('admin');
+        $this->loadModel('Documents');
+        $documents = $this->paginate($this->Documents);
+        $task = $this->paginate($this->Tasks);
+        $this->set(compact('task', 'documents'));
         $tasks = $this->paginate($this->Tasks);
 
         $this->set(compact('tasks'));
+
     }
 
     /**
@@ -50,6 +55,8 @@ class TasksController extends AppController
     {
         $this->viewBuilder()->setLayout('admin');
         $task = $this->Tasks->newEmptyEntity();
+        $this->loadModel('Documents');
+        $documents = $this->Documents->find('list', ['limit' => 200])->all();
         if ($this->request->is('post')) {
             $task = $this->Tasks->patchEntity($task, $this->request->getData());
             if ($this->Tasks->save($task)) {
@@ -59,7 +66,7 @@ class TasksController extends AppController
             }
             $this->Flash->error(__('The task could not be saved. Please, try again.'));
         }
-        $documents = $this->Tasks->Documents->find('list', ['limit' => 200])->all();
+        
         $this->set(compact('task','documents'));
     }
 
@@ -76,6 +83,8 @@ class TasksController extends AppController
         $task = $this->Tasks->get($id, [
             'contain' => [],
         ]);
+        $this->loadModel('Documents');
+        $docVal = $this->Tasks->Documents->find('list', ['limit' => 200])->all();
         if ($this->request->is(['patch', 'post', 'put'])) {
             $task = $this->Tasks->patchEntity($task, $this->request->getData());
             if ($this->Tasks->save($task)) {
@@ -85,7 +94,8 @@ class TasksController extends AppController
             }
             $this->Flash->error(__('The task could not be saved. Please, try again.'));
         }
-        $this->set(compact('task'));
+        
+        $this->set(compact('task', 'docVal'));
     }
 
     /**
@@ -120,12 +130,13 @@ class TasksController extends AppController
                 $this->Flash->success(__('The task has been saved.'));
 
                 return $this->redirect([
-                    'controller' => 'TrainingPlan',
+                    'controller' => 'TrainingPlans',
                     'action' => 'staffindex'
                 ]);
             }
             $this->Flash->error(__('The task could not be saved. Please, try again.'));
         }
         $this->set(compact('task'));
+
     }
 }

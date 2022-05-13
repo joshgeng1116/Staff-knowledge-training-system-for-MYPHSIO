@@ -51,7 +51,7 @@ class TasksTable extends Table
             'foreignKey' => 'task_id',
         ]);
         $this->hasMany('Documents', [
-            'foreignKey' => 'docs',
+            'foreignKey' => 'document_id',
         ]);
     }
 
@@ -77,9 +77,9 @@ class TasksTable extends Table
             ->notEmptyString('percentage');
 
         $validator
-            ->integer('docs')
-            ->requirePresence('docs', 'create')
-            ->notEmptyString('docs');
+            ->integer('document_id')
+            ->requirePresence('document_id', 'create')
+            ->notEmptyString('document_id');
 
         return $validator;
     }

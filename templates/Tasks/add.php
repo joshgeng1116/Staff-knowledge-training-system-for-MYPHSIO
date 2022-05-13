@@ -25,7 +25,7 @@
 
                     <div class="mb-3">
                         <?php
-                        echo $this->Form->control('docs', ["options"=>$documents,"required", "class" => "form-control", "label" => "Document: "]);
+                        echo $this->Form->control('document_id', ["options"=>$documents,"required", "class" => "form-control", "label" => "Document: "]);
                         ?>
                     </div>
 
