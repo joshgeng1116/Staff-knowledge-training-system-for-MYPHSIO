@@ -75,7 +75,7 @@ echo $this->Html->css('validation.css');
                         <?php
                         echo $this->Form->hidden('status');
                         echo $this->Form->hidden('archive');
-                        echo $this->Form->control('post_file', ['type'=>'file','class'=>'form-control','required'=>true]);
+                        echo $this->Form->control('post_file', ['type'=>'file','class'=>'form-control']);
                         echo $this->Form->control('note', ["required", "class" => "form-control", "label" => "Notes","placeholder"=>"I would like to take the leave beacuse:"]);
                         ?>
                     </div>
