@@ -33,6 +33,7 @@ echo $this->Html->css('styles.sidebar.css');
                 <a class="list-group-item list-group-item-action list-group-item-light p-3"  href="<?= $this->Url->build(['controller'=>'Subcategories','action'=>'viewByCat',$category->id ])?>"><?= h($category->name) ?></a>
             <?php endforeach; ?>
         </div>
+        <a href="<?php echo $this->Url->build('/')?>" style="margin:20px auto; text-align:center; display:block">Back To Home</a>
     </div>
     <!-- Page content-->
     <div class="container-fluid">
