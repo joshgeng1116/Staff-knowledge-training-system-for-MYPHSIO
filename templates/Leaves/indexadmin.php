@@ -48,7 +48,7 @@
                             </td>
                             <td><?php foreach ($users as $userss){if($userss->id == $leave->user_id){echo $userss->name;}} ?></td>
                             <?php if ($leave->attachments != Null): ?>
-                                <td><a href="https://dev.u21s2102.monash-ie.me/<?= h($leave->attachments)?>">View Attachment</a></td>
+                                <td><a href="https://review.u21s2102.monash-ie.me/<?= h($leave->attachments)?>">View Attachment</a></td>
                             <?php else:?>
                                 <td><?= h('No attachment')?></td>
                             <?php endif;?>
