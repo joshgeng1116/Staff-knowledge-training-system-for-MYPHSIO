@@ -20,7 +20,7 @@ echo $this->Html->script('//cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js');
         </br>
         </br>
         <h2> All Events</h2>
-        <div style="width: 60%;margin: auto;">
+        <div style="width: 60%;margin: auto; height: 60%;">
             <div id="calendar" style="margin: auto;color: black"></div>
         </div>
         <button class="btn" onclick="location.href='<?php echo $this->Url->build(['controller'=>'events','action'=>'home'])?>'">Back</button>
@@ -37,14 +37,15 @@ echo $this->Html->script('//cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js');
             <li><?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
         </ul>
     </div>
-    </div>
+</div>
 </body>
 <script>
 
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
-                contentHeight:'auto',
+                contentHeight: 500,
+                aspectRation: 1.2,
                 initialView: 'dayGridMonth',
                 eventSources: [{url:'<?= $this->Url->build(['controller'=>'Events','action'=>'eventstaff','_ext'=>'json'])?>',textColor:'white'}]
             });
