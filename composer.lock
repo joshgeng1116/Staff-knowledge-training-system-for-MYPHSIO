@@ -76,16 +76,16 @@
         },
         {
             "name": "cakephp/cakephp",
-            "version": "4.3.8",
+            "version": "4.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "34aae68e91e6834aa6711c3e435a3f220bf56c0b"
+                "reference": "6548d1141fc8311d0fd4d6acdd18446d4279fe32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/34aae68e91e6834aa6711c3e435a3f220bf56c0b",
-                "reference": "34aae68e91e6834aa6711c3e435a3f220bf56c0b",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/6548d1141fc8311d0fd4d6acdd18446d4279fe32",
+                "reference": "6548d1141fc8311d0fd4d6acdd18446d4279fe32",
                 "shasum": ""
             },
             "require": {
@@ -176,7 +176,7 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/cakephp"
             },
-            "time": "2022-04-23T01:23:23+00:00"
+            "time": "2022-05-14T01:25:15+00:00"
         },
         {
             "name": "cakephp/chronos",
@@ -239,16 +239,16 @@
         },
         {
             "name": "cakephp/migrations",
-            "version": "3.5.1",
+            "version": "3.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/migrations.git",
-                "reference": "6b03a44bef94b99a24ab7d4c44cb292bb6f275c2"
+                "reference": "e1b03bfef53ce41feabbf2120021ad5187e80289"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/migrations/zipball/6b03a44bef94b99a24ab7d4c44cb292bb6f275c2",
-                "reference": "6b03a44bef94b99a24ab7d4c44cb292bb6f275c2",
+                "url": "https://api.github.com/repos/cakephp/migrations/zipball/e1b03bfef53ce41feabbf2120021ad5187e80289",
+                "reference": "e1b03bfef53ce41feabbf2120021ad5187e80289",
                 "shasum": ""
             },
             "require": {
@@ -295,7 +295,7 @@
                 "issues": "https://github.com/cakephp/migrations/issues",
                 "source": "https://github.com/cakephp/migrations"
             },
-            "time": "2022-03-14T14:26:38+00:00"
+            "time": "2022-05-10T15:01:58+00:00"
         },
         {
             "name": "cakephp/plugin-installer",
@@ -5957,7 +5957,7 @@
         },
         {
             "name": "twig/markdown-extra",
-            "version": "v3.3.8",
+            "version": "v3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/markdown-extra.git",
@@ -6014,7 +6014,7 @@
                 "twig"
             ],
             "support": {
-                "source": "https://github.com/twigphp/markdown-extra/tree/v3.3.8"
+                "source": "https://github.com/twigphp/markdown-extra/tree/v3.4.0"
             },
             "funding": [
                 {
@@ -6030,16 +6030,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.3.10",
+            "version": "v3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "8442df056c51b706793adf80a9fd363406dd3674"
+                "reference": "ed19f4bf9d19c4ef920b5d8243910bd32e85b9ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/8442df056c51b706793adf80a9fd363406dd3674",
-                "reference": "8442df056c51b706793adf80a9fd363406dd3674",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ed19f4bf9d19c4ef920b5d8243910bd32e85b9ba",
+                "reference": "ed19f4bf9d19c4ef920b5d8243910bd32e85b9ba",
                 "shasum": ""
             },
             "require": {
@@ -6054,7 +6054,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.3-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -6090,7 +6090,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.3.10"
+                "source": "https://github.com/twigphp/Twig/tree/v3.4.0"
             },
             "funding": [
                 {
@@ -6102,7 +6102,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-06T06:47:41+00:00"
+            "time": "2022-05-15T06:25:28+00:00"
         },
         {
             "name": "webmozart/assert",
