@@ -33,7 +33,7 @@ echo $this->Html->script('//cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.js');
             <li><?= $this->Html->link('Training Plan',['controller'=>'training-plans','action'=>'staffindex'])?></li>
             <li><?= $this->Html->link('Document',['controller'=>'categories','action'=>'index'])?></li>
             <li><?= $this->Html->link('Leave',['controller'=>'leaves','action'=>'index'])?></li>
-            <li><?= $this->Html->link('Calendar',['controller'=>'events','action'=>'eventstaff'])?></li>
+            <li><?= $this->Html->link('Calendar',['controller'=>'events','action'=>'home'])?></li>
             <li><?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
         </ul>
     </div>

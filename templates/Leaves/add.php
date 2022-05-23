@@ -95,6 +95,7 @@ echo $this->Html->css('validation.css');
                    <li><?= $this->Html->link('Training Plan',['controller'=>'training-plan','action'=>'staffindex'])?></li>
                    <li><?= $this->Html->link('Document',['controller'=>'category','action'=>'index'])?></li>
                    <li><?= $this->Html->link('Leave',['controller'=>'leaves','action'=>'add'])?></li>
+                   <li><?= $this->Html->link('Calendar',['controller'=>'events','action'=>'home'])?></li>
                    <li><<?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
                </ul>
         </div>
