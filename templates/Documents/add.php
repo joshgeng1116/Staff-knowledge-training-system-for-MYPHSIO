@@ -51,17 +51,11 @@
 
                     <hr class="sidebar-divider d-none d-md-block">
 
-                    <div class="mb-3">
-                        <?php
-                        echo $this->Form->control('category', ['options'=>$categories,"required", "class" => "form-control", "label" => "Category: "]);
-                        ?>
-                    </div>
-
                     <hr class="sidebar-divider d-none d-md-block">
 
                     <div class="mb-3">
                         <?php
-                        echo $this->Form->control('subcat_id', ['options'=>$subcategories,"required", "class" => "form-control", "label" => "Subcategory: "]);
+                        echo $this->Form->control('subcat_id', ['options'=>$subcategories,"required", "class" => "form-control", "label" => "Category / Subcategory: "]);
                         ?>
                     </div>
 

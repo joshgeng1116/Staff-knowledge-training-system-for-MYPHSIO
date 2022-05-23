@@ -82,13 +82,13 @@ class DocumentsController extends AppController
             }
             $this->Flash->error(__('The document could not be saved. Please, try again.'));
         }
-        $this->loadModel('Categories');
-        $category = $this->getTableLocator()->get('Categories');
-        $categories = $category->find('list',['limit'=>200])->select(['name']);
-        $subcategories = $this->Documents->Subcategories->find('list', ['limit' => 200])->all();
-        $this->set(compact('document','subcategories','categories'));
+        $subcategories = $this->Documents->Subcategories->find('list',['keyField'=>'id','valueField'=>function($e){
+            return $this->get_cat_name($e->id).' / '.$e->name;
+        }]);
+        $this->set(compact('document','subcategories'));
 
     }
+
 
     public function get_sub_name($id){
         $subcategory = $this->getTableLocator()->get('Subcategories');
