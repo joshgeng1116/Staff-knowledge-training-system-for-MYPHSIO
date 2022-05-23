@@ -33,7 +33,7 @@
 
                     <div class="mb-3">
                         <?php
-                        echo $this->Form->control('year', ["required", "class" => "form-control", "label" => "Year: "]);
+                        echo $this->Form->control('year', ["required", "class" => "form-control", "label" => "Publish Year: "]);
                         ?>
                     </div>
 
