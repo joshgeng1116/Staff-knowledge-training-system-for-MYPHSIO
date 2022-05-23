@@ -57,12 +57,15 @@ echo $this->Html->css('validation.css');
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($trainingPlans as $trainingPlan): ?>
+                    <?php foreach ($trainingPlans as $trainingPlan): 
+                        $count= 0; $total_percentage=0;?>
                         <?php if ($userid == $trainingPlan->assign_to): ?>
                             <tr scope="row">
                             <td><?= $this->Number->format($trainingPlan->id) ?></td>
                             <td><?= h($trainingPlan->title) ?></td>
-                            <td><?php foreach ($trainingtasks as $trainingtaskss){if($trainingtaskss->training_plan_id == $trainingPlan->id){
+                            <td><?php 
+                                foreach ($trainingtasks as $trainingtaskss){
+                                if($trainingtaskss->training_plan_id == $trainingPlan->id){
                                 foreach ($tasks as $taskss){
                                 if($taskss->id == $trainingtaskss->task_id){
                                 $total_percentage = $taskss->status + $total_percentage;
