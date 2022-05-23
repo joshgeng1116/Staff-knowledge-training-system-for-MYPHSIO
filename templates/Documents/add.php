@@ -48,12 +48,6 @@
 
                     <hr class="sidebar-divider d-none d-md-block">
 
-                    <div class="mb-3">
-                        <?php
-                        $doc_type=[1=>"Document",2=>"Video"];
-                        echo $this->Form->control('doc_type', ['options'=>$doc_type, "required", "class" => "form-control", "label" => "Document Type: "]);
-                        ?>
-                    </div>
 
                     <hr class="sidebar-divider d-none d-md-block">
 
