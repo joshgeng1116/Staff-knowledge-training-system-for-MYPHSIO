@@ -57,12 +57,15 @@ echo $this->Html->css('validation.css');
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($trainingPlans as $trainingPlan): ?>
+                    <?php foreach ($trainingPlans as $trainingPlan): 
+                        $count= 0; $total_percentage=0;?>
                         <?php if ($userid == $trainingPlan->assign_to): ?>
                             <tr scope="row">
                             <td><?= $this->Number->format($trainingPlan->id) ?></td>
                             <td><?= h($trainingPlan->title) ?></td>
-                            <td><?php foreach ($trainingtasks as $trainingtaskss){if($trainingtaskss->training_plan_id == $trainingPlan->id){
+                            <td><?php 
+                                foreach ($trainingtasks as $trainingtaskss){
+                                if($trainingtaskss->training_plan_id == $trainingPlan->id){
                                 foreach ($tasks as $taskss){
                                 if($taskss->id == $trainingtaskss->task_id){
                                 $total_percentage = $taskss->status + $total_percentage;
@@ -98,7 +101,7 @@ echo $this->Html->css('validation.css');
                     <li><?= $this->Html->link('Training Plan',['controller'=>'training-plans','action'=>'staffindex'])?></li>
                     <li><?= $this->Html->link('Document',['controller'=>'categories','action'=>'index'])?></li>
                     <li><?= $this->Html->link('Leave',['controller'=>'leaves','action'=>'index'])?></li>
-                    <li><?= $this->Html->link('Calendar',['controller'=>'events','action'=>'eventstaff'])?></li>
+                    <li><?= $this->Html->link('Calendar',['controller'=>'events','action'=>'home'])?></li>
                     <li><?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
                 </ul>
         </div>

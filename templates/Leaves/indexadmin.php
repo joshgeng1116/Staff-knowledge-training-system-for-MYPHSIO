@@ -48,15 +48,13 @@
                             </td>
                             <td><?php foreach ($users as $userss){if($userss->id == $leave->user_id){echo $userss->name;}} ?></td>
                             <?php if ($leave->attachments != Null): ?>
-                                <td><a href="https://dev.u21s2102.monash-ie.me/<?= h($leave->attachments)?>">View Attachment</a></td>
+                                <td><a href="https://review.u21s2102.monash-ie.me/<?= h($leave->attachments)?>">View Attachment</a></td>
                             <?php else:?>
                                 <td><?= h('No attachment')?></td>
                             <?php endif;?>
                             <td><?= h($leave->archive) ?></td>
                             <td><?= h($leave->total_hours) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('View'), ['action' => 'view', $leave->id]) ?>
-                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $leave->id]) ?>
                                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $leave->id], ['style'=>'color:red'], ['confirm' => __('Are you sure you want to delete # {0}?', $leave->id)]) ?>
                             </td>
                         </tr>

@@ -5,12 +5,10 @@ echo $this->Html->script('login-main.js');
 ?>
 <div class="ftco-section">
     <div class="container">
-        <?= $this->Flash->render() ?>
         <div class="row justify-content-center">
             <div class="col-md-7 col-lg-5">
                 <div class ="wrap">
                     <div class="users form">
-                        <?= $this->Flash->render() ?>
                         <?= $this->Form->create() ?>
                         <div class="login-wrap p-4 p-md-5">
                             <?php echo $this->Html->image('my-physio_FBOOK_1.jpg'); ?>

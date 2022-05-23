@@ -33,7 +33,7 @@
 
                     <div class="mb-3">
                         <?php
-                        echo $this->Form->control('year', ["required", "class" => "form-control", "label" => "Year: "]);
+                        echo $this->Form->control('year', ["required", "class" => "form-control", "label" => "Publish Year: "]);
                         ?>
                     </div>
 
@@ -48,26 +48,10 @@
 
                     <hr class="sidebar-divider d-none d-md-block">
 
-                    <div class="mb-3">
-                        <?php
-                        $doc_type=[1=>"Document",2=>"Video"];
-                        echo $this->Form->control('doc_type', ['options'=>$doc_type, "required", "class" => "form-control", "label" => "Document Type: "]);
-                        ?>
-                    </div>
-
-                    <hr class="sidebar-divider d-none d-md-block">
 
                     <div class="mb-3">
                         <?php
-                        echo $this->Form->control('category', ['options'=>$categories,"required", "class" => "form-control", "label" => "Category: "]);
-                        ?>
-                    </div>
-
-                    <hr class="sidebar-divider d-none d-md-block">
-
-                    <div class="mb-3">
-                        <?php
-                        echo $this->Form->control('subcat_id', ['options'=>$subcategories,"required", "class" => "form-control", "label" => "Subcategory: "]);
+                        echo $this->Form->control('subcat_id', ['options'=>$subcategories,"required", "class" => "form-control", "label" => "Category / Subcategory: "]);
                         ?>
                     </div>
 

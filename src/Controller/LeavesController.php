@@ -86,8 +86,6 @@ class LeavesController extends AppController
                         $this->Flash->error(__('The end date can not before start date' ));
                     }else{
                         if ($this->Leaves->save($leave)) {
-                            $this->Flash->success(__('The leave has been saved.'));
-
                             return $this->redirect(['action' => 'index']);
                         }
                         $this->Flash->error(__('The leave could not be saved. Please, try again.'));
@@ -96,16 +94,29 @@ class LeavesController extends AppController
                     $this->Flash->error(__('This type of leave need attachment' ));
                 }
             }else{
-                $leave->attachments = Null;
-                if($leave->date_end < $leave->date_start){
-                    $this->Flash->error(__('The end date can not before start date' ));
-                }else{
-                    if ($this->Leaves->save($leave)) {
-                        $this->Flash->success(__('The leave has been saved.'));
-
-                        return $this->redirect(['action' => 'index']);
+                if($post_file['size'] != 0){
+                    $name = $post_file['name'];
+                    $leave->attachments = "webroot/leave_docs/".$name;
+                    $path = WWW_ROOT."leave_docs/".$name;
+                    move_uploaded_file($post_file['tmp_name'],$path);
+                    if($leave->date_end < $leave->date_start){
+                        $this->Flash->error(__('The end date can not before start date' ));
+                    }else{
+                        if ($this->Leaves->save($leave)) {
+                            return $this->redirect(['action' => 'index']);
+                        }
+                        $this->Flash->error(__('The leave could not be saved. Please, try again.'));
                     }
-                    $this->Flash->error(__('The leave could not be saved. Please, try again.'));
+                }else{
+                    $leave->attachments = Null;
+                    if($leave->date_end < $leave->date_start){
+                        $this->Flash->error(__('The end date can not before start date' ));
+                    }else{
+                        if ($this->Leaves->save($leave)) {
+                            return $this->redirect(['action' => 'index']);
+                        }
+                        $this->Flash->error(__('The leave could not be saved. Please, try again.'));
+                    }
                 }
             }
         }

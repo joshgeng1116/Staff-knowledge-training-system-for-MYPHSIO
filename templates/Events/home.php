@@ -45,6 +45,7 @@ echo $this->Html->css('staffindex.css');
             <li><a href="<?php echo $this->Url->build(['controller'=>'TrainingPlans','action'=>'staffindex'])?>">Training Plan</a></li>
             <li><a href="<?php echo $this->Url->build(['controller'=>'Categories','action'=>'index'])?>">Documents</a></li>
             <li><a href="<?php echo $this->Url->build(['controller'=>'Leaves','action'=>'index'])?>">Leave</a></li>
+            <li><?= $this->Html->link('Calendar',['controller'=>'events','action'=>'home'])?></li>
             <li><?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
         </ul>
 <!--        <img src="--><?//= $image?><!--" width="50px" height="50px">-->
