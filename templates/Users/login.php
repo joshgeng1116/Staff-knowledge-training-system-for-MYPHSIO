@@ -5,7 +5,6 @@ echo $this->Html->script('login-main.js');
 ?>
 <div class="ftco-section">
     <div class="container">
-        <?= $this->Flash->render() ?>
         <div class="row justify-content-center">
             <div class="col-md-7 col-lg-5">
                 <div class ="wrap">
