@@ -11,7 +11,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-  --bs-blue: #0d6efd;
+  --bs-blue: #94a9c9;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
   --bs-pink: #d63384;
@@ -22,7 +22,7 @@
   --bs-teal: #20c997;
   --bs-cyan: #0dcaf0;
   --bs-white: #fff;
-  --bs-gray: #6c757d;
+  --bs-gray: #858b91;
   --bs-gray-dark: #343a40;
   --bs-gray-100: #f8f9fa;
   --bs-gray-200: #e9ecef;
@@ -63,6 +63,7 @@
   --bs-body-color: #212529;
   --bs-body-bg: #fff;
 }
+
 
 *,
 *::before,
@@ -234,12 +235,20 @@ sup {
   top: -0.5em;
 }
 
+.border-11{
+  border-radius: 20px;
+}
+
 a {
-  color: #0d6efd;
-  text-decoration: underline;
+  color: black;
+  text-decoration:dashed;
+  text-align:center; 
+  font-size:20px; 
+  background-color:#C1D82F; 
+  
 }
 a:hover {
-  color: #0a58ca;
+  color: #6c757d;
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -5088,7 +5097,7 @@ textarea.form-control-lg {
   position: relative;
   display: block;
   padding: 0.5rem 1rem;
-  color: #212529;
+  color: red;
   text-decoration: none;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
@@ -5358,12 +5367,12 @@ textarea.form-control-lg {
 }
 
 .list-group-item-light {
-  color: #636464;
-  background-color: #fefefe;
+  color:#C1D82F;
+  background-color: #51585e;
 }
 .list-group-item-light.list-group-item-action:hover, .list-group-item-light.list-group-item-action:focus {
-  color: #636464;
-  background-color: #e5e5e5;
+  color: white;
+  background-color: #212529;
 }
 .list-group-item-light.list-group-item-action.active {
   color: #fff;
@@ -7825,7 +7834,7 @@ textarea.form-control-lg {
 
 .bg-light {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+  background-color: #007bc1;
 }
 
 .bg-dark {
@@ -7840,7 +7849,7 @@ textarea.form-control-lg {
 
 .bg-white {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
+  background-color:#858b91;
 }
 
 .bg-body {
@@ -11286,7 +11295,8 @@ textarea.form-control-lg {
 
 #sidebar-wrapper .sidebar-heading {
   padding: 0.875rem 1.25rem;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
+  color: white;
 }
 
 #sidebar-wrapper .list-group {
