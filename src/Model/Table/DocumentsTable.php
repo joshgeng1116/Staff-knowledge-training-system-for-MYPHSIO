@@ -82,9 +82,6 @@ class DocumentsTable extends Table
             ->requirePresence('user_type', 'create')
             ->notEmptyString('user_type');
 
-        $validator
-            ->requirePresence('doc_type', 'create')
-            ->notEmptyString('doc_type');
 
         $validator
             ->scalar('path')
