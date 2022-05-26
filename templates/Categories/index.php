@@ -5,6 +5,7 @@
  */
 $this->disableAutoLayout();
 echo $this->Html->css('styles.sidebar.css');
+echo $this->Html->css('staffindex.css'); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,12 +33,14 @@ echo $this->Html->css('styles.sidebar.css');
             <?php foreach ($categories as $category): ?>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3"  href="<?= $this->Url->build(['controller'=>'Subcategories','action'=>'viewByCat',$category->id ])?>"><?= h($category->name) ?></a>
             <?php endforeach; ?>
+            </br>
             <a class="border-11" href="<?php echo $this->Url->build('/')?>" >Back To Home</a>
         </div>
     </div>
     <!-- Page content-->
     <div class="container-fluid">
-
+    <div class="banner">
+    </div>
     </div>
 </div>
 </div>

@@ -7,6 +7,7 @@
  */
 $this->disableAutoLayout();
 echo $this->Html->css('styles.sidebar.css');
+echo $this->Html->css('staffindex.css'); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +31,8 @@ echo $this->Html->css('styles.sidebar.css');
             <?php foreach ($category as $categories): ?>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?= $this->Url->build(['controller'=>'Subcategories','action'=>'viewByCat',$categories->id ])?>"><?= h($categories->name) ?></a>
             <?php endforeach; ?>
-            <a href="<?php echo $this->Url->build('/')?>" style="margin:20px auto; text-align:center; display:block">Back To Home</a>
+            </br>
+            <a class="border-11" href="<?php echo $this->Url->build('/')?>" >Back To Home</a>
         </div>
     </div>
     <div class="border-end bg-white" id="sidebar-wrapper">
@@ -53,6 +55,8 @@ echo $this->Html->css('styles.sidebar.css');
     </div>
     <!-- Page content-->
     <div class="container-fluid">
+    <div class="banner">
+    </div>
     </div>
 </div>
 </div>

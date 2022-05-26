@@ -90,7 +90,7 @@
             <a class="nav-link collapsed" href="<?=$this->Url->build(['controller'=>'Subcategories','action'=>'index'])?>" data-toggle="collapse" data-target="#collapseOne"
             aria-expanded="true" aria-controls="collapseOne">
                 <i class="fas fa-fw fa-folder"></i>
-                <span>Subcategory</span>
+                <span>Subcategories</span>
             </a>
 
             <div id="collapseOne" class="collapse" aria-labelledby="headingUtilities"

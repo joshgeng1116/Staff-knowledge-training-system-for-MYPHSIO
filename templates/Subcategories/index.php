@@ -5,7 +5,7 @@
  */
 ?>
 <div class="leaves index content">
-    <h1 class="text-center"><?= __('Subcategory') ?></h1>
+    <h1 class="text-center"><?= __('Subcategories') ?></h1>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary"><?= $this->Html->link(__('New Subcategory'), ['action' => 'add'], ['class' => 'button float-left']) ?></h6>
