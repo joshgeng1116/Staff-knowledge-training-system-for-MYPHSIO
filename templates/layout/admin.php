@@ -210,6 +210,19 @@
             </div>
         </li>
 
+        <div class="sidebar-heading">
+            Calendars
+        </div>
+
+        <hr class="sidebar-divider">
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?=$this->Url->build(['controller'=>'events','action'=>'home'])?>" target=”_blank”>
+                <i class="fas fa-fw fa-folder"></i>
+                <span>View calendars</span>
+            </a>
+        </li>
+
+
         <hr class="sidebar-divider">
         <li class="nav-item">
             <a class="nav-link collapsed" href="<?=$this->Url->build(['controller'=>'Users','action'=>'logout'])?>">

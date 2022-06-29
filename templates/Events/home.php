@@ -31,10 +31,10 @@ echo $this->Html->css('staffindex.css');
     <h2>Choose Calendar Type</h2>
     <div>
         <a href="eventstaff"><button type="button"><span></span>ALL</button></a>
-        <a href="social"><button type="button"><span></span>SOCIAL</button></a>
-        <a href="leaves"><button type="button"><span></span>LEAVES</button></a>
-        <a href="marketing"><button type="button"><span></span>MARKETING</button></a>
-        <a href="birthday"><button type="button"><span></span>BIRTHDAY</button></a>
+        <a href="social"><button type="button"><span></span>SOCIAL CALENDAR</button></a>
+        <a href="leaves"><button type="button"><span></span>LEAVES CALENDAR</button></a>
+        <a href="marketing"><button type="button"><span></span>MARKETING CALENDAR</button></a>
+        <a href="birthday"><button type="button"><span></span>BIRTHDAY CALENDAR</button></a>
     </div>
 </div>
 <div class="banner">
@@ -45,7 +45,7 @@ echo $this->Html->css('staffindex.css');
             <li><a href="<?php echo $this->Url->build(['controller'=>'TrainingPlans','action'=>'staffindex'])?>">Training Plan</a></li>
             <li><a href="<?php echo $this->Url->build(['controller'=>'Categories','action'=>'index'])?>">Documents</a></li>
             <li><a href="<?php echo $this->Url->build(['controller'=>'Leaves','action'=>'index'])?>">Leave</a></li>
-            <li><?= $this->Html->link('Calendar',['controller'=>'events','action'=>'home'])?></li>
+            <li><?= $this->Html->link('Calendars',['controller'=>'events','action'=>'home'])?></li>
             <li><?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
         </ul>
 <!--        <img src="--><?//= $image?><!--" width="50px" height="50px">-->

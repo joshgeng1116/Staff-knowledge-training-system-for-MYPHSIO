@@ -55,6 +55,7 @@
                             <td><?= h($leave->archive) ?></td>
                             <td><?= h($leave->total_hours) ?></td>
                             <td class="actions">
+                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $leave->id]) ?>
                                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $leave->id], ['style'=>'color:red'], ['confirm' => __('Are you sure you want to delete # {0}?', $leave->id)]) ?>
                             </td>
                         </tr>
