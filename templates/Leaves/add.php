@@ -76,7 +76,7 @@ echo $this->Html->css('validation.css');
                         echo $this->Form->hidden('status');
                         echo $this->Form->hidden('archive');
                         echo $this->Form->control('post_file', ['type'=>'file','class'=>'form-control']);
-                        echo $this->Form->control('note', ["required", "class" => "form-control", "label" => "Notes","placeholder"=>"I would like to take the leave beacuse:"]);
+                        echo $this->Form->control('note', ["required", "class" => "form-control", "label" => "Notes","placeholder"=>"I would like to take the leave because:"]);
                         ?>
                     </div>
             </fieldset>
@@ -92,10 +92,10 @@ echo $this->Html->css('validation.css');
                 <?php echo $this->Html->image('logo1.png'); ?>
                <ul>
                    <li><?= $this->Html->link('Home','/')?></li>
-                   <li><?= $this->Html->link('Training Plan',['controller'=>'training-plan','action'=>'staffindex'])?></li>
+                   <li><?= $this->Html->link('Training Plan',['controller'=>'training-plans','action'=>'staffindex'])?></li>
                    <li><?= $this->Html->link('Documents',['controller'=>'category','action'=>'index'])?></li>
                    <li><?= $this->Html->link('Leave',['controller'=>'leaves','action'=>'add'])?></li>
-                   <li><?= $this->Html->link('Calendar',['controller'=>'events','action'=>'home'])?></li>
+                   <li><?= $this->Html->link('Calendars',['controller'=>'events','action'=>'home'])?></li>
                    <li><<?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
                </ul>
         </div>

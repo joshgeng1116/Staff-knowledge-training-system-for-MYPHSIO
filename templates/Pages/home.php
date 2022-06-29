@@ -17,7 +17,7 @@ $this->disableAutoLayout();
                    <li><?= $this->Html->link('Training Plan',['controller'=>'training-plans','action'=>'staffindex'])?></li>
                    <li><?= $this->Html->link('Documents',['controller'=>'categories','action'=>'index'])?></li>
                    <li><?= $this->Html->link('Leave',['controller'=>'leaves','action'=>'index'])?></li>
-                   <li><?= $this->Html->link('Calendar',['controller'=>'events','action'=>'home'])?></li>
+                   <li><?= $this->Html->link('Calendars',['controller'=>'events','action'=>'home'])?></li>
                    <li><?= $this->Html->link('Logout',['controller'=>'users','action'=>'logout'])?></li>
                </ul>
                <img src="<?= $image?>" width="50px" height="50px">
@@ -27,7 +27,7 @@ $this->disableAutoLayout();
                <div>
                 <a href="TrainingPlans/staffindex"><button type="button"><span></span>TRAINING</button></a>
                 <a href="Categories"><button type="button"><span></span>DOCUMENTS</button></a>
-                <a href="Events/home"><button type="button"><span></span>CALENDAR</button></a>
+                <a href="Events/home"><button type="button"><span></span>CALENDARS</button></a>
                 <a href="Leaves"><button type="button"><span></span>LEAVE</button></a>
 
                </div>
