@@ -27,7 +27,6 @@
                                 <td><?= h($category->name) ?></td>
 
                                 <td class="actions">
-                                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $leave->id]) ?>
                                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $category->id], ['confirm' => __('Are you sure you want to delete # {0}?', $category->id)]) ?>
                                 </td>
                             </tr>
