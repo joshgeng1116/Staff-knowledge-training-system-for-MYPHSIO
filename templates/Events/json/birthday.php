@@ -1,8 +1,9 @@
 <?php
 $data = [];
 foreach ($users as $user){
-    $month = date("d",strtotime($user->date_of_birth));
-        $date = date("m",strtotime($user->date_of_birth));
+    $dob = explode("/",$user->date_of_birth);
+    $date = $dob[0];
+    $month = $dob[1];
         $year = date('Y');
         $item = [
             'title' => $user->name." Birthday",
